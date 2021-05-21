@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "TRJNXOb1MMttmm3nHTHM3dxkD1NPG9yrn/vSENM9fl+OTqmdE+h6x0TAJPOWXj8mi3T3uLPvbRue7U4L5z/uKw==",
+  "success": true,
+  "projectFilePath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wolfi\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\wolfi\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
+    "C:\\Users\\wolfi\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

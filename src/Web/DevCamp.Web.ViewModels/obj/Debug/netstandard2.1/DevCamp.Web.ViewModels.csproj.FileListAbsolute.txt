@@ -1,0 +1,16 @@
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Web.ViewModels.deps.json
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Web.ViewModels.dll
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Web.ViewModels.pdb
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Data.Common.dll
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Data.Models.dll
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Services.Mapping.dll
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Data.Models.pdb
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Services.Mapping.pdb
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\bin\Debug\netstandard2.1\DevCamp.Data.Common.pdb
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.csprojAssemblyReference.cache
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.AssemblyInfoInputs.cache
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.AssemblyInfo.cs
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.csproj.CopyComplete
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.dll
+C:\.Stuff\DevCamp\src\Web\DevCamp.Web.ViewModels\obj\Debug\netstandard2.1\DevCamp.Web.ViewModels.pdb

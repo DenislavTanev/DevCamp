@@ -1,0 +1,9 @@
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\bin\Debug\netstandard2.1\DevCamp.Data.Common.deps.json
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\bin\Debug\netstandard2.1\DevCamp.Data.Common.dll
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\bin\Debug\netstandard2.1\DevCamp.Data.Common.pdb
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.csprojAssemblyReference.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.AssemblyInfoInputs.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.AssemblyInfo.cs
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.csproj.CoreCompileInputs.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.dll
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Common\obj\Debug\netstandard2.1\DevCamp.Data.Common.pdb

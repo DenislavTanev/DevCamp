@@ -1,0 +1,816 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web\\DevCamp.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj",
+        "projectName": "DevCamp.Data.Common",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj",
+        "projectName": "DevCamp.Data.Models",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\DevCamp.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\DevCamp.Data.csproj",
+        "projectName": "DevCamp.Data",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\DevCamp.Data.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj",
+        "projectName": "DevCamp.Common",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\DevCamp.Services.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\DevCamp.Services.Data.csproj",
+        "projectName": "DevCamp.Services.Data",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\DevCamp.Services.Data.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Common\\DevCamp.Data.Common.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj",
+        "projectName": "DevCamp.Services.Mapping",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\DevCamp.Services.Messaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\DevCamp.Services.Messaging.csproj",
+        "projectName": "DevCamp.Services.Messaging",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\DevCamp.Services.Messaging.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.22.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\DevCamp.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\DevCamp.Services.csproj",
+        "projectName": "DevCamp.Services",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\DevCamp.Services.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\DevCamp.Web.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\DevCamp.Web.Infrastructure.csproj",
+        "projectName": "DevCamp.Web.Infrastructure",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\DevCamp.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\DevCamp.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\DevCamp.Web.ViewModels.csproj",
+        "projectName": "DevCamp.Web.ViewModels",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\DevCamp.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web\\DevCamp.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web\\DevCamp.Web.csproj",
+        "projectName": "DevCamp.Web",
+        "projectPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web\\DevCamp.Web.csproj",
+        "packagesPath": "C:\\Users\\wolfi\\.nuget\\packages\\",
+        "outputPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wolfi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data.Models\\DevCamp.Data.Models.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\DevCamp.Data.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Data\\DevCamp.Data\\DevCamp.Data.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\DevCamp.Common\\DevCamp.Common.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\DevCamp.Services.Data.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Data\\DevCamp.Services.Data.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Mapping\\DevCamp.Services.Mapping.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\DevCamp.Services.Messaging.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services.Messaging\\DevCamp.Services.Messaging.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\DevCamp.Services.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Services\\DevCamp.Services\\DevCamp.Services.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\DevCamp.Web.Infrastructure.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.Infrastructure\\DevCamp.Web.Infrastructure.csproj"
+              },
+              "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\DevCamp.Web.ViewModels.csproj": {
+                "projectPath": "C:\\.Stuff\\DevCamp\\src\\Web\\DevCamp.Web.ViewModels\\DevCamp.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "BuildBundlerMinifier": {
+              "target": "Package",
+              "version": "[3.2.449, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.Web.LibraryManager.Build": {
+              "target": "Package",
+              "version": "[2.1.113, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

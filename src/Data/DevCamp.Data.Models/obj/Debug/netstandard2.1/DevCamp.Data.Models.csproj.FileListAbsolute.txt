@@ -1,0 +1,12 @@
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\bin\Debug\netstandard2.1\DevCamp.Data.Models.deps.json
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\bin\Debug\netstandard2.1\DevCamp.Data.Models.dll
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\bin\Debug\netstandard2.1\DevCamp.Data.Models.pdb
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\bin\Debug\netstandard2.1\DevCamp.Data.Common.dll
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\bin\Debug\netstandard2.1\DevCamp.Data.Common.pdb
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.csprojAssemblyReference.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.AssemblyInfoInputs.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.AssemblyInfo.cs
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.csproj.CoreCompileInputs.cache
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.csproj.CopyComplete
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.dll
+C:\.Stuff\DevCamp\src\Data\DevCamp.Data.Models\obj\Debug\netstandard2.1\DevCamp.Data.Models.pdb
