@@ -19,6 +19,7 @@ namespace DevCamp.Data.Models
             this.FrequentlyAskedQuestions = new HashSet<FrequentlyAskedQuestion>();
             this.Listings = new HashSet<Listing>();
             this.Skills = new HashSet<Skill>();
+            this.Achievements = new HashSet<Achievement>();
         }
 
         // Audit info
@@ -35,6 +36,8 @@ namespace DevCamp.Data.Models
         public string Name { get; set; }
 
         public string Location { get; set; }
+
+        public string Information { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
 

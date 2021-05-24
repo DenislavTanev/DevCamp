@@ -14,14 +14,12 @@
 
         public string Name { get; set; }
 
-        public int ListingsCount { get; set; }//
-
         public int SectorId { get; set; }
 
         public Sector Sector { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
 
-        public ICollection<SubCategory> SubCategories { get; set; }//
+        public ICollection<SubCategory> SubCategories { get; set; }
     }
 }

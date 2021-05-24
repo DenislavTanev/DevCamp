@@ -12,10 +12,10 @@
 
         public string ProjectDetails { get; set; }
 
-        public string ServiceTiers { get; set; }//
+        public string ServiceTiers { get; set; }
 
-        //frequently asked questions
+        public int FrequentlyAskedQuestionsId { get; set; }
 
-        //profile info
+        public FrequentlyAskedQuestion FrequentlyAskedQuestions { get; set; }
     }
 }
