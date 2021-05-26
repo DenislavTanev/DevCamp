@@ -26,6 +26,24 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<Achievement> Achievements { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
+
+        public DbSet<Sector> Sectors { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<SubCategory> SubCategories { get; set; }
+
+        public DbSet<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
+
+        public DbSet<Listing> Listings { get; set; }
+
+        public DbSet<Package> Packages { get; set; }
+
+        public DbSet<PackageItem> PackageItems { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

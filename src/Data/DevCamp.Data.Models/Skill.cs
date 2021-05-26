@@ -4,7 +4,7 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class Skill : BaseDeletableModel<string>
+    public class Skill : BaseDeletableModel<int>
     {
         public Skill()
         {

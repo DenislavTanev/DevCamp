@@ -17,6 +17,8 @@
 
         public string Requiremnets { get; set; }
 
+        public bool IsOwned { get; set; }
+
         public ICollection<ApplicationUser> Users { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     using DevCamp.Data.Common.Models;
 
-    public class FrequentlyAskedQuestion : BaseDeletableModel<string>
+    public class FrequentlyAskedQuestion : BaseDeletableModel<int>
     {
         public string Question { get; set; }
 

@@ -4,7 +4,7 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class Sector : BaseDeletableModel<string>
+    public class Sector : BaseDeletableModel<int>
     {
         public Sector()
         {
