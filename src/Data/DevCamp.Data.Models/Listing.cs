@@ -4,18 +4,25 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class Listing : BaseDeletableModel<string>
+    public class Listing : BaseDeletableModel<int>
     {
+        public Listing()
+        {
+            this.Images = new HashSet<string>();
+        }
+
         public string Title { get; set; }
 
-        public ICollection<byte[]> Images { get; set; }
+        // check
+        public ICollection<string> Images { get; set; }
 
         public string ProjectDetails { get; set; }
 
-        public string ServiceTiers { get; set; }
+        public string UserId { get; set; }
 
-        public int FrequentlyAskedQuestionsId { get; set; }
+        public ApplicationUser User { get; set; }
 
-        public FrequentlyAskedQuestion FrequentlyAskedQuestions { get; set; }
+        // check
+        public ICollection<Package> Packages { get; set; }
     }
 }
