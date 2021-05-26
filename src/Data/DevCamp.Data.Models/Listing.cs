@@ -8,13 +8,10 @@
     {
         public Listing()
         {
-            this.Images = new HashSet<string>();
+            this.Packages = new HashSet<Package>();
         }
 
         public string Title { get; set; }
-
-        // check
-        public ICollection<string> Images { get; set; }
 
         public string ProjectDetails { get; set; }
 
@@ -22,7 +19,6 @@
 
         public ApplicationUser User { get; set; }
 
-        // check
         public ICollection<Package> Packages { get; set; }
     }
 }
