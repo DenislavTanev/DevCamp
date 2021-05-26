@@ -11,5 +11,9 @@
         public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
+
+        public string ListingId { get; set; }
+
+        public Listing Listing { get; set; }
     }
 }

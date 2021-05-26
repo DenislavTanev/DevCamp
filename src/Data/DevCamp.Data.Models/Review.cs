@@ -1,7 +1,5 @@
 ﻿namespace DevCamp.Data.Models
 {
-    using System.Collections.Generic;
-
     using DevCamp.Data.Common.Models;
 
     public class Review : BaseDeletableModel<int>

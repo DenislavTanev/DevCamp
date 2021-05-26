@@ -9,6 +9,8 @@
         public Listing()
         {
             this.Packages = new HashSet<Package>();
+            this.Reviews = new HashSet<Review>();
+            this.Skills = new HashSet<Skill>();
         }
 
         public string Title { get; set; }
@@ -20,5 +22,9 @@
         public ApplicationUser User { get; set; }
 
         public ICollection<Package> Packages { get; set; }
+
+        public ICollection<Review> Reviews { get; set; }
+
+        public ICollection<Skill> Skills { get; set; }
     }
 }
