@@ -4,14 +4,16 @@ using DevCamp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DevCamp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210526214755_AddReviews")]
+    partial class AddReviews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,9 +167,6 @@ namespace DevCamp.Data.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ProfilePic")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -812,7 +811,7 @@ namespace DevCamp.Data.Migrations
             modelBuilder.Entity("DevCamp.Data.Models.Review", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.ApplicationUser", "Customer")
-                        .WithMany("WrittenReviews")
+                        .WithMany()
                         .HasForeignKey("CustomerId");
 
                     b.HasOne("DevCamp.Data.Models.Listing", "Listing")
@@ -918,8 +917,6 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Roles");
 
                     b.Navigation("Skills");
-
-                    b.Navigation("WrittenReviews");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Category", b =>
