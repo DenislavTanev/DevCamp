@@ -42,7 +42,9 @@
 
         public DbSet<Package> Packages { get; set; }
 
-        public DbSet<PackageItem> PackageItems { get; set; }
+        public DbSet<PackageCheckItem> PackageCheckItems { get; set; }
+
+        public DbSet<PackageTextItem> PackageTextItems { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

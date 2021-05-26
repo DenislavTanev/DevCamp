@@ -6,3 +6,4 @@ C:\.Stuff\DevCamp\src\DevCamp.Common\obj\Debug\netstandard2.1\DevCamp.Common.Ass
 C:\.Stuff\DevCamp\src\DevCamp.Common\obj\Debug\netstandard2.1\DevCamp.Common.csproj.CoreCompileInputs.cache
 C:\.Stuff\DevCamp\src\DevCamp.Common\obj\Debug\netstandard2.1\DevCamp.Common.dll
 C:\.Stuff\DevCamp\src\DevCamp.Common\obj\Debug\netstandard2.1\DevCamp.Common.pdb
+C:\.Stuff\DevCamp\src\DevCamp.Common\obj\Debug\netstandard2.1\DevCamp.Common.csprojAssemblyReference.cache

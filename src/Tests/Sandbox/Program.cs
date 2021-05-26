@@ -5,6 +5,8 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+
     using DevCamp.Data;
     using DevCamp.Data.Common;
     using DevCamp.Data.Common.Repositories;
@@ -13,8 +15,6 @@
     using DevCamp.Data.Seeding;
     using DevCamp.Services.Data;
     using DevCamp.Services.Messaging;
-
-    using CommandLine;
 
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;

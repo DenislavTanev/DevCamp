@@ -1,9 +1,10 @@
 ﻿namespace DevCamp.Web.ViewModels.Settings
 {
-    using DevCamp.Data.Models;
-    using DevCamp.Services.Mapping;
-
     using AutoMapper;
+
+    using DevCamp.Data.Models;
+
+    using DevCamp.Services.Mapping;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {
