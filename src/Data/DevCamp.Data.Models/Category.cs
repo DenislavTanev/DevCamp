@@ -4,7 +4,7 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class Category : BaseDeletableModel<int>
+    public class Category : BaseModel<int>
     {
         public Category()
         {

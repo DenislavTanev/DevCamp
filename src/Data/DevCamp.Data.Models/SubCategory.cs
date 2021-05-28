@@ -4,7 +4,7 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class SubCategory : BaseDeletableModel<int>
+    public class SubCategory : BaseModel<int>
     {
         public SubCategory()
         {

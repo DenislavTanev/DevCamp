@@ -21,6 +21,7 @@ namespace DevCamp.Data.Models
             this.Skills = new HashSet<Skill>();
             this.Achievements = new HashSet<Achievement>();
             this.WrittenReviews = new HashSet<Review>();
+            this.Payments = new HashSet<Payment>();
         }
 
         // Audit info
@@ -53,7 +54,8 @@ namespace DevCamp.Data.Models
 
         public ICollection<Review> WrittenReviews { get; set; }
 
-        // public ICollection<Payment> Payments { get; set; }
+        public ICollection<Payment> Payments { get; set; }
+
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }

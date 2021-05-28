@@ -15,5 +15,7 @@
         public string CustomerId { get; set; }
 
         public ApplicationUser Customer { get; set; }
+
+        public string SellerResponse { get; set; }
     }
 }

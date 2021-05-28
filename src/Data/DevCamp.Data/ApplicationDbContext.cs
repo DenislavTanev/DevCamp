@@ -48,6 +48,12 @@
 
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<AboutUs> AboutUs { get; set; }
+
+        public DbSet<ContactForm> ContactForm { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
