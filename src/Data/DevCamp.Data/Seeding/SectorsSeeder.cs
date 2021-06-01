@@ -18,7 +18,6 @@
                     "Graphics & Design",
                     "Digital Marketing",
                     "Video & Animation",
-                    "Music & Audio",
                     "Programming & Tech",
                     "Data",
                 };
