@@ -10,21 +10,21 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (!dbContext.AboutUs.Any())
-            {
-                var aboutUs = new AboutUs
-                {
-                    Email = "devcamp.bg@gmail.com",
-                    Phone = "0888111222",
-                    Address = "..",
-                    LocationUrlForGoogleMaps =
-                        "..",
-                    LocationUrlForOpenStreetMap =
-                        "..",
-                };
+             if (!dbContext.AboutUs.Any())
+             {
+                 var aboutUs = new AboutUs
+                 {
+                     Email = "devcamp.bg@gmail.com",
+                     Phone = "0888111222",
+                     Address = "..",
+                     LocationUrlForGoogleMaps =
+                         "..",
+                     LocationUrlForOpenStreetMap =
+                         "..",
+                 };
 
-                await dbContext.AboutUs.AddAsync(aboutUs);
-            }
+                 await dbContext.AboutUs.AddAsync(aboutUs);
+             }
         }
     }
 }

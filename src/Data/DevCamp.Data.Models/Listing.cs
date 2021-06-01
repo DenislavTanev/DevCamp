@@ -10,7 +10,7 @@
         {
             this.Packages = new HashSet<Package>();
             this.Reviews = new HashSet<Review>();
-            this.Skills = new HashSet<Skill>();
+            this.Skills = new HashSet<ListingSkill>();
         }
 
         public string Title { get; set; }
@@ -25,6 +25,6 @@
 
         public ICollection<Review> Reviews { get; set; }
 
-        public ICollection<Skill> Skills { get; set; }
+        public ICollection<ListingSkill> Skills { get; set; }
     }
 }

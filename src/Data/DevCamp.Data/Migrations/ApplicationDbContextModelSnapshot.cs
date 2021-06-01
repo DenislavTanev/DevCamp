@@ -19,36 +19,6 @@ namespace DevCamp.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("AchievementApplicationUser", b =>
-                {
-                    b.Property<int>("AchievementsId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("AchievementsId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("AchievementApplicationUser");
-                });
-
-            modelBuilder.Entity("ApplicationUserSkill", b =>
-                {
-                    b.Property<int>("SkillsId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("SkillsId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("ApplicationUserSkill");
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.AboutUs", b =>
                 {
                     b.Property<int>("Id")
@@ -112,16 +82,13 @@ namespace DevCamp.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsOwned")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Requiremnets")
+                    b.Property<string>("Requirements")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -356,6 +323,35 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("FrequentlyAskedQuestions");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Items");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
                 {
                     b.Property<int>("Id")
@@ -401,6 +397,28 @@ namespace DevCamp.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Listings");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.ListingSkill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("ListingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListingId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("ListingSkills");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Package", b =>
@@ -461,44 +479,7 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("Packages");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.PackageCheckItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsIncluded")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PackageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PackageId");
-
-                    b.ToTable("PackageCheckItems");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.PackageTextItem", b =>
+            modelBuilder.Entity("DevCamp.Data.Models.PackageItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -508,31 +489,22 @@ namespace DevCamp.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool>("IsIncluded")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PackageId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IsDeleted");
+                    b.HasIndex("ItemId");
 
                     b.HasIndex("PackageId");
 
-                    b.ToTable("PackageTextItems");
+                    b.ToTable("PackageItems");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Payment", b =>
@@ -743,19 +715,54 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("SubCategories");
                 });
 
-            modelBuilder.Entity("ListingSkill", b =>
+            modelBuilder.Entity("DevCamp.Data.Models.UserAchievement", b =>
                 {
-                    b.Property<int>("ListingsId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("AchievementId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SkillsId")
+                    b.Property<bool>("IsOwned")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Progress")
                         .HasColumnType("int");
 
-                    b.HasKey("ListingsId", "SkillsId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasIndex("SkillsId");
+                    b.HasKey("Id");
 
-                    b.ToTable("ListingSkill");
+                    b.HasIndex("AchievementId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAchievements");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.UserSkill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SkillId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserSkills");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -862,36 +869,6 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AchievementApplicationUser", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.Achievement", null)
-                        .WithMany()
-                        .HasForeignKey("AchievementsId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DevCamp.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ApplicationUserSkill", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.Skill", null)
-                        .WithMany()
-                        .HasForeignKey("SkillsId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DevCamp.Data.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.Category", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.Sector", "Sector")
@@ -929,6 +906,25 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.ListingSkill", b =>
+                {
+                    b.HasOne("DevCamp.Data.Models.Listing", "Listing")
+                        .WithMany("Skills")
+                        .HasForeignKey("ListingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("DevCamp.Data.Models.Skill", "Skill")
+                        .WithMany("Listings")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Listing");
+
+                    b.Navigation("Skill");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Package", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.Listing", "Listing")
@@ -940,24 +936,21 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Listing");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.PackageCheckItem", b =>
+            modelBuilder.Entity("DevCamp.Data.Models.PackageItem", b =>
                 {
+                    b.HasOne("DevCamp.Data.Models.Item", "Item")
+                        .WithMany("Packages")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("DevCamp.Data.Models.Package", "Package")
-                        .WithMany("CheckItems")
+                        .WithMany("Items")
                         .HasForeignKey("PackageId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Package");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.PackageTextItem", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.Package", "Package")
-                        .WithMany("TextItems")
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.Navigation("Item");
 
                     b.Navigation("Package");
                 });
@@ -1007,19 +1000,38 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ListingSkill", b =>
+            modelBuilder.Entity("DevCamp.Data.Models.UserAchievement", b =>
                 {
-                    b.HasOne("DevCamp.Data.Models.Listing", null)
-                        .WithMany()
-                        .HasForeignKey("ListingsId")
+                    b.HasOne("DevCamp.Data.Models.Achievement", "Achievement")
+                        .WithMany("Users")
+                        .HasForeignKey("AchievementId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DevCamp.Data.Models.Skill", null)
-                        .WithMany()
-                        .HasForeignKey("SkillsId")
+                    b.HasOne("DevCamp.Data.Models.ApplicationUser", "User")
+                        .WithMany("Achievements")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Achievement");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.UserSkill", b =>
+                {
+                    b.HasOne("DevCamp.Data.Models.Skill", "Skill")
+                        .WithMany("Users")
+                        .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("DevCamp.Data.Models.ApplicationUser", "User")
+                        .WithMany("Skills")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Skill");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1073,8 +1085,15 @@ namespace DevCamp.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Achievement", b =>
+                {
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Achievements");
+
                     b.Navigation("Claims");
 
                     b.Navigation("FrequentlyAskedQuestions");
@@ -1087,6 +1106,8 @@ namespace DevCamp.Data.Migrations
 
                     b.Navigation("Roles");
 
+                    b.Navigation("Skills");
+
                     b.Navigation("WrittenReviews");
                 });
 
@@ -1097,23 +1118,35 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("SubCategories");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Item", b =>
+                {
+                    b.Navigation("Packages");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
                 {
                     b.Navigation("Packages");
 
                     b.Navigation("Reviews");
+
+                    b.Navigation("Skills");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Package", b =>
                 {
-                    b.Navigation("CheckItems");
-
-                    b.Navigation("TextItems");
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Sector", b =>
                 {
                     b.Navigation("Categories");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.Skill", b =>
+                {
+                    b.Navigation("Listings");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.SubCategory", b =>

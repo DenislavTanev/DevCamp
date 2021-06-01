@@ -18,8 +18,8 @@ namespace DevCamp.Data.Models
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.FrequentlyAskedQuestions = new HashSet<FrequentlyAskedQuestion>();
             this.Listings = new HashSet<Listing>();
-            this.Skills = new HashSet<Skill>();
-            this.Achievements = new HashSet<Achievement>();
+            this.Skills = new HashSet<UserSkill>();
+            this.Achievements = new HashSet<UserAchievement>();
             this.WrittenReviews = new HashSet<Review>();
             this.Payments = new HashSet<Payment>();
         }
@@ -46,9 +46,9 @@ namespace DevCamp.Data.Models
 
         public ICollection<Listing> Listings { get; set; }
 
-        public ICollection<Skill> Skills { get; set; }
+        public ICollection<UserSkill> Skills { get; set; }
 
-        public ICollection<Achievement> Achievements { get; set; }
+        public ICollection<UserAchievement> Achievements { get; set; }
 
         public ICollection<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
 

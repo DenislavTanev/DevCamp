@@ -11,25 +11,26 @@
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (!dbContext.Sectors.Any())
-            {
-                var sectors = new List<string>
-                {
-                    "Graphics & Design",
-                    "Digital Marketing",
-                    "Video & Animation",
-                    "Programming & Tech",
-                    "Data",
-                };
+               if (!dbContext.Sectors.Any())
+               {
+                   var sectors = new List<string>
+                   {
+                       "Graphics & Design",
+                       "Digital Marketing",
+                       "Video & Animation",
+                       "Music & Audio",
+                       "Programming & Tech",
+                       "Data",
+                   };
 
-                foreach (var sector in sectors)
-                {
-                    await dbContext.Sectors.AddAsync(new Sector
-                    {
-                        Name = sector,
-                    });
-                }
-            }
+                   foreach (var sector in sectors)
+                   {
+                       await dbContext.Sectors.AddAsync(new Sector
+                       {
+                           Name = sector,
+                       });
+                   }
+               }
         }
     }
 }

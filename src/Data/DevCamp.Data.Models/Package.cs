@@ -8,8 +8,7 @@
     {
         public Package()
         {
-            this.CheckItems = new HashSet<PackageCheckItem>();
-            this.TextItems = new HashSet<PackageTextItem>();
+            this.Items = new HashSet<PackageItem>();
         }
 
         public string Name { get; set; }
@@ -20,9 +19,7 @@
 
         public string Description { get; set; }
 
-        public ICollection<PackageCheckItem> CheckItems { get; set; }
-
-        public ICollection<PackageTextItem> TextItems { get; set; }
+        public ICollection<PackageItem> Items { get; set; }
 
         public string DeliveryPeriod { get; set; }
 

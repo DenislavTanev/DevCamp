@@ -42,9 +42,7 @@
 
         public DbSet<Package> Packages { get; set; }
 
-        public DbSet<PackageCheckItem> PackageCheckItems { get; set; }
-
-        public DbSet<PackageTextItem> PackageTextItems { get; set; }
+        public DbSet<Item> Items { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
 
@@ -53,6 +51,14 @@
         public DbSet<AboutUs> AboutUs { get; set; }
 
         public DbSet<ContactForm> ContactForm { get; set; }
+
+        public DbSet<UserAchievement> UserAchievements { get; set; }
+
+        public DbSet<PackageItem> PackageItems { get; set; }
+
+        public DbSet<ListingSkill> ListingSkills { get; set; }
+
+        public DbSet<UserSkill> UserSkills { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

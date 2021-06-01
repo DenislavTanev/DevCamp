@@ -8,17 +8,15 @@
     {
         public Achievement()
         {
-            this.Users = new HashSet<ApplicationUser>();
+            this.Users = new HashSet<UserAchievement>();
         }
 
         public string Name { get; set; }
 
         public string Icon { get; set; }
 
-        public string Requiremnets { get; set; }
+        public string Requirements { get; set; }
 
-        public bool IsOwned { get; set; }
-
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ICollection<UserAchievement> Users { get; set; }
     }
 }
