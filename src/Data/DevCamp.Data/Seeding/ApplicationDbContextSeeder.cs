@@ -27,9 +27,10 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
-                              //new SectorsSeeder(),
-                              //new CategoriesSeeder(),
-                              //new AboutUsSeeder(),
+
+                              // new SectorsSeeder(),
+                              // new CategoriesSeeder(),
+                              // new AboutUsSeeder(),
                           };
 
             foreach (var seeder in seeders)

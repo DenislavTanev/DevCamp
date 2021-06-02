@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Data.Models
+﻿namespace DevCamp.Data.Models
 {
     public class PackageItem
     {

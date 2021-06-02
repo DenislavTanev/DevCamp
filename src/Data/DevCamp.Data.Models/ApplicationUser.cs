@@ -22,6 +22,7 @@ namespace DevCamp.Data.Models
             this.Achievements = new HashSet<UserAchievement>();
             this.WrittenReviews = new HashSet<Review>();
             this.Payments = new HashSet<Payment>();
+            this.SpokenLanguages = new HashSet<Language>();
         }
 
         // Audit info
@@ -37,12 +38,16 @@ namespace DevCamp.Data.Models
         // Personal info
         public string Name { get; set; }
 
-        public string Location { get; set; }
+        public int CountryId { get; set; }
+
+        public Country Country { get; set; }
 
         public string Information { get; set; }
 
         // Check
         public string ProfilePic { get; set; }
+
+        public ICollection<Language> SpokenLanguages { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
 

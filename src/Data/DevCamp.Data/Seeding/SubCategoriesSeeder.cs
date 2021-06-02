@@ -6,7 +6,11 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class SubCategoriesSeeder
+    public class SubCategoriesSeeder : ISeeder
     {
+        public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
