@@ -20,8 +20,6 @@
                    "WordPress",
                    "Website Builders & CMS",
                    "E-Commerce Development",
-                   "Game Development",
-                   "Development for Streamers",
                    "Mobile Apps",
                    "Web Programming",
                    "Desktop Applications",
@@ -37,7 +35,6 @@
                    "Data Analytics",
                    "Data Processing",
                    "Data Visualization",
-                   "Data Entry",
                };
 
                var programmingSector = await dbContext.Sectors.FirstOrDefaultAsync(x => x.Name == "Programming & Tech");
