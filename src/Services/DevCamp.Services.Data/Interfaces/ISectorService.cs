@@ -1,4 +1,4 @@
-﻿namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data.Interfaces
 {
     using System.Collections.Generic;
 

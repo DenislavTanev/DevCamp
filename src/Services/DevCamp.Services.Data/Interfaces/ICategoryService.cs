@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public interface ISettingsService
+    public interface ICategoryService
     {
-        int GetCount();
-
         IEnumerable<T> GetAll<T>();
     }
 }

@@ -5,6 +5,7 @@
 
     using DevCamp.Data.Common.Repositories;
     using DevCamp.Data.Models;
+    using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Mapping;
 
     public class SectorService : ISectorService
