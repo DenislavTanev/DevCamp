@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface ISectorService
+    public interface ICountriesService
     {
         IEnumerable<T> GetAll<T>();
     }

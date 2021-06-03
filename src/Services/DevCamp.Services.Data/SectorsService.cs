@@ -8,11 +8,11 @@
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Mapping;
 
-    public class SectorService : ISectorService
+    public class SectorsService : ISectorsService
     {
         private readonly IRepository<Sector> sectorsRepository;
 
-        public SectorService(IRepository<Sector> sectorsRepository)
+        public SectorsService(IRepository<Sector> sectorsRepository)
         {
             this.sectorsRepository = sectorsRepository;
         }
