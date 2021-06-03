@@ -13,6 +13,8 @@
 
         public string Name { get; set; }
 
+        public string Code { get; set; }
+
         // Check
         public string Flag { get; set; }
 

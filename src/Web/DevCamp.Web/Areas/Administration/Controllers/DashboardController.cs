@@ -1,6 +1,6 @@
 ﻿namespace DevCamp.Web.Areas.Administration.Controllers
 {
-    using DevCamp.Services.Data;
+    using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;

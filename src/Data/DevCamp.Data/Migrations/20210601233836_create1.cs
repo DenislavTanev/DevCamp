@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace DevCamp.Data.Migrations
+﻿namespace DevCamp.Data.Migrations
 {
-    public partial class create1 : Migration
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    public partial class Create1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

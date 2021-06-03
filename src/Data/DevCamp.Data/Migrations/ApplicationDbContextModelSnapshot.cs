@@ -19,6 +19,21 @@ namespace DevCamp.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("ApplicationUserLanguage", b =>
+                {
+                    b.Property<int>("SpokenLanguagesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("SpokenLanguagesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("ApplicationUserLanguage");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.AboutUs", b =>
                 {
                     b.Property<int>("Id")
@@ -151,6 +166,9 @@ namespace DevCamp.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -169,9 +187,6 @@ namespace DevCamp.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -216,6 +231,8 @@ namespace DevCamp.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("IsDeleted");
 
@@ -286,6 +303,41 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("ContactForm");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Flag")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Countries");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.FrequentlyAskedQuestion", b =>
                 {
                     b.Property<int>("Id")
@@ -350,6 +402,35 @@ namespace DevCamp.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Languages");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
@@ -869,6 +950,32 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ApplicationUserLanguage", b =>
+                {
+                    b.HasOne("DevCamp.Data.Models.Language", null)
+                        .WithMany()
+                        .HasForeignKey("SpokenLanguagesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("DevCamp.Data.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("DevCamp.Data.Models.Country", "Country")
+                        .WithMany("Users")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Category", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.Sector", "Sector")
@@ -1116,6 +1223,11 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Listings");
 
                     b.Navigation("SubCategories");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.Country", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Item", b =>

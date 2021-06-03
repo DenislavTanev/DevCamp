@@ -5,7 +5,7 @@
 
     using DevCamp.Data.Common.Repositories;
     using DevCamp.Data.Models;
-    using DevCamp.Services.Data;
+    using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.Settings;
 
     using Microsoft.AspNetCore.Mvc;
