@@ -7,11 +7,12 @@
         public static void GetIdentityOptions(IdentityOptions options)
         {
             options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequireUppercase = true;
-            options.Password.RequiredLength = 8;
-            options.SignIn.RequireConfirmedAccount = true;
-            options.SignIn.RequireConfirmedEmail = true;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequiredLength = 4;
+            options.Password.RequireNonAlphanumeric = false;
+            options.SignIn.RequireConfirmedAccount = false;
+            options.SignIn.RequireConfirmedEmail = false;
             options.User.RequireUniqueEmail = true;
         }
     }

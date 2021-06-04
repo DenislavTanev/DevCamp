@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\DevCamp.Services.Mapping\DevCamp.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Sectors\" />
+  </ItemGroup>
+
 </Project>

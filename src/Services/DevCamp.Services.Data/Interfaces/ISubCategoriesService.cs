@@ -4,6 +4,8 @@
 
     public interface ISubCategoriesService
     {
-        IEnumerable<T> GetAll<T>();
+        IEnumerable<T> GetAll<T>(int categoryId);
+
+        int GetListingsCount();
     }
 }

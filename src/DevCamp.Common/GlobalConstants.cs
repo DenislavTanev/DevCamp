@@ -9,7 +9,5 @@
         public const string FreeLancerRoleName = "FreeLancer";
 
         public const string UserRoleName = "User";
-
-        public const string CompanyRoleName = "Company";
     }
 }

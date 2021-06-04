@@ -11,7 +11,7 @@ namespace DevCamp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210601233836_create1")]
-    partial class create1
+    partial class Create1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
