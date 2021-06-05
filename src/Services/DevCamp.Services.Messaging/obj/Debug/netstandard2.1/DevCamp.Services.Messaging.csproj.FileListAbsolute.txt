@@ -1,9 +1,0 @@
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\bin\Debug\netstandard2.1\DevCamp.Services.Messaging.deps.json
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\bin\Debug\netstandard2.1\DevCamp.Services.Messaging.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\bin\Debug\netstandard2.1\DevCamp.Services.Messaging.pdb
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.csprojAssemblyReference.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.AssemblyInfoInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.AssemblyInfo.cs
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.csproj.CoreCompileInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Messaging\obj\Debug\netstandard2.1\DevCamp.Services.Messaging.pdb

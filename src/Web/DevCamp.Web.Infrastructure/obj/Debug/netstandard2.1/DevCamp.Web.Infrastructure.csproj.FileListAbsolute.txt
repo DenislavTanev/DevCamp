@@ -1,9 +1,0 @@
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\bin\Debug\netstandard2.1\DevCamp.Web.Infrastructure.deps.json
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\bin\Debug\netstandard2.1\DevCamp.Web.Infrastructure.dll
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\bin\Debug\netstandard2.1\DevCamp.Web.Infrastructure.pdb
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.csprojAssemblyReference.cache
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.AssemblyInfoInputs.cache
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.AssemblyInfo.cs
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.csproj.CoreCompileInputs.cache
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.dll
-C:\.Stuff\DevCamp\src\Web\DevCamp.Web.Infrastructure\obj\Debug\netstandard2.1\DevCamp.Web.Infrastructure.pdb

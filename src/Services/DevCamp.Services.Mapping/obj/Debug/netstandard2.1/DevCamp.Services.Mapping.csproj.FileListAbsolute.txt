@@ -1,9 +1,0 @@
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\bin\Debug\netstandard2.1\DevCamp.Services.Mapping.deps.json
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\bin\Debug\netstandard2.1\DevCamp.Services.Mapping.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\bin\Debug\netstandard2.1\DevCamp.Services.Mapping.pdb
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.csprojAssemblyReference.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.AssemblyInfoInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.AssemblyInfo.cs
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.csproj.CoreCompileInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services.Mapping\obj\Debug\netstandard2.1\DevCamp.Services.Mapping.pdb

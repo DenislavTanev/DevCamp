@@ -1,9 +1,0 @@
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\bin\Debug\netstandard2.1\DevCamp.Services.deps.json
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\bin\Debug\netstandard2.1\DevCamp.Services.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\bin\Debug\netstandard2.1\DevCamp.Services.pdb
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.csprojAssemblyReference.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.AssemblyInfoInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.AssemblyInfo.cs
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.csproj.CoreCompileInputs.cache
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.dll
-C:\.Stuff\DevCamp\src\Services\DevCamp.Services\obj\Debug\netstandard2.1\DevCamp.Services.pdb
