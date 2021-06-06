@@ -11,6 +11,8 @@
 
         IEnumerable<T> GetAll<T>(string userId);
 
-        Task EditAsync(int id, string question, string answer, string userId);
+        Task EditAsync(int id, string question, string answer);
+
+        Task DeleteAsync(int faqId);
     }
 }

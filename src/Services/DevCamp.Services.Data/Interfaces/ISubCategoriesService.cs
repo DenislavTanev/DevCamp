@@ -6,6 +6,6 @@
     {
         IEnumerable<T> GetAll<T>(int categoryId);
 
-        int GetListingsCount();
+        int GetListingsCount(int subCategoryId);
     }
 }
