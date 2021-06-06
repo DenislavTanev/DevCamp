@@ -4,7 +4,7 @@
 
     using DevCamp.Data.Common.Models;
 
-    public class Country : BaseDeletableModel<int>
+    public class Country : BaseModel<int>
     {
         public Country()
         {
