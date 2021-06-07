@@ -19,13 +19,13 @@
             this.faqRepository = faqRepository;
         }
 
-        public async Task CreateAsync(string question, string answer, string userId)
+        public async Task CreateAsync(string question, string answer, int listingId)
         {
             var faq = new FrequentlyAskedQuestion
             {
                 Question = question,
                 Answer = answer,
-                UserId = userId,
+                ListingId = listingId,
             };
 
             await this.faqRepository.AddAsync(faq);
@@ -55,11 +55,11 @@
             await this.faqRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>(string userId)
+        public IEnumerable<T> GetAll<T>(int listingId)
         {
             var faqs = this.faqRepository
                 .All()
-                .Where(x => x.UserId == userId)
+                .Where(x => x.ListingId == listingId)
                 .To<T>()
                 .ToList();
 

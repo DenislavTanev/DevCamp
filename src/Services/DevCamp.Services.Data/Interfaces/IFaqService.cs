@@ -5,11 +5,11 @@
 
     public interface IFaqService
     {
-        Task CreateAsync(string question, string answer, string userId);
+        Task CreateAsync(string question, string answer, int listingId);
 
         Task<T> GetByIdAsync<T>(int id);
 
-        IEnumerable<T> GetAll<T>(string userId);
+        IEnumerable<T> GetAll<T>(int listingId);
 
         Task EditAsync(int id, string question, string answer);
 

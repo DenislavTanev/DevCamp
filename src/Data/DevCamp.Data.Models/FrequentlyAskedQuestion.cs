@@ -8,8 +8,8 @@
 
         public string Answer { get; set; }
 
-        public string UserId { get; set; }
+        public int ListingId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public Listing Listing { get; set; }
     }
 }
