@@ -13,6 +13,6 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        IEnumerable<T> GetAllByPackage<T>(int packageId);
+        Task DeleteAsync(int id);
     }
 }

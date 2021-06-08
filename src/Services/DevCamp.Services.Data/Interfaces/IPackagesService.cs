@@ -3,16 +3,16 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using DevCamp.Data.Models;
-
     public interface IPackagesService
     {
-        Task CreateAsync(string name, double price, string packageInfo, string description, int listingId, IEnumerable<PackageItem> items);
+        Task CreateAsync(string name, double price, string packageInfo, string description, int listingId);
 
         Task<T> GetByIdAsync<T>(int id);
 
         IEnumerable<T> GetAll<T>(int listingId);
 
-        Task EditAsync(int id, string name, double price, string packageInfo, string description, int listingId, IEnumerable<PackageItem> items);
+        Task EditAsync(int id, string name, double price, string packageInfo, string description, int listingId);
+
+        Task DeleteAsync(int id);
     }
 }

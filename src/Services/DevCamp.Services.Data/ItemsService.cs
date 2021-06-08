@@ -1,36 +1,76 @@
 ﻿namespace DevCamp.Services.Data
 {
-    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
+    using DevCamp.Data.Common.Repositories;
+    using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Services.Mapping;
+    using Microsoft.EntityFrameworkCore;
 
     public class ItemsService : IItemsService
     {
-        public Task CreateAsync(string name)
+        private readonly IDeletableEntityRepository<Item> itemsRepository;
+
+        public ItemsService(IDeletableEntityRepository<Item> itemsRepository)
         {
-            throw new NotImplementedException();
+            this.itemsRepository = itemsRepository;
         }
 
-        public Task EditAsync(int id, string name)
+        public async Task CreateAsync(string name)
         {
-            throw new NotImplementedException();
+            var item = new Item
+            {
+                Name = name,
+            };
+
+            await this.itemsRepository.AddAsync(item);
+            await this.itemsRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var item = await this.itemsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            this.itemsRepository.Delete(item);
+            await this.itemsRepository.SaveChangesAsync();
+        }
+
+        public async Task EditAsync(int id, string name)
+        {
+            var item = await this.itemsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            item.Name = name;
+
+            await this.itemsRepository.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetAll<T>()
         {
-            throw new NotImplementedException();
+            var items = this.itemsRepository
+                .All()
+                .OrderBy(x => x.Name)
+                .To<T>()
+                .ToList();
+
+            return items;
         }
 
-        public IEnumerable<T> GetAllByPackage<T>(int packageId)
+        public async Task<T> GetByIdAsync<T>(int id)
         {
-            throw new NotImplementedException();
-        }
+            var item = await this.itemsRepository
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
 
-        public Task<T> GetByIdAsync<T>(int id)
-        {
-            throw new NotImplementedException();
+            return item;
         }
     }
 }
