@@ -15,7 +15,7 @@
                {
                    var sectors = new List<string>
                    {
-                       "Programming & Tech",
+                       "Programming",
                        "Data",
                    };
 

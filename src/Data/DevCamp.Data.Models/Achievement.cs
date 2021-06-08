@@ -13,8 +13,7 @@
 
         public string Name { get; set; }
 
-        public string Icon { get; set; }
-
+        // public string Icon { get; set; }
         public string Requirements { get; set; }
 
         public ICollection<UserAchievement> Users { get; set; }

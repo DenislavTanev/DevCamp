@@ -15,9 +15,6 @@
 
         public string Code { get; set; }
 
-        // Check
-        public string Flag { get; set; }
-
         public ICollection<ApplicationUser> Users { get; set; }
     }
 }

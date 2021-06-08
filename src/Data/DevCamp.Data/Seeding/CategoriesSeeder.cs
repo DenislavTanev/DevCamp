@@ -25,7 +25,6 @@
                    "Desktop Applications",
                    "Chatbots",
                    "Cybersecurity & Data Protection",
-                   "User Testing",
                    "QA & Review",
                };
 
@@ -37,7 +36,7 @@
                    "Data Visualization",
                };
 
-               var programmingSector = await dbContext.Sectors.FirstOrDefaultAsync(x => x.Name == "Programming & Tech");
+               var programmingSector = await dbContext.Sectors.FirstOrDefaultAsync(x => x.Name == "Programming");
                var dataSector = await dbContext.Sectors.FirstOrDefaultAsync(x => x.Name == "Data");
 
                foreach (var category in programmingCategories)
