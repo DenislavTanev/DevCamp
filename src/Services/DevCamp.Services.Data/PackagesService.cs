@@ -13,10 +13,14 @@
     public class PackagesService : IPackagesService
     {
         private readonly IDeletableEntityRepository<Package> packagesRepository;
+        private readonly IDeletableEntityRepository<Listing> listingsRepository;
 
-        public PackagesService(IDeletableEntityRepository<Package> packagesRepository)
+        public PackagesService(
+            IDeletableEntityRepository<Package> packagesRepository,
+            IDeletableEntityRepository<Listing> listingsRepository)
         {
             this.packagesRepository = packagesRepository;
+            this.listingsRepository = listingsRepository;
         }
 
         public async Task CreateAsync(string name, double price, string packageInfo, string description, int listingId)
@@ -29,6 +33,17 @@
                 Description = description,
                 ListingId = listingId,
             };
+
+            if (name == "Basic")
+            {
+                var listing = this.listingsRepository
+                    .All()
+                    .FirstOrDefault(x => x.Id == listingId);
+
+                listing.StartingPrice = price;
+
+                await this.listingsRepository.SaveChangesAsync();
+            }
 
             await this.packagesRepository.AddAsync(package);
             await this.packagesRepository.SaveChangesAsync();
@@ -55,6 +70,17 @@
             package.PackageInfo = packageInfo;
             package.Description = description;
             package.ListingId = listingId;
+
+            if (name == "Basic")
+            {
+                var listing = this.listingsRepository
+                    .All()
+                    .FirstOrDefault(x => x.Id == listingId);
+
+                listing.StartingPrice = price;
+
+                await this.listingsRepository.SaveChangesAsync();
+            }
 
             await this.packagesRepository.SaveChangesAsync();
         }
