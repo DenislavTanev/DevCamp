@@ -56,8 +56,6 @@
 
         public DbSet<PackageItem> PackageItems { get; set; }
 
-        public DbSet<ListingSkill> ListingSkills { get; set; }
-
         public DbSet<UserSkill> UserSkills { get; set; }
 
         public DbSet<Country> Countries { get; set; }

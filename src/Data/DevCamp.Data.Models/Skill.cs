@@ -9,7 +9,6 @@
         public Skill()
         {
             this.Users = new HashSet<UserSkill>();
-            this.Listings = new HashSet<ListingSkill>();
         }
 
         public string TechnologyName { get; set; }
@@ -17,7 +16,5 @@
         public string Icon { get; set; }
 
         public ICollection<UserSkill> Users { get; set; }
-
-        public ICollection<ListingSkill> Listings { get; set; }
     }
 }
