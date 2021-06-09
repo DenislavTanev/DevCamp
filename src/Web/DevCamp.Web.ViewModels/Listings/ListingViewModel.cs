@@ -9,14 +9,10 @@
 
         public string Title { get; set; }
 
-        public string ProjectDetails { get; set; }
-
         public double? StartingPrice { get; set; }
 
-        public string UserId { get; set; }
+        public string UserProfilePic { get; set; }
 
-        public int CategoryId { get; set; }
-
-        public int SubCategoryId { get; set; }
+        public string Username { get; set; }
     }
 }
