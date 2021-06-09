@@ -1,8 +1,9 @@
-﻿namespace DevCamp.Data.Models
+﻿namespace DevCamp.Web.ViewModels.Home
 {
-    using DevCamp.Data.Common.Models;
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
 
-    public class AboutUs : BaseDeletableModel<int>
+    public class AboutUsViewModel : IMapFrom<AboutUs>
     {
         public string Email { get; set; }
 
