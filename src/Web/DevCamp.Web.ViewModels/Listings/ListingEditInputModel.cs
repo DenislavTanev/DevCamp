@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Web.ViewModels.Listings
+﻿namespace DevCamp.Web.ViewModels.Listings
 {
-    class ListingEditInputModel
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    public class ListingEditInputModel
     {
     }
 }
