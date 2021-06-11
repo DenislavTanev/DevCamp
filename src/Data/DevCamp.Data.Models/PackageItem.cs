@@ -12,8 +12,6 @@
 
         public Item Item { get; set; }
 
-        public bool? IsIncluded { get; set; }
-
         public string Content { get; set; }
     }
 }

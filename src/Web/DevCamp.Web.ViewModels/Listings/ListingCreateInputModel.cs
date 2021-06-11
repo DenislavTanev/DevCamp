@@ -32,6 +32,6 @@
         [Required(ErrorMessage = "The field is required!")]
         public int SubCategoryId { get; set; }
 
-        public ICollection<PackageCreateInputModel> Packages { get; set; }
+        public PackageCreateInputModel Package { get; set; }
     }
 }

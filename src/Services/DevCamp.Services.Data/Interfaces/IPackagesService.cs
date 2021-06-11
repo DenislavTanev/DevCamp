@@ -5,13 +5,13 @@
 
     public interface IPackagesService
     {
-        Task CreateAsync(string name, double price, string packageInfo, string description, int listingId);
+        Task CreateAsync(string name, double price, string description, int listingId);
 
         Task<T> GetByIdAsync<T>(int id);
 
         IEnumerable<T> GetAll<T>(int listingId);
 
-        Task EditAsync(int id, string name, double price, string packageInfo, string description, int listingId);
+        Task EditAsync(int id, string name, double price, string description, int listingId);
 
         Task DeleteAsync(int id);
     }

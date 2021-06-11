@@ -15,8 +15,6 @@
 
         public double Price { get; set; }
 
-        public string PackageInfo { get; set; }
-
         public string Description { get; set; }
 
         public ICollection<PackageItem> Items { get; set; }

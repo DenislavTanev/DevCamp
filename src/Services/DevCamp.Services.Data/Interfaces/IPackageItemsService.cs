@@ -7,9 +7,9 @@
     {
         IEnumerable<T> GetAllByPackage<T>(int packageId);
 
-        Task CreateAsync(int packageId, int itemId, string content, bool isIncluded);
+        Task CreateAsync(int packageId, int itemId, string content);
 
-        Task EditAsync(int id, int packageId, int itemId, string content, bool isIncluded);
+        Task EditAsync(int id, int packageId, int itemId, string content);
 
         Task<T> GetByIdAsync<T>(int id);
 

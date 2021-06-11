@@ -19,14 +19,13 @@
             this.itemsRepository = itemsRepository;
         }
 
-        public async Task CreateAsync(int packageId, int itemId, string content, bool isIncluded)
+        public async Task CreateAsync(int packageId, int itemId, string content)
         {
             var item = new PackageItem
             {
                 PackageId = packageId,
                 ItemId = itemId,
                 Content = content,
-                IsIncluded = isIncluded,
             };
 
             await this.itemsRepository.AddAsync(item);
@@ -43,7 +42,7 @@
             await this.itemsRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, int packageId, int itemId, string content, bool isIncluded)
+        public async Task EditAsync(int id, int packageId, int itemId, string content)
         {
             var item = await this.itemsRepository
                 .All()
@@ -52,7 +51,6 @@
             item.PackageId = packageId;
             item.ItemId = itemId;
             item.Content = content;
-            item.IsIncluded = isIncluded;
 
             await this.itemsRepository.SaveChangesAsync();
         }

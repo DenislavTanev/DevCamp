@@ -12,38 +12,73 @@
                     <div class="col-lg-8">
                         <div class="p-4">
                             <div class="text-center">
-                                <h1 class="h3 mb-4 font-italic text-white-50">Create Hotel!</h1>
+                                <h1 class="h3 mb-4 font-italic text-black-50">Create Gig!</h1>
                             </div>
                             <form class="user text-center text-white-50" method="post">
                                 <div class="form-group was-validated">
                                     <label></label>
-                                    <input class="form-control form-control-user text-center" placeholder="Hotel Name" required>
+                                    <input class="form-control form-control-user text-center" placeholder="Title" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group was-validated">
                                     <label></label>
                                     <select class="form-control rounded-pill custom-select myselect" required>
-                                        <option value="" disabled selected>Select City</option>
+                                        <option value="" disabled selected>Select Category</option>
                                     </select>
-                                    <span class="text-danger"></span>
-                                </div>
-                                <div class="form-group was-validated">
-                                    <label></label>
-                                    <input class="form-control form-control-user text-center" placeholder="Hotel Address" required>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group was-validated">
                                     <label></label>
                                     <select class="form-control rounded-pill custom-select myselect" required>
-                                        <option value="" disabled selected>Select Stars</option>
+                                        <option value="" disabled selected>Select SubCategory</option>
                                     </select>
                                     <span class="text-danger"></span>
                                 </div>
                                 <div class="form-group was-validated">
-                                    <label></label>
-                                    <input value="" class="form-control form-control-user text-center" placeholder="Cleaning Per Days" required>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                     <span class="text-danger"></span>
                                 </div>
+                                <table class="table-bordered table-active text-black-50 table-responsive">
+                                    <tr>
+                                        <th>Name:</th>  
+                                        <th scope="col">Basic</th>
+                                        <th scope="col">Standard</th>
+                                        <th scope="col">Premium</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Description</th>
+                                        <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
+                                        <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
+                                        <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Price</th>
+                                        <td><input></td>
+                                        <td><input></td>
+                                        <td><input></td>
+                                    </tr>
+                                    <tr>
+                                        <th><a class="btn btn-success" onclick="AddMoreItems()">+</a></th>
+                                        <td>
+                                            <select class="form-control rounded-pill custom-select myselect" required>
+                                               <option value="" disabled selected>Select Item</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Revisions</th>
+                                        <td><input></td>
+                                        <td><input></td>
+                                        <td><input></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Delivery Time</th>
+                                        <td><input></td>
+                                        <td><input></td>
+                                        <td><input></td>
+                                    </tr>
+                                </table>
                                 <hr />
                                 <button type="submit" class="btn btn-success btn-user btn-block">
                                     Create
