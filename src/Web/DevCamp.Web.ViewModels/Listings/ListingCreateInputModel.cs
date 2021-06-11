@@ -8,6 +8,7 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
+    using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.Packages;
 
     public class ListingCreateInputModel : IMapTo<Listing>
@@ -33,5 +34,9 @@
         public int SubCategoryId { get; set; }
 
         public PackageCreateInputModel Package { get; set; }
+
+        public IEnumerable<CategoriesDropDownViewModel> Categories { get; set; }
+
+        public IEnumerable<SubCategoriesDropDownViewModel> SubCategories { get; set; }
     }
 }

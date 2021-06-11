@@ -38,13 +38,12 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
-
-                              // new CountriesSeeder(this.contentRootPath),
-                              // new SectorsSeeder(),
-                              // new CategoriesSeeder(),
-                              // new SubCategoriesSeeder(),
-                              // new ItemsSeeder(),
-                              // new LanguagesSeeder(),
+                              new CountriesSeeder(this.contentRootPath),
+                              new SectorsSeeder(),
+                              new CategoriesSeeder(),
+                              new SubCategoriesSeeder(),
+                              new ItemsSeeder(),
+                              new LanguagesSeeder(),
                           };
 
             foreach (var seeder in seeders)
