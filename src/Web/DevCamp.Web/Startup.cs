@@ -70,6 +70,15 @@
             services.AddTransient<IListingsService, ListingsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<ISubCategoriesService, SubCategoriesService>();
+            services.AddTransient<ISectorsService, SectorsService>();
+            services.AddTransient<IAboutUsService, AboutUsService>();
+            services.AddTransient<IContactUsService, ContactUsService>();
+            services.AddTransient<IFaqService, FaqService>();
+            services.AddTransient<ICountriesService, CountriesService>();
+            services.AddTransient<IItemsService, ItemsService>();
+            services.AddTransient<ILanguagesService, LanguagesService>();
+            services.AddTransient<IPackageItemsService, PackageItemsService>();
+            services.AddTransient<IPackagesService, PackagesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -21,7 +21,6 @@
         {
             var sectors = this.sectorsRepository
                 .All()
-                .OrderBy(x => x.Name)
                 .To<T>()
                 .ToList();
 

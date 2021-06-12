@@ -46,9 +46,18 @@
             </tr>
             <tr>
                 <th scope="row">Description</th>
-                <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
-                <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
-                <td><textarea class="form-control" rows="3" required placeholder="Package Description"></textarea></td>
+                <td>
+                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                    <span asp-validation-for="Package.Description"></span>
+                </td>
+                <td>
+                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                    <span asp-validation-for="Package.Description"></span>
+                </td>
+                <td>
+                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                    <span asp-validation-for="Package.Description"></span>
+                </td>
             </tr>
             <tr>
                 <th scope="row">Price</th>
