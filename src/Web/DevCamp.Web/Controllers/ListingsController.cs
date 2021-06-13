@@ -34,7 +34,7 @@
             this.signInManager = signInManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Edit()
         {
             return this.View();
         }
