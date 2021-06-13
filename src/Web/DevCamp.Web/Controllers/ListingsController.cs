@@ -39,15 +39,15 @@
             return this.View();
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var user = await this.userManager.GetUserAsync(this.User);
-
             var categories = this.categoriesService.GetAll<CategoriesDropDownViewModel>(1);
+            var subCategories = this.subCategoriesService.GetAll<SubCategoriesDropDownViewModel>(1);
 
             var viewModel = new ListingCreateInputModel
             {
                 Categories = categories,
+                SubCategories = subCategories,
             };
 
             return this.View(viewModel);

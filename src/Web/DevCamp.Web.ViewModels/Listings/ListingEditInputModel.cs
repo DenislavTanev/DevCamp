@@ -16,7 +16,6 @@
         [Required(ErrorMessage = "The field is required!")]
         [MinLength(5, ErrorMessage = "The field requires more than 5 characters!")]
         [MaxLength(200, ErrorMessage = "The field must not be more than 200 characters!")]
-        [DisplayName("Title")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "The field is required!")]

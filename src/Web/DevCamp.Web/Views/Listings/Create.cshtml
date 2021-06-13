@@ -2,6 +2,7 @@
 
 @{
     var categories = Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
+    var subCategories = Model.SubCategories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
 
 @{       
@@ -27,7 +28,7 @@
         </div>
         <div class="form-group was-validated">
             <label asp-for="SubCategoryId"></label>
-            <select asp-for="SubCategoryId" class="form-control rounded-pill custom-select myselect" required>
+            <select asp-for="SubCategoryId" asp-items="subCategories" class="form-control rounded-pill custom-select myselect" required>
                 <option value="" disabled selected>Select SubCategory</option>
             </select>
             <span asp-validation-for="SubCategoryId" class="text-danger"></span>
