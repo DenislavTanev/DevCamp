@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace DevCamp.Data.Migrations
+﻿namespace DevCamp.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class ChangesToFAQ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

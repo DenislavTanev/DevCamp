@@ -36,8 +36,4 @@
     <ProjectReference Include="..\DevCamp.Web.Infrastructure\DevCamp.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\DevCamp.Web.ViewModels\DevCamp.Web.ViewModels.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Users\" />
-  </ItemGroup>
 </Project>

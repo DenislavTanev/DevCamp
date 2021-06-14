@@ -14,6 +14,7 @@
     using DevCamp.Data.Repositories;
     using DevCamp.Data.Seeding;
     using DevCamp.Services.Data;
+    using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Messaging;
 
     using Microsoft.EntityFrameworkCore;

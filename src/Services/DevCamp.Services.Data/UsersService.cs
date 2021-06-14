@@ -1,16 +1,17 @@
-﻿using DevCamp.Data.Common.Repositories;
-using DevCamp.Data.Models;
-using DevCamp.Services.Data.Interfaces;
-using DevCamp.Services.Mapping;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using DevCamp.Data.Common.Repositories;
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Services.Mapping;
+    using Microsoft.EntityFrameworkCore;
+
     public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
