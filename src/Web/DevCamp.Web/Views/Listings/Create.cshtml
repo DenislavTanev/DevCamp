@@ -38,55 +38,57 @@
             <textarea asp-for="ProjectDetails" class="form-control" rows="5" required></textarea>
             <span asp-validation-for="ProjectDetails" class="text-danger"></span>
         </div>
-        <table class="table-bordered table-active text-black-50 table-responsive">
-            <tr>
-                <th>Name:</th>
-                <th scope="col">Basic</th>
-                <th scope="col">Standard</th>
-                <th scope="col">Premium</th>
-            </tr>
-            <tr>
-                <th scope="row">Description</th>
-                <td>
-                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
-                    <span asp-validation-for="Package.Description"></span>
-                </td>
-                <td>
-                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
-                    <span asp-validation-for="Package.Description"></span>
-                </td>
-                <td>
-                    <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
-                    <span asp-validation-for="Package.Description"></span>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Price</th>
-                <td><input></td>
-                <td><input></td>
-                <td><input></td>
-            </tr>
-            <tr>
-                <th><a class="btn btn-success" onclick="AddMoreItems()">+</a></th>
-                <td>
-                    <select class="form-control rounded-pill custom-select myselect" required>
-                        <option value="" disabled selected>Select Item</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Revisions</th>
-                <td><input></td>
-                <td><input></td>
-                <td><input></td>
-            </tr>
-            <tr>
-                <th scope="row">Delivery Time</th>
-                <td><input></td>
-                <td><input></td>
-                <td><input></td>
-            </tr>
-        </table>
+        <div class="container">
+            <table class="table-bordered table-active text-black-50">
+                <tr>
+                    <th>Name:</th>
+                    <th scope="col">Basic</th>
+                    <th scope="col">Standard</th>
+                    <th scope="col">Premium</th>
+                </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td>
+                        <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                        <span asp-validation-for="Package.Description"></span>
+                    </td>
+                    <td>
+                        <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                        <span asp-validation-for="Package.Description"></span>
+                    </td>
+                    <td>
+                        <textarea asp-for="Package.Description" class="form-control" rows="3" required placeholder="Package Description"></textarea>
+                        <span asp-validation-for="Package.Description"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                </tr>
+                <tr>
+                    <th><a class="btn btn-success" onclick="AddMoreItems()">+</a></th>
+                    <td>
+                        <select class="form-control rounded-pill custom-select myselect" required>
+                            <option value="" disabled selected>Select Item</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Revisions</th>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                </tr>
+                <tr>
+                    <th scope="row">Delivery Time</th>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                </tr>
+            </table>
+        </div>
         <hr />
         <button type="submit" class="btn btn-success btn-user btn-block">
             Create

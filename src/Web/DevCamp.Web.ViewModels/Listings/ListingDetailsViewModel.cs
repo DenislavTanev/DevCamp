@@ -23,6 +23,8 @@
 
         public int SubCategoryId { get; set; }
 
+        public ApplicationUser User { get; set; }
+
         public ICollection<PackageViewModel> Packages { get; set; }
 
         public ICollection<FaqViewModel> Faqs { get; set; }

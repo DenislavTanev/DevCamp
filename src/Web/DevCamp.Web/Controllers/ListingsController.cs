@@ -11,6 +11,7 @@
     using DevCamp.Web.ViewModels.Listings;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
 
     public class ListingsController : Controller
     {
@@ -73,6 +74,15 @@
                 (int)input.SubCategoryId);
 
             return this.RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var listing = await this.listingsService.GetByIdAsync<ListingDetailsViewModel>(6);
+            var userId = this.userManager.GetUserId(this.User);
+            listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
+
+            return this.View(listing);
         }
     }
 }
