@@ -10,6 +10,7 @@
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
 
     public class UsersController : Controller
     {
@@ -30,8 +31,11 @@
             this.countriesService = countriesService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.userManager.Users.Include(x => x.Country).FirstAsync(x => x.Id == userId);
+
             return this.View();
         }
     }

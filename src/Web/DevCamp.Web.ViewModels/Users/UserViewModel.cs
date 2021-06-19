@@ -14,6 +14,8 @@
 
         public int CountryId { get; set; }
 
+        public Country Country { get; set; }
+
         public ICollection<Language> SpokenLanguages { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
