@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
                 <div class="dropdown">
@@ -46,29 +46,30 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Listings" asp-action="Create">Create Listing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Listings" asp-action="Edit">Edit Listing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Listings" asp-action="Index">View Listing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Users" asp-action="Index">View profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Test">Test</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Listings" asp-action="Create">Create Listing</a>
-                </li>
-            </ul>
-        </div>
-        <hr />
+        <nav class="navbar  justify-content-start border-bottom">
+            <div class="container">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Listings" asp-action="Create">Create Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Listings" asp-action="Edit">Edit Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Listings" asp-action="Index">View Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Users" asp-action="Index">View profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Test">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Listings" asp-action="Create">Create Listing</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <div class="container">

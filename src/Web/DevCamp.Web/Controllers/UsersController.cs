@@ -34,9 +34,9 @@
         public async Task<IActionResult> Index()
         {
             var userId = this.userManager.GetUserId(this.User);
-            var user = await this.userManager.Users.Include(x => x.Country).FirstAsync(x => x.Id == userId);
+            var user = await this.usersService.GetById<UserViewModel>(userId);
 
-            return this.View();
+            return this.View(user);
         }
     }
 }
