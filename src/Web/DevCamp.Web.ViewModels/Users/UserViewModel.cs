@@ -10,9 +10,13 @@
     {
         public string Name { get; set; }
 
-        public string ProfilePic { get; set; }
+        public byte[] ProfilePic { get; set; }
 
         public string Information { get; set; }
+
+        public string Profession { get; set; }
+
+        public TimeSpan ResponseTime { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -20,7 +24,7 @@
 
         public Country Country { get; set; }
 
-        public ICollection<Language> SpokenLanguages { get; set; }
+        public ICollection<UserLanguage> SpokenLanguages { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
 

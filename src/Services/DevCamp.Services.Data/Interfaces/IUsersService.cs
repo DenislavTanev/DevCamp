@@ -1,14 +1,26 @@
 ﻿namespace DevCamp.Services.Data.Interfaces
 {
-    using System.Collections.Generic;
+    using System;
     using System.Threading.Tasks;
-
-    using DevCamp.Data.Models;
 
     public interface IUsersService
     {
         Task<T> GetById<T>(string userId);
 
-        Task EditAsync(string id, string profilePic, string name, string info, int countryId, ICollection<Language> languages);
+        Task EditPicAsync(string userId, byte[] profilePic);
+
+        Task EditNameAsync(string userId, string name);
+
+        Task EditResponseTimeAsync(string userId, TimeSpan responseTime);
+
+        Task EditLocationAsync(string userId, int countryId);
+
+        Task EditDescriptionAsync(string userId, string description);
+
+        Task EditProfessionAsync(string userId, string profession);
+
+        Task EditLanguageAsync(int id, string level);
+
+        Task AddLanguageAsync(string userId, int languageId, string level);
     }
 }

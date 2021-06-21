@@ -52,15 +52,17 @@
 
         public DbSet<ContactForm> ContactForm { get; set; }
 
-        public DbSet<UserAchievement> UserAchievements { get; set; }
+        public DbSet<UserAchievement> UsersAchievements { get; set; }
 
         public DbSet<PackageItem> PackageItems { get; set; }
 
-        public DbSet<UserSkill> UserSkills { get; set; }
+        public DbSet<UserSkill> UsersSkills { get; set; }
 
         public DbSet<Country> Countries { get; set; }
 
         public DbSet<Language> Languages { get; set; }
+
+        public DbSet<UserLanguage> UsersLanguages { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

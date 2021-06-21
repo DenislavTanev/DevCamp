@@ -8,11 +8,11 @@
     {
         public Language()
         {
-            this.Users = new HashSet<ApplicationUser>();
+            this.Users = new HashSet<UserLanguage>();
         }
 
         public string Name { get; set; }
 
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ICollection<UserLanguage> Users { get; set; }
     }
 }

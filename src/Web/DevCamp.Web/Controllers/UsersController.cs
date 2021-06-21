@@ -31,7 +31,7 @@
             this.countriesService = countriesService;
         }
 
-        public async Task<IActionResult> Index(UserViewModel viewModel)
+        public async Task<IActionResult> Index()
         {
             var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<UserViewModel>(userId);

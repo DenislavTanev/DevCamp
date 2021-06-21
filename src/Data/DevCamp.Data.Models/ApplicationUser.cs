@@ -21,7 +21,7 @@ namespace DevCamp.Data.Models
             this.Achievements = new HashSet<UserAchievement>();
             this.WrittenReviews = new HashSet<Review>();
             this.Payments = new HashSet<Payment>();
-            this.SpokenLanguages = new HashSet<Language>();
+            this.SpokenLanguages = new HashSet<UserLanguage>();
         }
 
         // Audit info
@@ -43,10 +43,15 @@ namespace DevCamp.Data.Models
 
         public string Information { get; set; }
 
-        // Check
-        public string ProfilePic { get; set; }
+        public string Profession { get; set; }
 
-        public ICollection<Language> SpokenLanguages { get; set; }
+        public TimeSpan ResponseTime { get; set; }
+
+        public DateTime LastDelivery { get; set; }
+
+        public byte[] ProfilePic { get; set; }
+
+        public ICollection<UserLanguage> SpokenLanguages { get; set; }
 
         public ICollection<Listing> Listings { get; set; }
 

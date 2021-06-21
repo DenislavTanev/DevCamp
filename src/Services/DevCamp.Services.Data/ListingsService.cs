@@ -13,11 +13,11 @@
     public class ListingsService : IListingsService
     {
         private readonly IDeletableEntityRepository<Listing> listingsRepository;
-        private readonly IDeletableEntityRepository<Language> languagesRepository;
+        private readonly IDeletableEntityRepository<UserLanguage> languagesRepository;
 
         public ListingsService(
             IDeletableEntityRepository<Listing> listingsRepository,
-            IDeletableEntityRepository<Language> languagesRepository)
+            IDeletableEntityRepository<UserLanguage> languagesRepository)
         {
             this.listingsRepository = listingsRepository;
             this.languagesRepository = languagesRepository;
@@ -120,13 +120,9 @@
 
         public IEnumerable<T> GetAllByUserSpokenLanguage<T>(int languageId)
         {
-            var language = this.languagesRepository
-                .All()
-                .FirstOrDefault(x => x.Id == languageId);
-
             var listings = this.listingsRepository
                 .All()
-                .Where(x => x.User.SpokenLanguages.Contains(language))
+                .Where(x => x.User.SpokenLanguages.Any(x => x.LanguageId == languageId))
                 .To<T>()
                 .ToList();
 
