@@ -25,12 +25,12 @@
             <div class="row">
                 <i class="col-1 fa fa-map-marker text-center" style="padding-top:6px;"  aria-hidden="true"></i>
                 <p class="col text-start">From</p>
-                <p class="col text-end">Belarus</p>
+                <p class="col text-end">@Model.Country.Name</p>
             </div>
             <div class="row">
                 <i class="col-1 fa fa-user-circle-o text-center" style="padding-top:6px;" aria-hidden="true"></i>
                 <p class="col text-start">Member since</p>
-                <p class="col text-end">golemiq snqg 1966</p>
+                <p class="col text-end">@Model.CreatedOn</p>
             </div>
             <div class="row">
                 <i class="col-1 fa fa-clock-o text-center" style="padding-top:6px;" aria-hidden="true"></i>
@@ -48,6 +48,7 @@
                 <h5>Description</h5>
             </div>
             <div class="row mt-2">
+                <p>@Model.Information</p>
                 <p>lorem ipsum das sa few gfxv s twer sdf dwef ds gdh rs h ryhe dh et wehrtwa tgdrs htrhs hgfsd hfd  hrtt h rt dddddddddddd ddd</p>
             </div>
             <hr />
@@ -55,6 +56,9 @@
                 <h5>Languages</h5>
             </div>
             <ul class="container">
+                <li class="row">
+                    <p class="col">@Model.SpokenLanguages.First().Name</p>
+                </li>
                 <li class="row">
                     <p class="col">English - </p>
                     <p class="col text-muted">Basic</p>

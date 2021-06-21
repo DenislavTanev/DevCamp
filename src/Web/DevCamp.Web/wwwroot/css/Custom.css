@@ -1,14 +1,4 @@
-﻿button{
-    background-color:red
-}
-#navbar-example2 {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2px;
-}
+﻿
 #navbar-example3 {
-
-    position: -webkit-sticky;
-    position: sticky;
-    top: 200px;
+    top: 50px;
 }

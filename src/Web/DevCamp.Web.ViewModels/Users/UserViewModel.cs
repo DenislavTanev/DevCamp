@@ -1,16 +1,20 @@
 ﻿namespace DevCamp.Web.ViewModels.Users
 {
+    using System;
     using System.Collections.Generic;
 
     using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
 
-    public class UserViewModel
+    public class UserViewModel : IMapFrom<ApplicationUser>
     {
         public string Name { get; set; }
 
         public string ProfilePic { get; set; }
 
         public string Information { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public int CountryId { get; set; }
 
