@@ -23,7 +23,7 @@
             this.listingsRepository = listingsRepository;
         }
 
-        public async Task CreateAsync(string name, double price, string description, int listingId)
+        public async Task CreateAsync(string name, double price, string description, int listingId, string revisions, string deliveryTime)
         {
             var package = new Package
             {
@@ -31,6 +31,8 @@
                 Price = price,
                 Description = description,
                 ListingId = listingId,
+                Revisions = revisions,
+                DeliveryTime = deliveryTime,
             };
 
             if (name == "Basic")
@@ -58,7 +60,7 @@
             await this.packagesRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, string name, double price, string description, int listingId)
+        public async Task EditAsync(int id, string name, double price, string description, int listingId, string revisions, string deliveryTime)
         {
             var package = await this.packagesRepository
                 .All()
@@ -68,6 +70,8 @@
             package.Price = price;
             package.Description = description;
             package.ListingId = listingId;
+            package.Revisions = revisions;
+            package.DeliveryTime = deliveryTime;
 
             if (name == "Basic")
             {

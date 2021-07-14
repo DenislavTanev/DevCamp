@@ -1,12 +1,13 @@
 ﻿namespace DevCamp.Web.Controllers
 {
-    using DevCamp.Services.Data.Interfaces;
-    using DevCamp.Web.ViewModels.Packages;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Web.ViewModels.Packages;
+    using Microsoft.AspNetCore.Mvc;
 
     public class PackagesController : Controller
     {
@@ -44,14 +45,54 @@
             return this.View(package);
         }
 
-        public IActionResult ComparePackages()
+        public async Task<IActionResult> ComparePackages(int listingId)
         {
-            return this.View();
+            var packages = this.packagesService.GetAll<PackageViewModel>(listingId);
+
+            foreach (var package in packages)
+            {
+                package.ItemContent = this.packageItemsService.GetAllByPackage<PackageItemViewModel>(package.Id);
+            }
+
+            foreach (var package in packages)
+            {
+                var items = new List<ItemViewModel>();
+
+                foreach (var item in package.ItemContent)
+                {
+                    var currItem = await this.itemService.GetByIdAsync<ItemViewModel>(item.ItemId);
+
+                    items.Add(currItem);
+                }
+
+                package.Items = items;
+            }
+
+            return this.View(packages);
         }
 
         public IActionResult Create()
         {
-            return this.View();
+            var packageNames = new List<string> { "Basic", "Standard", "Premium" };
+
+            return this.View(packageNames);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(IEnumerable<PackageCreateInputModel> inputModels)
+        {
+            foreach (var model in inputModels)
+            {
+                await this.packagesService.CreateAsync(
+                    model.Name,
+                    (double)model.Price,
+                    model.Description,
+                    (int)model.ListingId,
+                    model.Revisions,
+                    model.DeliveryTime);
+            }
+
+            return this.RedirectToAction("Edit");
         }
 
         public IActionResult Edit()

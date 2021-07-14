@@ -15,11 +15,8 @@
             {
                 var items = new List<string>
                 {
-                    "Revisions",
-                    "Delivery Time",
                     "Number of Products",
                     "Plugins/Extensions Installation",
-                    "Total",
                     "Number of Pages",
                     "E-Commerce Functionality",
                     "Responsive Design",
