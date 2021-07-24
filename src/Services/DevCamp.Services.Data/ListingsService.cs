@@ -32,6 +32,7 @@
                 UserId = userId,
                 CategoryId = categoryId,
                 SubCategoryId = subCategoryId,
+                IsComplete = false,
             };
 
             await this.listingsRepository.AddAsync(listing);
@@ -48,17 +49,24 @@
             await this.listingsRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, string title, string projectDetails, string userId, int categoryId, int subCategoryId)
+        public async Task EditTitleAsync(int id, string title)
         {
             var listing = await this.listingsRepository
                 .All()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             listing.Title = title;
-            listing.ProjectDetails = projectDetails;
-            listing.UserId = userId;
-            listing.CategoryId = categoryId;
-            listing.SubCategoryId = subCategoryId;
+
+            await this.listingsRepository.SaveChangesAsync();
+        }
+
+        public async Task EditDetailsAsync(int id, string details)
+        {
+            var listing = await this.listingsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            listing.ProjectDetails = details;
 
             await this.listingsRepository.SaveChangesAsync();
         }
@@ -138,6 +146,17 @@
                 .FirstOrDefaultAsync();
 
             return listing;
+        }
+
+        public async Task SetToComplete(int id)
+        {
+            var listing = await this.listingsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            listing.IsComplete = true;
+
+            await this.listingsRepository.SaveChangesAsync();
         }
     }
 }

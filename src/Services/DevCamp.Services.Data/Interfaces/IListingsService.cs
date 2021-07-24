@@ -13,7 +13,9 @@
 
         Task DeleteAsync(int id);
 
-        Task EditAsync(int id, string title, string projectDetails, string userId, int categoryId, int subCategoryId);
+        Task EditTitleAsync(int id, string title);
+
+        Task EditDetailsAsync(int id, string details);
 
         IEnumerable<T> GetAllByCategory<T>(int categoryId);
 
@@ -24,5 +26,7 @@
         IEnumerable<T> GetAllByPrice<T>(int price);
 
         IEnumerable<T> GetAllByUserLocation<T>(int locationId);
+
+        Task SetToComplete(int id);
     }
 }

@@ -35,7 +35,12 @@
             this.signInManager = signInManager;
         }
 
-        public IActionResult Edit()
+        public IActionResult EditTitle()
+        {
+            return this.View();
+        }
+
+        public IActionResult EditDetails()
         {
             return this.View();
         }

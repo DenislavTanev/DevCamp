@@ -36,4 +36,6 @@
     <ProjectReference Include="..\DevCamp.Web.Infrastructure\DevCamp.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\DevCamp.Web.ViewModels\DevCamp.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
