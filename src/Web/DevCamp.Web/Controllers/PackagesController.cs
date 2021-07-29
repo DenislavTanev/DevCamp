@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
 
     using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Web.ViewModels.Listings;
     using DevCamp.Web.ViewModels.Packages;
     using Microsoft.AspNetCore.Mvc;
 
@@ -14,15 +15,18 @@
         private readonly IPackagesService packagesService;
         private readonly IPackageItemsService packageItemsService;
         private readonly IItemsService itemService;
+        private readonly IListingsService listingsService;
 
         public PackagesController(
             IPackagesService packagesService,
             IPackageItemsService packageItemsService,
-            IItemsService itemService)
+            IItemsService itemService,
+            IListingsService listingsService)
         {
             this.packagesService = packagesService;
             this.packageItemsService = packageItemsService;
             this.itemService = itemService;
+            this.listingsService = listingsService;
         }
 
         public async Task<IActionResult> Index(int packageId)
@@ -71,31 +75,17 @@
             return this.View(packages);
         }
 
-        public IActionResult Create(int listingId)
+        public async Task<IActionResult> Create(int listingId)
         {
-            var packages = new List<PackageCreateInputModel>();
+            var listing = await this.listingsService.GetByIdAsync<ListingPackagesViewModel>(listingId);
 
-            for (int i = 0; i < 3; i++)
-            {
-                packages.Add(new PackageCreateInputModel { ListingId = listingId });
-            }
-
-            return this.View(packages);
+            return this.View(listing);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(List<PackageCreateInputModel> inputModels)
+        public async Task<IActionResult> Create(ListingPackagesViewModel input)
         {
-            foreach (var model in inputModels)
-            {
-                await this.packagesService.CreateAsync(
-                    model.Name,
-                    (double)model.Price,
-                    model.Description,
-                    (int)model.ListingId,
-                    model.Revisions,
-                    model.DeliveryTime);
-            }
+            await this.packagesService.CreateAsync(input.Packages.ToList());
 
             return this.RedirectToAction("Edit");
         }

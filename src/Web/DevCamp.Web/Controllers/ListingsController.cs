@@ -71,18 +71,14 @@
                 return this.View(input);
             }
 
-            await this.listingsService.CreateAsync(
+            var listingId = await this.listingsService.CreateAsync(
                 input.Title,
                 input.ProjectDetails,
                 user.Id,
                 (int)input.CategoryId,
                 (int)input.SubCategoryId);
 
-            var listings = this.listingsService.GetAllByUser<ListingNameViewModel>(user.Id);
-
-            var listing = listings.Where(x => x.Title == input.Title).FirstOrDefault();
-
-            return this.RedirectToAction("Create", "Packages", new { Id = listing.Id });
+            return this.RedirectToAction("Create", "Packages", new { listingId = listingId });
         }
 
         public async Task<IActionResult> Index()

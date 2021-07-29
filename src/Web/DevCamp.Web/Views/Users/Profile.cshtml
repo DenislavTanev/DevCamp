@@ -1,7 +1,7 @@
 ﻿@model DevCamp.Web.ViewModels.Users.UserViewModel
 
 <div class="container row">
-    <div class="col-xl-5">
+    <div class="col-sm-4 mt-2">
         <div class="container border">
             <div class="text-center mt-2">
                 <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
@@ -32,38 +32,45 @@
                 <p class="col text-start">Member since</p>
                 <p class="col text-end">@Model.CreatedOn</p>
             </div>
-            <div class="row">
-                <i class="col-1 fa fa-clock-o text-center" style="padding-top:6px;" aria-hidden="true"></i>
-                <p class="col text-start">Avrg. response time</p>
-                <p class="col text-end">Na momenta</p>
-            </div>
         </div>
         <div class="container border mt-4">
             <div class="row mt-4">
-                <h5>Description</h5>
+                <h5 class="col-6">Description</h5>
+                <a class="col-6 text-end">Edit</a>
             </div>
             <div class="row mt-2">
                 <p>@Model.Information</p>
             </div>
             <hr />
             <div class="row mt-3">
-                <h5>Languages</h5>
+                <h5 class="col-6">Languages</h5>
+                <a class="col-6 text-end">Add New</a>
             </div>
             <ul class="container">
+                @foreach (var item in Model.SpokenLanguages)
+                {
+                    <li class="row">
+                        <div class="col">@item.Language</div>
+                        <div class="col text-muted">@item.Level</div>
+                    </li>
+                }
                 <li class="row">
                     <p class="col">English - </p>
                     <p class="col text-muted">Basic</p>
                 </li>
-                <li class="row">
-                    <p class="col">Bulgarian - </p>
-                    <p class="col text-muted">Fluent</p>
-                </li>
             </ul>
             <hr />
             <div class="row mt-3">
-                <h5>Skills</h5>
+                <h5 class="col-6">Skills</h5>
+                <a class="col-6 text-end">Add New</a>
             </div>
             <div class="row">
+                @foreach (var item in Model.Skills)
+                {
+                    <div class="container">
+                        <div>@item.Skill.TechnologyName</div>
+                    </div>
+                }
                 <div class="container">
                     <p>Node.Js</p>
                 </div>
@@ -72,7 +79,7 @@
         </div>
     </div>
 
-    <div class="col-xl-7">
+    <div class="col-sm-8">
         <div class="row">
             <h1>User's Gigs</h1>
         </div>

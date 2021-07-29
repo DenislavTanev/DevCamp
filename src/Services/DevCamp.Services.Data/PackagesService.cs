@@ -8,6 +8,7 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Mapping;
+    using DevCamp.Web.ViewModels.Listings;
     using Microsoft.EntityFrameworkCore;
 
     public class PackagesService : IPackagesService
@@ -23,30 +24,18 @@
             this.listingsRepository = listingsRepository;
         }
 
-        public async Task CreateAsync(string name, double price, string description, int listingId, string revisions, string deliveryTime)
+        public async Task CreateAsync(List<PackagesViewModel> packages)
         {
-            var package = new Package
+            foreach (var item in packages)
             {
-                Name = name,
-                Price = price,
-                Description = description,
-                ListingId = listingId,
-                Revisions = revisions,
-                DeliveryTime = deliveryTime,
-            };
+                var package = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == item.Id);
 
-            if (name == "Basic")
-            {
-                var listing = this.listingsRepository
-                    .All()
-                    .FirstOrDefault(x => x.Id == listingId);
-
-                listing.StartingPrice = price;
-
-                await this.listingsRepository.SaveChangesAsync();
+                package.Price = item.Price;
+                package.Description = item.Description;
+                package.Revisions = item.Revisions;
+                package.DeliveryTime = item.DeliveryTime;
             }
 
-            await this.packagesRepository.AddAsync(package);
             await this.packagesRepository.SaveChangesAsync();
         }
 

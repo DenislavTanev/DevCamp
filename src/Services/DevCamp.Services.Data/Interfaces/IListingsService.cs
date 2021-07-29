@@ -5,7 +5,7 @@
 
     public interface IListingsService
     {
-        Task CreateAsync(string title, string projectDetails, string userId, int categoryId, int subCategoryId);
+        Task<int> CreateAsync(string title, string projectDetails, string userId, int categoryId, int subCategoryId);
 
         Task<T> GetByIdAsync<T>(int id);
 

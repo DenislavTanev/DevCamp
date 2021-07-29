@@ -14,16 +14,19 @@
     {
         private readonly IDeletableEntityRepository<Listing> listingsRepository;
         private readonly IDeletableEntityRepository<UserLanguage> languagesRepository;
+        private readonly IDeletableEntityRepository<Package> packagesRepository;
 
         public ListingsService(
             IDeletableEntityRepository<Listing> listingsRepository,
-            IDeletableEntityRepository<UserLanguage> languagesRepository)
+            IDeletableEntityRepository<UserLanguage> languagesRepository,
+            IDeletableEntityRepository<Package> packagesRepository)
         {
             this.listingsRepository = listingsRepository;
             this.languagesRepository = languagesRepository;
+            this.packagesRepository = packagesRepository;
         }
 
-        public async Task CreateAsync(string title, string projectDetails, string userId, int categoryId, int subCategoryId)
+        public async Task<int> CreateAsync(string title, string projectDetails, string userId, int categoryId, int subCategoryId)
         {
             var listing = new Listing
             {
@@ -36,7 +39,29 @@
             };
 
             await this.listingsRepository.AddAsync(listing);
+
+            var basicPackage = new Package
+            {
+                Name = "Basic",
+            };
+
+            var standardPackage = new Package
+            {
+                Name = "Standard",
+            };
+
+            var premiumPackage = new Package
+            {
+                Name = "Premium",
+            };
+
+            listing.Packages.Add(basicPackage);
+            listing.Packages.Add(standardPackage);
+            listing.Packages.Add(premiumPackage);
+
             await this.listingsRepository.SaveChangesAsync();
+
+            return listing.Id;
         }
 
         public async Task DeleteAsync(int id)
@@ -141,6 +166,7 @@
         {
             var listing = await this.listingsRepository
                 .All()
+                .Include(x => x.Packages)
                 .Where(x => x.Id == id)
                 .To<T>()
                 .FirstOrDefaultAsync();

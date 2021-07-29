@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\DevCamp.Data.Common\DevCamp.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\DevCamp.Data.Models\DevCamp.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\DevCamp.Web.ViewModels\DevCamp.Web.ViewModels.csproj" />
     <ProjectReference Include="..\DevCamp.Services.Mapping\DevCamp.Services.Mapping.csproj" />
   </ItemGroup>
 
