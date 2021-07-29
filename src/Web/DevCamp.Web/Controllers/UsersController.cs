@@ -38,5 +38,13 @@
 
             return this.View(user);
         }
+
+        public async Task<IActionResult> Profile()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.usersService.GetById<UserViewModel>(userId);
+
+            return this.View(user);
+        }
     }
 }

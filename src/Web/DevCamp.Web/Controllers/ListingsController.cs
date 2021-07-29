@@ -78,7 +78,11 @@
                 (int)input.CategoryId,
                 (int)input.SubCategoryId);
 
-            return this.RedirectToAction("Index");
+            var listings = this.listingsService.GetAllByUser<ListingNameViewModel>(user.Id);
+
+            var listing = listings.Where(x => x.Title == input.Title).FirstOrDefault();
+
+            return this.RedirectToAction("Create", "Packages", new { Id = listing.Id });
         }
 
         public async Task<IActionResult> Index()

@@ -12,11 +12,20 @@
                        <img class="rounded-circle" role="button" id="dropdownMenuLink" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
                             data-holder-rendered="true" data-bs-toggle="dropdown" aria-expanded="false">
 
-                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                       <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Settings</a></li>
-                       <li><a class="dropdown-item" >Another action</a></li>
-                       <li><a class="dropdown-item" href="#">Something else here</a></li>
-                   </ul>
+                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                           <li><a class="dropdown-item" asp-controller="Users" asp-action="Profile">Profile</a></li>
+                           <li><a class="dropdown-item">Dashboard</a></li>
+                           <li><a class="dropdown-item">Manage Requests</a></li>
+                           <li><a class="dropdown-item">Post a Request</a></li>
+                           <li><a class="dropdown-item">Become a Seller</a></li>
+                           <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Settings</a></li>
+                           <li><a class="dropdown-item" href="#">Help & Support</a></li>
+                           <li class="nav-item">
+                               <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
+                                   <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                               </form>
+                           </li>
+                       </ul>
                </div>
                
            </li>
@@ -28,11 +37,7 @@
                 <a class="nav-link text-dark" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Admin</a>
             </li>
         }
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
+        
     }
     else
     {

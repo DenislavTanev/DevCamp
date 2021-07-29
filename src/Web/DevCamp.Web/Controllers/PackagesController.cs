@@ -71,15 +71,20 @@
             return this.View(packages);
         }
 
-        public IActionResult Create()
+        public IActionResult Create(int listingId)
         {
-            var packageNames = new List<string> { "Basic", "Standard", "Premium" };
+            var packages = new List<PackageCreateInputModel>();
 
-            return this.View(packageNames);
+            for (int i = 0; i < 3; i++)
+            {
+                packages.Add(new PackageCreateInputModel { ListingId = listingId });
+            }
+
+            return this.View(packages);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(IEnumerable<PackageCreateInputModel> inputModels)
+        public async Task<IActionResult> Create(List<PackageCreateInputModel> inputModels)
         {
             foreach (var model in inputModels)
             {
