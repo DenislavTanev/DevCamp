@@ -46,5 +46,10 @@
 
             return this.View(user);
         }
+
+        public IActionResult EditDescription()
+        {
+            return this.View();
+        }
     }
 }
