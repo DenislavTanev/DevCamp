@@ -1,19 +1,19 @@
 ﻿namespace DevCamp.Services.Data.Interfaces
 {
+    using System;
     using System.Collections.Generic;
+    using System.Text;
     using System.Threading.Tasks;
 
-    public interface ISkillsService
+    public interface ICerficationsService
     {
-        Task CreateAsync(string technologyName, string level, string userId, int skillId);
+        Task CreateAsync(string certificate, string certifiedFrom, int year, string userId);
 
         Task<T> GetByIdAsync<T>(int id);
 
         IEnumerable<T> GetAllByUser<T>(string userId);
 
-        IEnumerable<T> GetAllUsersBySkill<T>(int skillId);
-
-        Task EditAsync(int id, string level);
+        Task EditAsync(int id, string certificate, string certifiedFrom, int year);
 
         Task DeleteAsync(int id);
     }

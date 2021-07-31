@@ -13,7 +13,7 @@
 
         public string TechnologyName { get; set; }
 
-        public string Icon { get; set; }
+        public string Level { get; set; }
 
         public ICollection<UserSkill> Users { get; set; }
     }

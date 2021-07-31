@@ -1,8 +1,9 @@
 ﻿namespace DevCamp.Services.Data.Interfaces
 {
-    using DevCamp.Web.ViewModels.Listings;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
+    using DevCamp.Web.ViewModels.Listings;
 
     public interface IPackagesService
     {

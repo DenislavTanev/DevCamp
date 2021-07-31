@@ -80,6 +80,9 @@
             services.AddTransient<IPackageItemsService, PackageItemsService>();
             services.AddTransient<IPackagesService, PackagesService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<ISkillsService, SkillsService>();
+            services.AddTransient<IEducationsService, EducationsService>();
+            services.AddTransient<ICerficationsService, CertificationsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

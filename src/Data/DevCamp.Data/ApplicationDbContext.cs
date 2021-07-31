@@ -64,6 +64,10 @@
 
         public DbSet<UserLanguage> UsersLanguages { get; set; }
 
+        public DbSet<Education> Educations { get; set; }
+
+        public DbSet<Certification> Certifications { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
