@@ -1,4 +1,5 @@
 ﻿@model DevCamp.Web.ViewModels.Users.UserViewModel
+@using DevCamp.Web.ViewModels.Listings
 
 <div class="container row">
     <div class="col-sm-4 mt-2">
@@ -122,10 +123,20 @@
             <div class="row">
                 <h1>User's Gigs</h1>
             </div>
-            @foreach (var listing in Model.Listings)
-            {
-                <partial name="_ListingPartial" model="listing" />
-            }
+            <div class="row">
+                @foreach (var listing in Model.Listings)
+                {
+                    var customModel = new ListingViewModel
+                    {
+                        Id = listing.Id,
+                        Title = listing.Title,
+                        StartingPrice = listing.StartingPrice,
+                        Username = Model.Name,
+                        UserProfilePic = Model.ProfilePic,
+                    };
+                        <partial name="_ListingPartial" model="customModel" />
+                }
+            </div>
         }
     </div>
 </div>

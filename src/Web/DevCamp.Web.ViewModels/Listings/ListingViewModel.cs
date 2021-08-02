@@ -11,7 +11,7 @@
 
         public double? StartingPrice { get; set; }
 
-        public string UserProfilePic { get; set; }
+        public byte[] UserProfilePic { get; set; }
 
         public string Username { get; set; }
     }
