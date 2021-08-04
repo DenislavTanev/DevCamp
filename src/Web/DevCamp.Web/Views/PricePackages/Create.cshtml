@@ -24,15 +24,30 @@
                     Delivery Time
                 </div>
             </div>
-            @foreach (var package in Model.Packages)
-            {
-        <div class="col-3">
-            <input asp-for="@package.Description" />
-            <input asp-for="@package.Price" />
-            <input asp-for="@package.Revisions" />
-            <input asp-for="@package.DeliveryTime" />
-        </div>
-            }
+            <div class="col-3">
+                <input readonly value="@Model.BasicPackage.Name" />
+                <input asp-for="@Model.BasicPackage.Description" />
+                <input asp-for="@Model.BasicPackage.Price" />
+                <input asp-for="@Model.BasicPackage.Revisions" />
+                <input asp-for="@Model.BasicPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.BasicPackage.Id" />
+            </div>
+            <div class="col-3">
+                <input readonly value="@Model.StandartPackage.Name" />
+                <input asp-for="@Model.StandartPackage.Description" />
+                <input asp-for="@Model.StandartPackage.Price" />
+                <input asp-for="@Model.StandartPackage.Revisions" />
+                <input asp-for="@Model.StandartPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.StandartPackage.Id" />
+            </div>
+            <div class="col-3">
+                <input readonly value="@Model.PremiumPackage.Name" />
+                <input asp-for="@Model.PremiumPackage.Description" />
+                <input asp-for="@Model.PremiumPackage.Price" />
+                <input asp-for="@Model.PremiumPackage.Revisions" />
+                <input asp-for="@Model.PremiumPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.PremiumPackage.Id" />
+            </div>
         </div>
 
         <button type="submit" class="btn btn-success btn-user btn-block">

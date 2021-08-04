@@ -13,7 +13,7 @@
         public string Name { get; set; }
 
         [Required]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         [MinLength(5, ErrorMessage = "The field requires more than 5 characters!")]

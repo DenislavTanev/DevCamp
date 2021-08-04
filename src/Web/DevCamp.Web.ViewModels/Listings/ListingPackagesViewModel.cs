@@ -1,7 +1,5 @@
 ﻿namespace DevCamp.Web.ViewModels.Listings
 {
-    using System.Collections.Generic;
-
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
 
@@ -9,6 +7,10 @@
     {
         public int ListingId { get; set; }
 
-        public IEnumerable<PackagesViewModel> Packages { get; set; }
+        public PackagesViewModel BasicPackage { get; set; }
+
+        public PackagesViewModel StandartPackage { get; set; }
+
+        public PackagesViewModel PremiumPackage { get; set; }
     }
 }

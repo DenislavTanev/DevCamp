@@ -107,7 +107,7 @@
             return listings;
         }
 
-        public IEnumerable<T> GetAllByPrice<T>(int price)
+        public IEnumerable<T> GetAllByPrice<T>(decimal price)
         {
             var listings = this.listingsRepository
                 .All()

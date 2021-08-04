@@ -29,55 +29,63 @@
             this.listingsService = listingsService;
         }
 
-        public async Task<IActionResult> Index(int packageId)
+        //public async Task<IActionResult> Index(int packageId)
+        //{
+        //    var package = await this.packagesService.GetByIdAsync<PackageViewModel>(packageId);
+
+        //    package.ItemContent = this.packageItemsService.GetAllByPackage<PackageItemViewModel>(packageId);
+
+        //    var items = new List<ItemViewModel>();
+
+        //    foreach (var item in package.ItemContent)
+        //    {
+        //        var currItem = await this.itemService.GetByIdAsync<ItemViewModel>(item.ItemId);
+
+        //        items.Add(currItem);
+        //    }
+
+        //    package.Items = items;
+
+        //    return this.View(package);
+        //}
+
+        //public async Task<IActionResult> ComparePackages(int listingId)
+        //{
+        //    var packages = this.packagesService.GetAll<PackageViewModel>(listingId);
+
+        //    foreach (var package in packages)
+        //    {
+        //        package.ItemContent = this.packageItemsService.GetAllByPackage<PackageItemViewModel>(package.Id);
+        //    }
+
+        //    foreach (var package in packages)
+        //    {
+        //        var items = new List<ItemViewModel>();
+
+        //        foreach (var item in package.ItemContent)
+        //        {
+        //            var currItem = await this.itemService.GetByIdAsync<ItemViewModel>(item.ItemId);
+
+        //            items.Add(currItem);
+        //        }
+
+        //        package.Items = items;
+        //    }
+
+        //    return this.View(packages);
+        //}
+
+        public IActionResult Create(int listingId)
         {
-            var package = await this.packagesService.GetByIdAsync<PackageViewModel>(packageId);
+            var packages = this.packagesService.GetAll<PackagesViewModel>(listingId);
 
-            package.ItemContent = this.packageItemsService.GetAllByPackage<PackageItemViewModel>(packageId);
-
-            var items = new List<ItemViewModel>();
-
-            foreach (var item in package.ItemContent)
+            var listing = new ListingPackagesViewModel
             {
-                var currItem = await this.itemService.GetByIdAsync<ItemViewModel>(item.ItemId);
-
-                items.Add(currItem);
-            }
-
-            package.Items = items;
-
-            return this.View(package);
-        }
-
-        public async Task<IActionResult> ComparePackages(int listingId)
-        {
-            var packages = this.packagesService.GetAll<PackageViewModel>(listingId);
-
-            foreach (var package in packages)
-            {
-                package.ItemContent = this.packageItemsService.GetAllByPackage<PackageItemViewModel>(package.Id);
-            }
-
-            foreach (var package in packages)
-            {
-                var items = new List<ItemViewModel>();
-
-                foreach (var item in package.ItemContent)
-                {
-                    var currItem = await this.itemService.GetByIdAsync<ItemViewModel>(item.ItemId);
-
-                    items.Add(currItem);
-                }
-
-                package.Items = items;
-            }
-
-            return this.View(packages);
-        }
-
-        public async Task<IActionResult> Create(int listingId)
-        {
-            var listing = await this.listingsService.GetByIdAsync<ListingPackagesViewModel>(listingId);
+                ListingId = listingId,
+                BasicPackage = packages.First(x => x.Name == "Basic"),
+                StandartPackage = packages.First(x => x.Name == "Standard"),
+                PremiumPackage = packages.First(x => x.Name == "Premium"),
+            };
 
             return this.View(listing);
         }
@@ -85,7 +93,7 @@
         [HttpPost]
         public async Task<IActionResult> Create(ListingPackagesViewModel input)
         {
-            await this.packagesService.CreateAsync(input.Packages.ToList());
+            await this.packagesService.CreateAsync(input.BasicPackage, input.StandartPackage, input.PremiumPackage);
 
             return this.RedirectToAction("Edit");
         }

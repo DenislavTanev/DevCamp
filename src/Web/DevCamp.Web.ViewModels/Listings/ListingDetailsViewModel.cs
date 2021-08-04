@@ -15,7 +15,7 @@
 
         public string ProjectDetails { get; set; }
 
-        public double? StartingPrice { get; set; }
+        public decimal? StartingPrice { get; set; }
 
         public string UserId { get; set; }
 

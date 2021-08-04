@@ -12,7 +12,7 @@
         [Required]
         public string Name { get; set; }
 
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [MinLength(5, ErrorMessage = "The field requires more than 5 characters!")]
         [MaxLength(50, ErrorMessage = "The field must not be more than 50 characters!")]

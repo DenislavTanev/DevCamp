@@ -23,7 +23,7 @@
 
         IEnumerable<T> GetAllByUserSpokenLanguage<T>(int languageId);
 
-        IEnumerable<T> GetAllByPrice<T>(int price);
+        IEnumerable<T> GetAllByPrice<T>(decimal price);
 
         IEnumerable<T> GetAllByUserLocation<T>(int locationId);
 

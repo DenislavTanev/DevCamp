@@ -24,17 +24,25 @@
             this.listingsRepository = listingsRepository;
         }
 
-        public async Task CreateAsync(List<PackagesViewModel> packages)
+        public async Task CreateAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage)
         {
-            foreach (var item in packages)
-            {
-                var package = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == item.Id);
+            var basic = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == basicPackage.Id);
+            basic.Price = basicPackage.Price;
+            basic.Description = basicPackage.Description;
+            basic.Revisions = basicPackage.Revisions;
+            basic.DeliveryTime = basicPackage.DeliveryTime;
 
-                package.Price = item.Price;
-                package.Description = item.Description;
-                package.Revisions = item.Revisions;
-                package.DeliveryTime = item.DeliveryTime;
-            }
+            var standart = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == standartPackage.Id);
+            standart.Price = standartPackage.Price;
+            standart.Description = standartPackage.Description;
+            standart.Revisions = standartPackage.Revisions;
+            standart.DeliveryTime = standartPackage.DeliveryTime;
+
+            var premium = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == premiumPackage.Id);
+            premium.Price = premiumPackage.Price;
+            premium.Description = premiumPackage.Description;
+            premium.Revisions = premiumPackage.Revisions;
+            premium.DeliveryTime = premiumPackage.DeliveryTime;
 
             await this.packagesRepository.SaveChangesAsync();
         }
@@ -49,7 +57,7 @@
             await this.packagesRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, string name, double price, string description, int listingId, string revisions, string deliveryTime)
+        public async Task EditAsync(int id, string name, decimal price, string description, int listingId, string revisions, string deliveryTime)
         {
             var package = await this.packagesRepository
                 .All()

@@ -9,7 +9,7 @@
 
         public string Title { get; set; }
 
-        public double? StartingPrice { get; set; }
+        public decimal? StartingPrice { get; set; }
 
         public byte[] UserProfilePic { get; set; }
 

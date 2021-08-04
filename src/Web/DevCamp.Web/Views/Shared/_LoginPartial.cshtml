@@ -8,11 +8,11 @@
      @if (this.SignInManager.IsSignedIn(this.User))
       {
            <li class="nav-item">
-               <div class="dropdown">
+               <div class="dropdown dropstart">
                        <img class="rounded-circle" role="button" id="dropdownMenuLink" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
                             data-holder-rendered="true" data-bs-toggle="dropdown" aria-expanded="false">
 
-                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                       <ul class="dropdown-menu mt-5" style="z-index:5000;" aria-labelledby="dropdownMenuLink">
                            <li><a class="dropdown-item" asp-controller="Users" asp-action="Profile">Profile</a></li>
                            <li><a class="dropdown-item">Dashboard</a></li>
                            <li><a class="dropdown-item">Manage Requests</a></li>
