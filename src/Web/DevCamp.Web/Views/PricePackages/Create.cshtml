@@ -1,0 +1,42 @@
+﻿@model DevCamp.Web.ViewModels.Listings.ListingPackagesViewModel
+
+@{
+    this.ViewData["Title"] = "Create Package";
+}
+
+<div class="container">
+    <form class="user text-center text-white-50" method="post">
+        <div class="row text-black-50">
+            <div class="col-3">
+                <div>
+                    Name
+                </div>
+                <div>
+                    Description
+                </div>
+                <div>
+                    Price
+                </div>
+                <div>
+                    Revisions
+                </div>
+                <div>
+                    Delivery Time
+                </div>
+            </div>
+            @foreach (var package in Model.Packages)
+            {
+        <div class="col-3">
+            <input asp-for="@package.Description" />
+            <input asp-for="@package.Price" />
+            <input asp-for="@package.Revisions" />
+            <input asp-for="@package.DeliveryTime" />
+        </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>
