@@ -5,7 +5,7 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.FAQs;
-    using DevCamp.Web.ViewModels.Packages;
+    using DevCamp.Web.ViewModels.PricePackages;
 
     public class ListingDetailsViewModel : IMapFrom<Listing>
     {

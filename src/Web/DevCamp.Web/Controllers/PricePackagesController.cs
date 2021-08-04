@@ -7,17 +7,17 @@
 
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.Listings;
-    using DevCamp.Web.ViewModels.Packages;
+    using DevCamp.Web.ViewModels.PricePackages;
     using Microsoft.AspNetCore.Mvc;
 
-    public class PackagesController : Controller
+    public class PricePackagesController : Controller
     {
         private readonly IPackagesService packagesService;
         private readonly IPackageItemsService packageItemsService;
         private readonly IItemsService itemService;
         private readonly IListingsService listingsService;
 
-        public PackagesController(
+        public PricePackagesController(
             IPackagesService packagesService,
             IPackageItemsService packageItemsService,
             IItemsService itemService,
