@@ -47,9 +47,6 @@
             return this.View(user);
         }
 
-        public IActionResult EditDescription()
-        {
-            return this.PartialView();
-        }
+        public IActionResult EditDescription() => this.PartialView("_EditDescription");
     }
 }

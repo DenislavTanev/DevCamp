@@ -5,7 +5,6 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.FAQs;
-    using DevCamp.Web.ViewModels.PricePackages;
 
     public class ListingDetailsViewModel : IMapFrom<Listing>
     {
@@ -25,7 +24,7 @@
 
         public ApplicationUser User { get; set; }
 
-        public ICollection<PackageViewModel> Packages { get; set; }
+        public ICollection<PackagesViewModel> Packages { get; set; }
 
         public ICollection<FaqViewModel> Faqs { get; set; }
     }

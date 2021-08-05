@@ -438,35 +438,6 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("FrequentlyAskedQuestions");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("Items");
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.Language", b =>
                 {
                     b.Property<int>("Id")
@@ -595,128 +566,6 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("Packages");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.PackageItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PackageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ItemId");
-
-                    b.HasIndex("PackageId");
-
-                    b.ToTable("PackageItems");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Payment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CardExpires")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CardHolder")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Ip")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastFourCardDigit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ListingId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PackagePeriod")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PaymentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ListingId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Payments");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CustomerId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("ListingId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Message")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SellerResponse")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Stars")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("ListingId");
-
-                    b.ToTable("Reviews");
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.Sector", b =>
                 {
                     b.Property<int>("Id")
@@ -736,38 +585,6 @@ namespace DevCamp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sectors");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Setting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Skill", b =>
@@ -1106,59 +923,6 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Listing");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.PackageItem", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.Item", "Item")
-                        .WithMany("Packages")
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DevCamp.Data.Models.Package", "Package")
-                        .WithMany("Items")
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Item");
-
-                    b.Navigation("Package");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Payment", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.Listing", "Listing")
-                        .WithMany()
-                        .HasForeignKey("ListingId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("DevCamp.Data.Models.ApplicationUser", "User")
-                        .WithMany("Payments")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Listing");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Review", b =>
-                {
-                    b.HasOne("DevCamp.Data.Models.ApplicationUser", "Customer")
-                        .WithMany("WrittenReviews")
-                        .HasForeignKey("CustomerId");
-
-                    b.HasOne("DevCamp.Data.Models.Listing", "Listing")
-                        .WithMany("Reviews")
-                        .HasForeignKey("ListingId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Listing");
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.SubCategory", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.Category", "Category")
@@ -1291,15 +1055,11 @@ namespace DevCamp.Data.Migrations
 
                     b.Navigation("Logins");
 
-                    b.Navigation("Payments");
-
                     b.Navigation("Roles");
 
                     b.Navigation("Skills");
 
                     b.Navigation("SpokenLanguages");
-
-                    b.Navigation("WrittenReviews");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Category", b =>
@@ -1314,11 +1074,6 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("DevCamp.Data.Models.Item", b =>
-                {
-                    b.Navigation("Packages");
-                });
-
             modelBuilder.Entity("DevCamp.Data.Models.Language", b =>
                 {
                     b.Navigation("Users");
@@ -1329,13 +1084,6 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Faqs");
 
                     b.Navigation("Packages");
-
-                    b.Navigation("Reviews");
-                });
-
-            modelBuilder.Entity("DevCamp.Data.Models.Package", b =>
-                {
-                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Sector", b =>

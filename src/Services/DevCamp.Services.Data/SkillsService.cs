@@ -1,11 +1,11 @@
-﻿using DevCamp.Services.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    using DevCamp.Services.Data.Interfaces;
+
     public class SkillsService : ISkillsService
     {
         public Task CreateAsync(string technologyName, string level, string userId, int skillId)

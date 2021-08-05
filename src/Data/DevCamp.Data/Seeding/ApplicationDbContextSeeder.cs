@@ -37,12 +37,10 @@
             var seeders = new List<ISeeder>
                           {
                               new RolesSeeder(),
-                              new SettingsSeeder(),
                               new CountriesSeeder(this.contentRootPath),
                               new SectorsSeeder(),
                               new CategoriesSeeder(),
                               new SubCategoriesSeeder(),
-                              new ItemsSeeder(),
                               new LanguagesSeeder(),
                           };
 

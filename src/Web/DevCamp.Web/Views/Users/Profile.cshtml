@@ -45,7 +45,8 @@
         <div class="container border mt-4">
             <div class="row mt-4">
                 <h5 class="col-6">Description</h5>
-                <a class="col-6 text-end" asp-action="EditDescription" asp-controller="Users">Edit</a>
+                <a class="col-6 text-end">Edit</a>
+                <div id="PartialDescription"></div>
             </div>
             <div class="row mt-2">
                 @if (Model.Information == null)
@@ -186,3 +187,7 @@
         }
     </div>
 </div>
+
+@section Scripts{
+    <script src="~/js/Custom/EditDescription.js" asp-append-version="true"></script>
+}

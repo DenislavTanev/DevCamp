@@ -24,8 +24,6 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
-
         public DbSet<Achievement> Achievements { get; set; }
 
         public DbSet<Skill> Skills { get; set; }
@@ -42,19 +40,11 @@
 
         public DbSet<Package> Packages { get; set; }
 
-        public DbSet<Item> Items { get; set; }
-
-        public DbSet<Review> Reviews { get; set; }
-
-        public DbSet<Payment> Payments { get; set; }
-
         public DbSet<AboutUs> AboutUs { get; set; }
 
         public DbSet<ContactForm> ContactForm { get; set; }
 
         public DbSet<UserAchievement> UsersAchievements { get; set; }
-
-        public DbSet<PackageItem> PackageItems { get; set; }
 
         public DbSet<UserSkill> UsersSkills { get; set; }
 

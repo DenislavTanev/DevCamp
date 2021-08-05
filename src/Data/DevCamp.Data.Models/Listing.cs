@@ -9,7 +9,6 @@
         public Listing()
         {
             this.Packages = new HashSet<Package>();
-            this.Reviews = new HashSet<Review>();
             this.Faqs = new HashSet<FrequentlyAskedQuestion>();
         }
 
@@ -34,8 +33,6 @@
         public SubCategory SubCategory { get; set; }
 
         public ICollection<Package> Packages { get; set; }
-
-        public ICollection<Review> Reviews { get; set; }
 
         public ICollection<FrequentlyAskedQuestion> Faqs { get; set; }
     }

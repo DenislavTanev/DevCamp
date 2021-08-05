@@ -6,11 +6,6 @@
 
     public class Package : BaseDeletableModel<int>
     {
-        public Package()
-        {
-            this.Items = new HashSet<PackageItem>();
-        }
-
         public string Name { get; set; }
 
         public decimal Price { get; set; }
@@ -20,8 +15,6 @@
         public string Revisions { get; set; }
 
         public string DeliveryTime { get; set; }
-
-        public ICollection<PackageItem> Items { get; set; }
 
         public int ListingId { get; set; }
 

@@ -7,7 +7,6 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.DropDownModels;
-    using DevCamp.Web.ViewModels.PricePackages;
 
     public class ListingCreateInputModel : IMapTo<Listing>
     {
@@ -30,8 +29,6 @@
 
         [Required(ErrorMessage = "The field is required!")]
         public int SubCategoryId { get; set; }
-
-        public PackageCreateInputModel Package { get; set; }
 
         public IEnumerable<CategoriesDropDownViewModel> Categories { get; set; }
 
