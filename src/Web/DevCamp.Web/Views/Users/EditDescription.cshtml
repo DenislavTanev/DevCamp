@@ -1,12 +1,18 @@
-﻿<div>Edit Description</div>
+﻿@model DevCamp.Web.ViewModels.Users.EditDescriptionViewModel
+
+
 <div class="col-4">
-    <form>
-        <textarea rows="5"></textarea>
-        <hr />
-        <div class="row">
-            <a class="col btn btn-light border">Cancel</a>
-            <a class="col btn btn-success ms-3 border" asp-action="EditDescription" asp-controller="Users">Update</a>
+    <form method="post">
+        <div class="form-group was-validated">
+            <label asp-for="@Model.Information"></label>
+            <textarea asp-for="@Model.Information" class="form-control" rows="5" required></textarea>
+            <span asp-validation-for="@Model.Information" class="text-danger"></span>
         </div>
+        <hr />
+        <input hidden asp-for="@Model.Id"/>
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
     </form>
 </div>
 

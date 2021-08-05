@@ -1,11 +1,12 @@
-﻿using DevCamp.Services.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using DevCamp.Services.Data.Interfaces;
+
     public class CertificationsService : ICerficationsService
     {
         public Task CreateAsync(string certificate, string certifiedFrom, int year, string userId)

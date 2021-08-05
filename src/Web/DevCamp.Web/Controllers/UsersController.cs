@@ -46,9 +46,20 @@
             return this.View(user);
         }
 
-        public IActionResult EditDescription()
+        public async Task<IActionResult> EditDescription()
         {
-            return this.View();
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.usersService.GetById<EditDescriptionViewModel>(userId);
+
+            return this.View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditDescription(EditDescriptionViewModel input)
+        {
+            await this.usersService.EditDescriptionAsync(input.Id, input.Information);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = input.Id });
         }
     }
 }

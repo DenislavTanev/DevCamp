@@ -1,11 +1,12 @@
-﻿using DevCamp.Services.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using DevCamp.Services.Data.Interfaces;
+
     public class EducationsService : IEducationsService
     {
         public Task CreateAsync(string universityName, string universityLocation, string title, string major, int graduationYear, string userId)
