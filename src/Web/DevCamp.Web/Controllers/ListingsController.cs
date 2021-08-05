@@ -78,7 +78,7 @@
                 (int)input.CategoryId,
                 (int)input.SubCategoryId);
 
-            return this.RedirectToAction("Create", "Packages", new { listingId = listingId });
+            return this.RedirectToAction("Create", "PricePackages", new { listingId = listingId });
         }
 
         public async Task<IActionResult> Index()

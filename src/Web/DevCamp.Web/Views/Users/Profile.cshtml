@@ -15,18 +15,26 @@
             <div class="container overflow-hidden mt-3">
                 <div class="row">
                     <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-success btn-lg">Contact Me</button>
+                        <button type="button" class="btn btn-success ">Contact Me</button>
                     </div>
                     <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-light btn-lg">Get a Quote</button>
+                        <button type="button" class="btn btn-light ">Get a Quote</button>
                     </div>
                 </div>
             </div>
             <hr />
             <div class="row">
-                <i class="col-1 fa fa-map-marker text-center" style="padding-top:6px;" aria-hidden="true"></i>
-                <p class="col text-start">From</p>
-                <p class="col text-end">@Model.Country.Name</p>
+                @if (Model.Country == null)
+                {
+                    <p class="col text-start">From</p>
+                    <div class="col bnt btn-success btn">Add your location</div>
+                }
+                else
+                {
+                    <i class="col-1 fa fa-map-marker text-center" style="padding-top:6px;" aria-hidden="true"></i>
+                    <p class="col text-start">From</p>
+                    <p class="col text-end">@Model.Country.Name</p>
+                }
             </div>
             <div class="row">
                 <i class="col-1 fa fa-user-circle-o text-center" style="padding-top:6px;" aria-hidden="true"></i>
@@ -40,7 +48,14 @@
                 <a class="col-6 text-end" asp-action="EditDescription" asp-controller="Users">Edit</a>
             </div>
             <div class="row mt-2">
-                <p>@Model.Information</p>
+                @if (Model.Information == null)
+                {
+                    <p class="text-muted">Tell us more about yourself.Buyers are also interested in learning about you as a person.</p>
+                }
+                else
+                {
+                    <p>@Model.Information</p>
+                }
             </div>
             <hr />
             <div class="row mt-3">
@@ -48,18 +63,22 @@
                 <a class="col-6 text-end" asp-action="AddLanguage" asp-controller="Languages">Add New</a>
             </div>
             <ul class="container">
-                @foreach (var item in Model.SpokenLanguages)
+                @if (Model.SpokenLanguages.Any())
                 {
-                    <li class="row">
-                        <div class="col">@item.Language</div>
-                        <div class="col text-muted">@item.Level</div>
-                        <a asp-action="EditLanguage" asp-controller="Language">Edit</a>
-                    </li>
+                    @foreach (var item in Model.SpokenLanguages)
+                    {
+                        <li class="row">
+                            <div class="col">@item.Language</div>
+                            <div class="col text-muted">@item.Level</div>
+                            <a asp-action="EditLanguage" asp-controller="Language">Edit</a>
+                        </li>
+                    }
                 }
-                <li class="row">
-                    <p class="col">English - </p>
-                    <p class="col text-muted">Basic</p>
-                </li>
+                else
+                {
+                    <li class="row text-muted">Add languages that you speak so buyers can find you easily.</li>
+                }
+
             </ul>
             <hr />
             <div class="row mt-3">
@@ -67,17 +86,20 @@
                 <a class="col-6 text-end" asp-action="AddSkill" asp-controller="Skills">Add New</a>
             </div>
             <div class="row">
-                @foreach (var item in Model.Skills)
+                @if (Model.Skills.Any())
                 {
-                    <div class="container">
-                        <div>@item.Skill.TechnologyName</div>
-                        <a asp-action="EditSkill" asp-controller="Skills">Edit</a>
-                    </div>
+                    @foreach (var item in Model.Skills)
+                    {
+                        <div class="col-5 offset-1 border rounded-pill mt-1">
+                            <div class="text-center">@item.Skill.TechnologyName</div>
+                            <a asp-action="EditSkill" asp-controller="Skills">Edit</a>
+                        </div>
+                    }
                 }
-                <div class="container">
-                    <p>Node.Js</p>
-                </div>
-                <p>React.js</p>
+                else
+                {
+                    <div class="text-muted">Add your skills.</div>
+                }
             </div>
             <hr />
             <div class="row mt-3">
@@ -85,12 +107,23 @@
                 <a class="col-6 text-end" asp-action="AddEducation" asp-controller="Educations">Add New</a>
             </div>
             <div class="row">
-                @foreach (var item in Model.Skills)
+                @if (Model.Educations.Any())
                 {
-                    <div class="container">
-                        <div>@item.Skill.TechnologyName</div>
-                        <a asp-action="EditEducation" asp-controller="Educations">Edit</a>
-                    </div>
+                    @foreach (var item in Model.Educations)
+                    {
+                        <div class="container">
+                            <div>
+                                @item.Title - @item.Major
+                                <a class="text-dark border-0" asp-action="EditEducation" asp-controller="Educations"><i class="fa fa-pencil"></i></a>
+                                <a class="text-dark border-0" asp-action="DeleteEducation" asp-controller="Educations"><i class="fa fa-trash"></i></a>
+                            </div>
+                            <div class="text-muted">@item.UniversityName, @item.UniversityLocation, Graduated @item.GraduationYear</div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-muted">Add your Education.</div>
                 }
             </div>
             <hr />
@@ -99,12 +132,23 @@
                 <a class="col-6 text-end" asp-action="AddCertification" asp-controller="Certifications">Add New</a>
             </div>
             <div class="row">
-                @foreach (var item in Model.Skills)
+                @if (Model.Certifications.Any())
                 {
-                    <div class="container">
-                        <div>@item.Skill.TechnologyName</div>
-                        <a asp-action="EditCertification" asp-controller="Certifications">Edit</a>
-                    </div>
+                    @foreach (var item in Model.Certifications)
+                    {
+                        <div class="container">
+                            <div>
+                                @item.Certificate
+                                <a class="text-dark border-0" asp-action="EditCertification" asp-controller="Certifications"><i class="fa fa-pencil"></i></a>
+                                <a class="text-dark border-0" asp-action="DeleteCertification" asp-controller="Certifications"><i class="fa fa-trash"></i></a>
+                            </div>
+                            <div class="text-muted">@item.CertifiedFrom @item.Year</div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-muted">Add your Cerficates.</div>
                 }
             </div>
         </div>
@@ -113,15 +157,15 @@
     <div class="col-sm-8">
         @if (!Model.Listings.Any())
         {
-            <div class="container row">
-                <div class="col-8">It seems that you don't have any active Gigs. Get selling!</div>
-                <button class="col-4 bg-success">Create a New Gig</button>
+            <div class="container row border mt-3">
+                <div class="col-8 mt-2 mb-2">It seems that you don't have any active Gigs. Get selling!</div>
+                <a class="col-4 btn btn-success mt-2 mb-2" asp-controller="Listings" asp-action="Create">Create a new Gig!</a>
             </div>
         }
         else
         {
             <div class="row">
-                <h1>User's Gigs</h1>
+                <h1>User's Gigs <a class="btn btn-success" asp-controller="Listings" asp-action="Create"><i class="fa fa-plus"></i></a></h1>
             </div>
             <div class="row">
                 @foreach (var listing in Model.Listings)

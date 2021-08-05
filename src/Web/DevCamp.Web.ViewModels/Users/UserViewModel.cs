@@ -29,5 +29,9 @@
         public ICollection<Listing> Listings { get; set; }
 
         public ICollection<UserSkill> Skills { get; set; }
+
+        public ICollection<Education> Educations { get; set; }
+
+        public ICollection<Certification> Certifications { get; set; }
     }
 }

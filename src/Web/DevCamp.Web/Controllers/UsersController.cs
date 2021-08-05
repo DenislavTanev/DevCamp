@@ -49,7 +49,7 @@
 
         public IActionResult EditDescription()
         {
-            return this.View();
+            return this.PartialView();
         }
     }
 }

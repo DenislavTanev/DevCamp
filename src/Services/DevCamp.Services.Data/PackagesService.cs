@@ -15,36 +15,47 @@
     {
         private readonly IDeletableEntityRepository<Package> packagesRepository;
         private readonly IDeletableEntityRepository<Listing> listingsRepository;
+        private readonly IListingsService listingsService;
 
         public PackagesService(
             IDeletableEntityRepository<Package> packagesRepository,
-            IDeletableEntityRepository<Listing> listingsRepository)
+            IDeletableEntityRepository<Listing> listingsRepository,
+            IListingsService listingsService)
         {
             this.packagesRepository = packagesRepository;
             this.listingsRepository = listingsRepository;
+            this.listingsService = listingsService;
         }
 
         public async Task CreateAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage)
         {
             var basic = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == basicPackage.Id);
+
             basic.Price = basicPackage.Price;
             basic.Description = basicPackage.Description;
             basic.Revisions = basicPackage.Revisions;
             basic.DeliveryTime = basicPackage.DeliveryTime;
 
             var standart = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == standartPackage.Id);
+
             standart.Price = standartPackage.Price;
             standart.Description = standartPackage.Description;
             standart.Revisions = standartPackage.Revisions;
             standart.DeliveryTime = standartPackage.DeliveryTime;
 
             var premium = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == premiumPackage.Id);
+
             premium.Price = premiumPackage.Price;
             premium.Description = premiumPackage.Description;
             premium.Revisions = premiumPackage.Revisions;
             premium.DeliveryTime = premiumPackage.DeliveryTime;
 
+            var listing = await this.listingsRepository.All().FirstOrDefaultAsync(x => x.Id == basic.ListingId);
+
+            listing.StartingPrice = basic.Price;
+
             await this.packagesRepository.SaveChangesAsync();
+            await this.listingsRepository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
