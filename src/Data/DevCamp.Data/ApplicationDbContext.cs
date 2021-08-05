@@ -24,8 +24,6 @@
         {
         }
 
-        public DbSet<Achievement> Achievements { get; set; }
-
         public DbSet<Skill> Skills { get; set; }
 
         public DbSet<Sector> Sectors { get; set; }
@@ -43,8 +41,6 @@
         public DbSet<AboutUs> AboutUs { get; set; }
 
         public DbSet<ContactForm> ContactForm { get; set; }
-
-        public DbSet<UserAchievement> UsersAchievements { get; set; }
 
         public DbSet<UserSkill> UsersSkills { get; set; }
 
