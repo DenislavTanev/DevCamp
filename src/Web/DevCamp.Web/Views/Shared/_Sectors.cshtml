@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DevCamp.Web.ViewModels.DropDownModels.SectorsDropDownViewModel>
+
+<div class="dropdown">
+    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        @foreach (var sector in Model)
+        {
+            <li><a class="dropdown-item" href="#">@sector.Name</a></li>
+        }
+        <li><a class="dropdown-item" href="#">Design</a></li>
+        <li><a class="dropdown-item" href="#">Indie game development</a></li>
+        <li><a class="dropdown-item" href="#">Full website creation</a></li>
+    </ul>
+</div>

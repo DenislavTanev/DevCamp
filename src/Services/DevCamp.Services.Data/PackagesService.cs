@@ -15,16 +15,13 @@
     {
         private readonly IDeletableEntityRepository<Package> packagesRepository;
         private readonly IDeletableEntityRepository<Listing> listingsRepository;
-        private readonly IListingsService listingsService;
 
         public PackagesService(
             IDeletableEntityRepository<Package> packagesRepository,
-            IDeletableEntityRepository<Listing> listingsRepository,
-            IListingsService listingsService)
+            IDeletableEntityRepository<Listing> listingsRepository)
         {
             this.packagesRepository = packagesRepository;
             this.listingsRepository = listingsRepository;
-            this.listingsService = listingsService;
         }
 
         public async Task CreateAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage)

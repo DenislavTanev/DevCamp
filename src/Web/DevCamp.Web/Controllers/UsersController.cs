@@ -10,7 +10,6 @@
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
 
     public class UsersController : Controller
     {
@@ -47,6 +46,9 @@
             return this.View(user);
         }
 
-        public IActionResult EditDescription() => this.PartialView("_EditDescription");
+        public IActionResult EditDescription()
+        {
+            return this.View();
+        }
     }
 }
