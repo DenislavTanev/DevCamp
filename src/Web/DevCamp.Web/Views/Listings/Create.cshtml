@@ -1,12 +1,8 @@
 ﻿@model DevCamp.Web.ViewModels.Listings.ListingCreateInputModel
 
-@{
-    var categories = Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
-    var subCategories = Model.SubCategories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
-}
-
 @{       
     this.ViewData["Title"] = "Create Gig";
+    var sectors = Model.Sectors.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
 
 <div class="p-4">
@@ -20,19 +16,14 @@
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="form-group was-validated">
-            <label asp-for="CategoryId"></label>
-            <select asp-for="CategoryId" asp-items="categories" class="form-control rounded-pill custom-select myselect" required>
+            <label asp-for="SectorId"></label>
+            <select asp-for="SectorId" asp-items="sectors" id="SectorSelect" onchange="SelectCategory()" class="form-control rounded-pill custom-select myselect" required>
                 <option value="" disabled selected>Select Category</option>
             </select>
-            <span asp-validation-for="CategoryId" class="text-danger"></span>
+            <span asp-validation-for="SectorId" class="text-danger"></span>
         </div>
-        <div class="form-group was-validated">
-            <label asp-for="SubCategoryId"></label>
-            <select asp-for="SubCategoryId" asp-items="subCategories" class="form-control rounded-pill custom-select myselect" required>
-                <option value="" disabled selected>Select SubCategory</option>
-            </select>
-            <span asp-validation-for="SubCategoryId" class="text-danger"></span>
-        </div>
+        <div id="CategoriesInput"></div>
+        <div id="SubCategoriesInput"></div>
         <div class="form-group was-validated">
             <label asp-for="ProjectDetails"></label>
             <textarea asp-for="ProjectDetails" class="form-control" rows="5" required></textarea>
@@ -45,3 +36,7 @@
         </button>
     </form>
 </div>                        
+
+@section Scripts{ 
+      <script src="~/js/Custom/AddLanguage.js" asp-append-version="true"></script>
+}

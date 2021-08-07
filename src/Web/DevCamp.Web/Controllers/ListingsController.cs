@@ -20,19 +20,22 @@
         private readonly ICategoriesService categoriesService;
         private readonly ISubCategoriesService subCategoriesService;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly ISectorsService sectorsService;
 
         public ListingsController(
             UserManager<ApplicationUser> userManager,
             IListingsService listingsService,
             ICategoriesService categoriesService,
             ISubCategoriesService subCategoriesService,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            ISectorsService sectorsService)
         {
             this.userManager = userManager;
             this.listingsService = listingsService;
             this.categoriesService = categoriesService;
             this.subCategoriesService = subCategoriesService;
             this.signInManager = signInManager;
+            this.sectorsService = sectorsService;
         }
 
         public IActionResult EditTitle()
@@ -47,13 +50,11 @@
 
         public IActionResult Create()
         {
-            var categories = this.categoriesService.GetAll<CategoriesDropDownViewModel>(1);
-            var subCategories = this.subCategoriesService.GetAll<SubCategoriesDropDownViewModel>(1);
+            var sectors = this.sectorsService.GetAll<SectorsDropDownViewModel>();
 
             var viewModel = new ListingCreateInputModel
             {
-                Categories = categories,
-                SubCategories = subCategories,
+                Sectors = sectors,
             };
 
             return this.View(viewModel);
@@ -75,8 +76,8 @@
                 input.Title,
                 input.ProjectDetails,
                 user.Id,
-                (int)input.CategoryId,
-                (int)input.SubCategoryId);
+                input.CategoryId,
+                input.SubCategoryId);
 
             return this.RedirectToAction("Create", "PricePackages", new { listingId = listingId });
         }
@@ -88,6 +89,26 @@
             listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
 
             return this.View(listing);
+        }
+
+        public IActionResult GetCategories(int sectorId)
+        {
+            var viewModel = new ListingCreateInputModel
+            {
+                Categories = this.categoriesService.GetAll<CategoriesDropDownViewModel>(sectorId),
+            };
+
+            return this.PartialView(viewModel);
+        }
+
+        public IActionResult GetSubCategories(int categoryId)
+        {
+            var viewModel = new ListingCreateInputModel
+            {
+                SubCategories = this.subCategoriesService.GetAll<SubCategoriesDropDownViewModel>(categoryId),
+            };
+
+            return this.PartialView(viewModel);
         }
     }
 }

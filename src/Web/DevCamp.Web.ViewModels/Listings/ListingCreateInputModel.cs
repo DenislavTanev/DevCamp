@@ -30,7 +30,12 @@
         [Required(ErrorMessage = "The field is required!")]
         public int SubCategoryId { get; set; }
 
+        [Required(ErrorMessage = "The field is required!")]
+        public int SectorId { get; set; }
+
         public IEnumerable<CategoriesDropDownViewModel> Categories { get; set; }
+
+        public IEnumerable<SectorsDropDownViewModel> Sectors { get; set; }
 
         public IEnumerable<SubCategoriesDropDownViewModel> SubCategories { get; set; }
     }

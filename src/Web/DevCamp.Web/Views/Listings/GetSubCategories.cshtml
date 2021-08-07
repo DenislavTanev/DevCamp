@@ -1,0 +1,13 @@
+﻿@model DevCamp.Web.ViewModels.Listings.ListingCreateInputModel
+
+@{
+    var subCategories = Model.SubCategories.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
+}
+
+<div class="form-group was-validated">
+    <label asp-for="SubCategoryId"></label>
+    <select asp-for="SubCategoryId" asp-items="subCategories" class="form-control rounded-pill custom-select myselect" required>
+        <option value="" disabled selected>Select Category</option>
+    </select>
+    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+</div>
