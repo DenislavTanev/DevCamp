@@ -1,12 +1,12 @@
 ﻿function editDescription() {
-    if (true) {
         $.ajax({
-            cache: false,
             type: "GET",
             url: "/Users/EditDescription",
-            success: function () {
-                $('#PartialDescription').html("");
+            success: function (data) {
+                $('#PartialDescription').html(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(response.responseText);
             }
         });
-    }
 };

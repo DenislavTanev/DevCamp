@@ -31,16 +31,21 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
-            return this.View(userId, languages);
+            var viewModel = new LanguageCreateInputModel
+            {
+                UserId = userId,
+                Languages = languages,
+            };
+
+            return this.View(viewModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddLanguage(LanguageCreateInputModel input)
         {
-            var userId = this.userManager.GetUserId(this.User);
-            await this.usersService.AddLanguageAsync(userId, input.LanguageId, input.Level);
+            await this.usersService.AddLanguageAsync(input.UserId, input.LanguageId, input.Level);
 
-            return this.View(userId);
+            return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
 
         public IActionResult EditLanguage(int id)

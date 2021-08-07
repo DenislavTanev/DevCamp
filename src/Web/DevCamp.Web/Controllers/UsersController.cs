@@ -51,7 +51,7 @@
             var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<EditDescriptionViewModel>(userId);
 
-            return this.View(user);
+            return this.PartialView(user);
         }
 
         [HttpPost]
