@@ -27,6 +27,7 @@
                 .All()
                 .Where(x => x.Id == userId)
                 .Include(x => x.SpokenLanguages)
+                .Include(x => x.Listings)
                 .To<T>()
                 .FirstOrDefaultAsync();
 
@@ -99,24 +100,24 @@
             await this.usersRepository.SaveChangesAsync();
         }
 
-        public async Task EditLanguageAsync(int id, string level)
+        public async Task EditLanguageAsync(int id, int levelId)
         {
             var language = await this.languageRepository
                 .All()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            language.Level = level;
+            language.LevelId = levelId;
 
             await this.languageRepository.SaveChangesAsync();
         }
 
-        public async Task AddLanguageAsync(string userId, int languageId, string level)
+        public async Task AddLanguageAsync(string userId, int languageId, int levelId)
         {
             var language = new UserLanguage
             {
                 LanguageId = languageId,
                 UserId = userId,
-                Level = level,
+                LevelId = levelId,
             };
 
             await this.languageRepository.AddAsync(language);

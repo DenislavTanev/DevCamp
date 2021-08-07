@@ -7,6 +7,7 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -17,17 +18,20 @@
         private readonly IUsersService usersService;
         private readonly ILanguagesService languagesService;
         private readonly ICountriesService countriesService;
+        private readonly IUserLanguagesService userLanguagesService;
 
         public UsersController(
             UserManager<ApplicationUser> userManager,
             IUsersService usersService,
             ILanguagesService languagesService,
-            ICountriesService countriesService)
+            ICountriesService countriesService, 
+            IUserLanguagesService userLanguagesService)
         {
             this.userManager = userManager;
             this.usersService = usersService;
             this.languagesService = languagesService;
             this.countriesService = countriesService;
+            this.userLanguagesService = userLanguagesService;
         }
 
         public async Task<IActionResult> Index()

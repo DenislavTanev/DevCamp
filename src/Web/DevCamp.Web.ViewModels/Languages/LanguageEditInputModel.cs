@@ -13,6 +13,6 @@
         public int LanguageId { get; set; }
 
         [Required]
-        public string Level { get; set; }
+        public int LevelId { get; set; }
     }
 }

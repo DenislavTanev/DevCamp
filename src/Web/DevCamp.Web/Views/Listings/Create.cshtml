@@ -1,6 +1,6 @@
 ﻿@model DevCamp.Web.ViewModels.Listings.ListingCreateInputModel
 
-@{       
+@{
     this.ViewData["Title"] = "Create Gig";
     var sectors = Model.Sectors.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
@@ -29,14 +29,15 @@
             <textarea asp-for="ProjectDetails" class="form-control" rows="5" required></textarea>
             <span asp-validation-for="ProjectDetails" class="text-danger"></span>
         </div>
-        
+
         <hr />
         <button type="submit" class="btn btn-success btn-user btn-block">
             Create
         </button>
     </form>
-</div>                        
+</div>
 
-@section Scripts{ 
-      <script src="~/js/Custom/AddLanguage.js" asp-append-version="true"></script>
+@section Scripts{
+    <script src="~/js/Custom/Categories.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/SubCategories.js" asp-append-version="true"></script>
 }

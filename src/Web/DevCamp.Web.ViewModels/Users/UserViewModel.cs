@@ -5,6 +5,8 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
+    using DevCamp.Web.ViewModels.Languages;
+    using DevCamp.Web.ViewModels.Listings;
 
     public class UserViewModel : IMapFrom<ApplicationUser>
     {
@@ -24,9 +26,9 @@
 
         public Country Country { get; set; }
 
-        public ICollection<UserLanguage> SpokenLanguages { get; set; }
+        public ICollection<UserLanguageViewModel> SpokenLanguages { get; set; }
 
-        public ICollection<Listing> Listings { get; set; }
+        public ICollection<ListingViewModel> Listings { get; set; }
 
         public ICollection<UserSkill> Skills { get; set; }
 

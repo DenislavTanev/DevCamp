@@ -1,8 +1,12 @@
-﻿namespace DevCamp.Data.Models
-{
-    using DevCamp.Data.Common.Models;
+﻿using DevCamp.Data.Models;
+using DevCamp.Services.Mapping;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-    public class UserLanguage : BaseDeletableModel<int>
+namespace DevCamp.Web.ViewModels.Languages
+{
+    public class UserLanguageViewModel : IMapFrom<UserLanguage>
     {
         public int LanguageId { get; set; }
 

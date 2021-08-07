@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevCamp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210805221302_RemoveAchievements")]
-    partial class RemoveAchievements
+    [Migration("20210807231241_FirstCreate")]
+    partial class FirstCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -437,6 +437,27 @@ namespace DevCamp.Data.Migrations
                     b.ToTable("Languages");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Level", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Levels");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
                 {
                     b.Property<int>("Id")
@@ -634,8 +655,8 @@ namespace DevCamp.Data.Migrations
                     b.Property<int>("LanguageId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Level")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("LevelId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -648,6 +669,8 @@ namespace DevCamp.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.HasIndex("LanguageId");
+
+                    b.HasIndex("LevelId");
 
                     b.HasIndex("UserId");
 
@@ -884,11 +907,19 @@ namespace DevCamp.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("DevCamp.Data.Models.Level", "Level")
+                        .WithMany("Users")
+                        .HasForeignKey("LevelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("DevCamp.Data.Models.ApplicationUser", "User")
                         .WithMany("SpokenLanguages")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Language");
+
+                    b.Navigation("Level");
 
                     b.Navigation("User");
                 });
@@ -993,6 +1024,11 @@ namespace DevCamp.Data.Migrations
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Language", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.Level", b =>
                 {
                     b.Navigation("Users");
                 });

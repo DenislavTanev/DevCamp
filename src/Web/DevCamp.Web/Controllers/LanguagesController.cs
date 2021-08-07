@@ -14,15 +14,18 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IUsersService usersService;
         private readonly ILanguagesService languagesService;
+        private readonly ILevelsService levelsService;
 
         public LanguagesController(
             UserManager<ApplicationUser> userManager,
             IUsersService usersService,
-            ILanguagesService languagesService)
+            ILanguagesService languagesService,
+            ILevelsService levelsService)
         {
             this.userManager = userManager;
             this.usersService = usersService;
             this.languagesService = languagesService;
+            this.levelsService = levelsService;
         }
 
         public IActionResult AddLanguage()
@@ -31,19 +34,22 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
+            var levels = this.levelsService.GetAll<LevelDropDownViewModel>();
+
             var viewModel = new LanguageCreateInputModel
             {
                 UserId = userId,
                 Languages = languages,
+                Levels = levels,
             };
 
-            return this.View(viewModel);
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddLanguage(LanguageCreateInputModel input)
         {
-            await this.usersService.AddLanguageAsync(input.UserId, input.LanguageId, input.Level);
+            await this.usersService.AddLanguageAsync(input.UserId, input.LanguageId, input.LevelId);
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
@@ -57,7 +63,7 @@
         public async Task<IActionResult> EditLanguage(LanguageEditInputModel input)
         {
             var userId = this.userManager.GetUserId(this.User);
-            await this.usersService.EditLanguageAsync(input.Id, input.Level);
+            await this.usersService.EditLanguageAsync(input.Id, input.LevelId);
 
             return this.RedirectToAction("Profile", "Users", new { userId = userId });
         }

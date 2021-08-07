@@ -36,12 +36,15 @@
 
             var seeders = new List<ISeeder>
                           {
+                              new AboutUsSeeder(),
                               new RolesSeeder(),
                               new CountriesSeeder(this.contentRootPath),
                               new SectorsSeeder(),
                               new CategoriesSeeder(),
                               new SubCategoriesSeeder(),
                               new LanguagesSeeder(),
+                              new LevelsSeeder(),
+                              new SkillsSeeder(),
                           };
 
             foreach (var seeder in seeders)

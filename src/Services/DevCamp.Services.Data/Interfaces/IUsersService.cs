@@ -19,8 +19,8 @@
 
         Task EditProfessionAsync(string userId, string profession);
 
-        Task EditLanguageAsync(int id, string level);
+        Task EditLanguageAsync(int id, int levelId);
 
-        Task AddLanguageAsync(string userId, int languageId, string level);
+        Task AddLanguageAsync(string userId, int languageId, int levelId);
     }
 }

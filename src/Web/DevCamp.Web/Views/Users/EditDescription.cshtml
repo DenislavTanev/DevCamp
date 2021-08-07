@@ -1,10 +1,9 @@
 ﻿@model DevCamp.Web.ViewModels.Users.EditDescriptionViewModel
 
 
-<div class="col-4">
+<div>
     <form method="post" asp-controller="Users" asp-action="EditDescription">
         <div class="form-group was-validated">
-            <label asp-for="@Model.Information"></label>
             <textarea asp-for="@Model.Information" class="form-control" rows="5" required></textarea>
             <span asp-validation-for="@Model.Information" class="text-danger"></span>
         </div>

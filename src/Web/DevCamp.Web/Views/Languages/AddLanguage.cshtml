@@ -2,18 +2,25 @@
 
 @{ 
     var languages = Model.Languages.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
+    var levels = Model.Levels.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
 
 <div>Add Language</div>
 <div>
-    <form method="post">
+    <form method="post" asp-controller="Languages" asp-action="AddLanguage">
         <div class="form-group was-validated">
             <select asp-for="LanguageId" asp-items="languages" class="form-control rounded-pill custom-select myselect" required>
                 <option value="" disabled selected>Select Language</option>
             </select>
         </div>
-        <div>
-            <input />
+        <div class="form-group was-validated">
+            <select asp-for="LevelId" asp-items="levels" class="form-control rounded-pill custom-select myselect" required>
+                <option value="" disabled selected>Select Language</option>
+            </select>
         </div>
+        <input asp-for="UserId" hidden/>
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
     </form>
 </div>

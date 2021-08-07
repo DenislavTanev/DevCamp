@@ -45,11 +45,9 @@
         <div class="container border mt-4">
             <div class="row mt-4">
                 <h5 class="col-6">Description</h5>
-                <a class="col-6 text-end" asp-action="EditDescription" asp-controller="Users">Edit</a>
-                <input type="button" onclick="editDescription()" value="Edit ajax" />
-                <div id="PartialDescription"></div>
+                <input class="offset-4 col-2 text-end" type="button" onclick="editDescription()" value="Edit" />
             </div>
-            <div class="row mt-2">
+            <div class="row mt-2" id="PartialDescription">
                 @if (Model.Information == null)
                 {
                     <p class="text-muted">Tell us more about yourself.Buyers are also interested in learning about you as a person.</p>
@@ -62,16 +60,17 @@
             <hr />
             <div class="row mt-3">
                 <h5 class="col-6">Languages</h5>
-                <a class="col-6 text-end" asp-action="AddLanguage" asp-controller="Languages">Add New</a>
+                <input class="offset-4 col-2 text-end" type="button" onclick="addLanguage()" value="Add New" />
             </div>
+            <div id="AddLanguage"></div>
             <ul class="container">
                 @if (Model.SpokenLanguages.Any())
                 {
                     @foreach (var item in Model.SpokenLanguages)
                     {
                         <li class="row">
-                            <div class="col">@item.Language</div>
-                            <div class="col text-muted">@item.Level</div>
+                            <div class="col">@item.Language.Name</div>
+                            <div class="col text-muted">@item.Level.Name</div>
                             <a asp-action="EditLanguage" asp-controller="Language">Edit</a>
                         </li>
                     }
@@ -80,7 +79,6 @@
                 {
                     <li class="row text-muted">Add languages that you speak so buyers can find you easily.</li>
                 }
-
             </ul>
             <hr />
             <div class="row mt-3">
@@ -172,16 +170,8 @@
             <div class="row">
                 @foreach (var listing in Model.Listings)
                 {
-                    var customModel = new ListingViewModel
-                    {
-                        Id = listing.Id,
-                        Title = listing.Title,
-                        StartingPrice = listing.StartingPrice,
-                        Username = Model.Name,
-                        UserProfilePic = Model.ProfilePic,
-                    };
                     <div class="col-md-4 mb-3">
-                        <partial name="_ListingPartial" model="customModel" />
+                        <partial name="_ListingPartial" model="listing" />
                     </div>
                 }
             </div>
@@ -191,4 +181,5 @@
 
 @section Scripts{
     <script src="~/js/Custom/EditDescription.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddLanguage.js" asp-append-version="true"></script>
 }
