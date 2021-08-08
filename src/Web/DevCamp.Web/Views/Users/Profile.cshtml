@@ -12,22 +12,14 @@
                     <h6>Darvar</h6>
                 </div>
             </div>
-            <div class="container overflow-hidden mt-3">
-                <div class="row">
-                    <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-success ">Contact Me</button>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                        <button type="button" class="btn btn-light ">Get a Quote</button>
-                    </div>
-                </div>
-            </div>
             <hr />
             <div class="row">
                 @if (Model.Country == null)
                 {
                     <p class="col text-start">From</p>
-                    <div class="col bnt btn-success btn">Add your location</div>
+                    <div id="AddLocation">
+                        <input class="offset-4 col-2 text-end" type="button" onclick="addLocation()" value="Add" />
+                    </div>
                 }
                 else
                 {
@@ -69,9 +61,11 @@
                     @foreach (var item in Model.SpokenLanguages)
                     {
                         <li class="row">
-                            <div class="col">@item.Language.Name</div>
-                            <div class="col text-muted">@item.Level.Name</div>
-                            <a asp-action="EditLanguage" asp-controller="Language">Edit</a>
+                            <div class="col-3">@item.Language.Name</div>
+                            <div class="col-8 text-muted text-start">
+                                @item.Level.Name
+                                <input class="offset-4 col-2 text-end" type="button" onclick="editLanguage(@item.Id)" value="edit" />
+                            </div>
                         </li>
                     }
                 }
@@ -182,4 +176,6 @@
 @section Scripts{
     <script src="~/js/Custom/EditDescription.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddLanguage.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditLanguage.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditLocation.js" asp-append-version="true"></script>
 }

@@ -1,5 +1,6 @@
 ﻿namespace DevCamp.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using DevCamp.Data.Models;
@@ -15,17 +16,20 @@
         private readonly IUsersService usersService;
         private readonly ILanguagesService languagesService;
         private readonly ILevelsService levelsService;
+        private readonly IUserLanguagesService userLanguagesService;
 
         public LanguagesController(
             UserManager<ApplicationUser> userManager,
             IUsersService usersService,
             ILanguagesService languagesService,
-            ILevelsService levelsService)
+            ILevelsService levelsService, 
+            IUserLanguagesService userLanguagesService)
         {
             this.userManager = userManager;
             this.usersService = usersService;
             this.languagesService = languagesService;
             this.levelsService = levelsService;
+            this.userLanguagesService = userLanguagesService;
         }
 
         public IActionResult AddLanguage()
@@ -54,9 +58,22 @@
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
 
-        public IActionResult EditLanguage(int id)
+        public async Task<IActionResult> EditLanguage(int id)
         {
-            return this.View(id);
+            var language = await this.userLanguagesService.GetById<UserLanguageViewModel>(id);
+
+            var levels = this.levelsService.GetAll<LevelDropDownViewModel>();
+
+            var viewModel = new LanguageEditInputModel
+            {
+                Levels = levels,
+                Id = id,
+                LanguageName = language.Language.Name,
+                LevelName = language.Level.Name,
+                LevelId = language.LevelId,
+            };
+
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]

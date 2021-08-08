@@ -5,7 +5,6 @@
     var levels = Model.Levels.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
 
-<div>Add Language</div>
 <div>
     <form method="post" asp-controller="Languages" asp-action="AddLanguage">
         <div class="form-group was-validated">

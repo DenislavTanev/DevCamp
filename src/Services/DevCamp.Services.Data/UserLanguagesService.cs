@@ -2,10 +2,12 @@
 using DevCamp.Data.Models;
 using DevCamp.Services.Data.Interfaces;
 using DevCamp.Services.Mapping;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DevCamp.Services.Data
 {
@@ -25,6 +27,17 @@ namespace DevCamp.Services.Data
                 .Where(x => x.UserId == userId)
                 .To<T>()
                 .ToList();
+
+            return userLanguages;
+        }
+
+        public async Task<T> GetById<T>(int id)
+        {
+            var userLanguages = await this.userLanguageRepository
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
 
             return userLanguages;
         }

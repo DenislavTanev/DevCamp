@@ -28,6 +28,9 @@
                 .Where(x => x.Id == userId)
                 .Include(x => x.SpokenLanguages)
                 .Include(x => x.Listings)
+                .Include(x => x.Skills)
+                .Include(x => x.Educations)
+                .Include(x => x.Certifications)
                 .To<T>()
                 .FirstOrDefaultAsync();
 

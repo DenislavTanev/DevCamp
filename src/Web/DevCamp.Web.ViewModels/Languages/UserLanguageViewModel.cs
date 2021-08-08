@@ -1,13 +1,12 @@
-﻿using DevCamp.Data.Models;
-using DevCamp.Services.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Web.ViewModels.Languages
+﻿namespace DevCamp.Web.ViewModels.Languages
 {
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
+
     public class UserLanguageViewModel : IMapFrom<UserLanguage>
     {
+        public int Id { get; set; }
+
         public int LanguageId { get; set; }
 
         public Language Language { get; set; }

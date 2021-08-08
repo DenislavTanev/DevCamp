@@ -7,6 +7,7 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
@@ -64,6 +65,28 @@
             await this.usersService.EditDescriptionAsync(input.Id, input.Information);
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.Id });
+        }
+
+        public IActionResult EditLocation()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var countries = this.countriesService.GetAll<CountriesDropDownViewModel>();
+
+            var viewModel = new EditLocationInputModel
+            {
+                UserId = userId,
+                Countries = countries,
+            };
+
+            return this.PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditLocation(EditLocationInputModel input)
+        {
+            await this.usersService.EditLocationAsync(input.UserId, input.CountryId);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
     }
 }

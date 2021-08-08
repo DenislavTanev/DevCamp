@@ -1,6 +1,23 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DevCamp.Web.ViewModels.Languages.LanguageEditInputModel
+
 @{
+    var levels = Model.Levels.Select(x => new SelectListItem(x.Name, x.Id.ToString()));
 }
-<div>Edit Language</div>
+
+<div>
+    <form method="post" asp-controller="Languages" asp-action="EditLanguage">
+        <div class="form-group was-validated">
+            <input class="form-control rounded-pill custom-select myselect" disabled value="@Model.LanguageName"/>
+        </div>
+        <div class="form-group was-validated">
+            <select asp-for="LevelId" asp-items="levels" class="form-control rounded-pill custom-select myselect" required>
+                <option value="@Model.LevelName" disabled selected>Select Level</option>
+            </select>
+        </div>
+        <input asp-for="Id" hidden/>
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>
+

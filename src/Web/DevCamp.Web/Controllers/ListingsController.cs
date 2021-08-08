@@ -67,7 +67,7 @@
 
             if (!this.ModelState.IsValid)
             {
-                input.Categories = this.categoriesService.GetAll<CategoriesDropDownViewModel>(1);
+                input.Sectors = this.sectorsService.GetAll<SectorsDropDownViewModel>();
 
                 return this.View(input);
             }
