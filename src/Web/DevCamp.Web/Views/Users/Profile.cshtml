@@ -1,5 +1,4 @@
 ﻿@model DevCamp.Web.ViewModels.Users.UserViewModel
-@using DevCamp.Web.ViewModels.Listings
 
 <div class="container row">
     <div class="col-sm-4 mt-2">
@@ -8,8 +7,26 @@
                 <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
                      data-holder-rendered="true">
                 <div>
-                    <h3>@Model.Name</h3>
-                    <h6>Darvar</h6>
+                    <div id="EditName">
+                        @if (Model.Name != null)
+                        {
+                            <h3>@Model.Name<input class="offset-4 col-2 text-end" type="button" onclick="editName()" value="Edit" /></h3>
+                        }
+                        else
+                        {
+                            <input class="offset-4 col-2 text-end" type="button" onclick="editName()" value="Edit" />
+                        }
+                    </div>
+                    <div id="EditProfession">
+                        @if (Model.Profession != null)
+                        {
+                            <h6>@Model.Profession <input class="offset-4 col-2 text-end" type="button" onclick="editProfession()" value="Edit" /></h6>
+                        }
+                        else
+                        {
+                            <input class="offset-4 col-2 text-end" type="button" onclick="editProfession()" value="Edit" />
+                        }
+                    </div>
                 </div>
             </div>
             <hr />
@@ -178,4 +195,6 @@
     <script src="~/js/Custom/AddLanguage.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditLanguage.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditLocation.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditProfession.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditName.js" asp-append-version="true"></script>
 }

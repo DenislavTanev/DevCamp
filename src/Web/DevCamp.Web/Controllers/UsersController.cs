@@ -88,5 +88,37 @@
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
+
+        public async Task<IActionResult> EditProfession()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.usersService.GetById<EditProfessionViewModel>(userId);
+
+            return this.PartialView(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProfession(EditProfessionViewModel input)
+        {
+            await this.usersService.EditProfessionAsync(input.Id, input.Profession);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = input.Id });
+        }
+
+        public async Task<IActionResult> EditName()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.usersService.GetById<EditNameViewModel>(userId);
+
+            return this.PartialView(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditName(EditNameViewModel input)
+        {
+            await this.usersService.EditNameAsync(input.Id, input.Name);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = input.Id });
+        }
     }
 }

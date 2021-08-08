@@ -1,0 +1,17 @@
+﻿@model DevCamp.Web.ViewModels.Users.EditProfessionViewModel
+
+
+<div>
+    <form method="post" asp-controller="Users" asp-action="EditProfession">
+        <div class="form-group was-validated">
+            <textarea asp-for="Profession" class="form-control" rows="5" required></textarea>
+            <span asp-validation-for="Profession" class="text-danger"></span>
+        </div>
+        <input hidden asp-for="@Model.Id" />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>
+
+

@@ -1,0 +1,17 @@
+﻿@model DevCamp.Web.ViewModels.Users.EditNameViewModel
+
+
+<div>
+    <form method="post" asp-controller="Users" asp-action="EditName">
+        <div class="form-group was-validated">
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input hidden asp-for="@Model.Id" />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>
+
+
