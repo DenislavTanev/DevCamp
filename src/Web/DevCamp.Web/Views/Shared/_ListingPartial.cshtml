@@ -28,13 +28,18 @@
                 <img class="rounded-circle" style="height:20px;width:20px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg">
             </div>
             <div class="col-8 text-start">
-                @Model.Username
+                <a asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">@Model.Username</a>
             </div>
         </div>
-        <h5 class="card-title">@Model.Title</h5>
+        <a class="card-title" asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">@Model.Title</a>
         <hr />
         <div class="row">
-            <div class="text-uppercase text-muted text-end">Starting at <span class="text-dark">$@Model.StartingPrice</span></div>
+            <a asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">
+                <div class="text-uppercase text-muted text-end">
+                    Starting at <span class="text-dark">$@Model.StartingPrice</span>
+                </div>
+            </a>
+
         </div>
     </div>
 </div>

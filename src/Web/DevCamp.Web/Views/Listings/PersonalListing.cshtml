@@ -1,0 +1,200 @@
+﻿@model DevCamp.Web.ViewModels.Listings.ListingDetailsViewModel
+
+@{
+    this.ViewData["Title"] = Model.Title;
+}
+
+<div>
+    <nav id="navbar" class="sticky-top bg-white border-bottom">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-black-50" href="#OverView1">Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading1">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading2">About The Seller</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading3">Compare Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading4">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xl-7 col-sm-7">
+            <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                    </ol>
+                </nav>
+
+                <h4 id="OverView1">@Model.Title</h4>
+                <div class="row">
+                    <div class="col">
+                        <img class="rounded-circle" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
+                             data-holder-rendered="true">
+                    </div>
+                    <div class="col">
+                        @Model.User.Name
+                    </div>
+                </div>
+                <hr />
+
+                <div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://www.economic.bg/web/files/articles/37099/narrow_image/thumb_1200x630_m11.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://dizzyriders.bg/uploads/thumbs/avtomobili/06_2020/111-ghibli-620x427.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://clubs1.bg/wp-content/uploads/2020/08/01_Maserati_Trofeo_collection.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4 id="scrollspyHeading1">About this Gig</h4>
+                    <input class="offset-4 col-2 text-end" type="button" onclick="" value="Edit" />
+                </div>
+                <p>
+                    @if (Model.ProjectDetails != null)
+                    {
+                        @Model.ProjectDetails
+                    }
+                    else
+                    {
+                        <div class="text-muted">Add information about your Gig.</div>
+                    }
+                </p>
+                <h4 id="scrollspyHeading2">About the Seller</h4>
+                <div class="row">
+                    <div class="col-3">
+                        <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
+                             data-holder-rendered="true">
+                    </div>
+                    <div class="col-4">
+                        <a href="#">@Model.User.Name</a>
+                        <p>@Model.User.Profession</p>
+                    </div>
+                </div>
+                <div class="border">
+                    <div class="row">
+                        <div class="col">
+                            <p>From</p>
+                            <h3>@Model.User.Country.Name</h3>
+                        </div>
+                        <div class="col">
+                            <p>Member since</p>
+                            <h3>@Model.User.CreatedOn.ToShortDateString()</h3>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>@Model.User.Information</p>
+                    </div>
+                </div>
+                <h4 id="scrollspyHeading3">Compare Packages</h4>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Packages</th>
+                                @foreach (var package in Model.Packages)
+                                {
+                                    <th scope="col">@package.Name</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Revisions</th>
+                                @foreach (var package in Model.Packages)
+                                {
+                                    <td>@package.Revisions</td>
+                                }
+                            </tr>
+                            <tr>
+                                <th scope="row">Delivery Time</th>
+                                @foreach (var package in Model.Packages)
+                                {
+                                    <td>@package.DeliveryTime</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4 id="scrollspyHeading4">Frequently Asked Questions</h4>
+                <div>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        @if (Model.Faqs.Any())
+                        {
+                            @foreach (var faq in Model.Faqs)
+                            {
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            @faq.Question
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">@faq.Answer</div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                    <div class="row">
+                        <div class="col-6 text-muted">Add most asked questions about this Gig.</div>
+                        <input class="col-2 text-end" type="button" onclick="" value="Add New" />
+                    </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offset-1 col-xl-4 col-sm-5">
+            <div class="container text-center sticky-top border mt-2" id="navbar-example3">
+                <div class="row mt-2 bg-light">
+                    <div class="col-4 border">Basic</div>
+                    <div class="col-4 border">Standard</div>
+                    <div class="col-4 border">Premium</div>
+                </div>
+                <div class="row mt-3">
+                    <h5 class="col">Basic Logo Design</h5>
+                    <div class="col">$20</div>
+                </div>
+                <div class="row">
+                    <h6 class="text-start mt-3 mb-3 text-muted">3 Basic Logos + High Quality Mockup - NO COMPLEX OR MASCOT LOGO</h6>
+                </div>
+                <div class="row">
+                    <h6 class="col-5 text-start">3 Days Delivery</h6>
+                    <h6 class="col-4">3 Revisions</h6>
+                </div>
+                <hr />
+                <div class="row mt-2 mb-2">
+                    <button class="offset-4 col-4 text-center btn-success rounded">Continue ($20)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

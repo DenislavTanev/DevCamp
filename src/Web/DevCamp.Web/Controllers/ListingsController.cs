@@ -110,5 +110,16 @@
 
             return this.PartialView(viewModel);
         }
+
+        public async Task<IActionResult> PersonalListing(int id)
+        {
+            var listing = await this.listingsService.GetByIdAsync<ListingDetailsViewModel>(id);
+
+            var userId = this.userManager.GetUserId(this.User);
+
+            listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
+
+            return this.View(listing);
+        }
     }
 }
