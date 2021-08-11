@@ -94,16 +94,16 @@
             <hr />
             <div class="row mt-3">
                 <h5 class="col-6">Skills</h5>
-                <a class="col-6 text-end" asp-action="AddSkill" asp-controller="Skills">Add New</a>
+                <input class="offset-4 col-2 text-end" type="button" onclick="addSkill()" value="Add New" />
             </div>
             <div class="row">
+                <div id="AddSkill"></div>
                 @if (Model.Skills.Any())
                 {
                     @foreach (var item in Model.Skills)
                     {
                         <div class="col-5 offset-1 border rounded-pill mt-1">
                             <div class="text-center">@item.Skill.TechnologyName</div>
-                            <a asp-action="EditSkill" asp-controller="Skills">Edit</a>
                         </div>
                     }
                 }
@@ -140,9 +140,10 @@
             <hr />
             <div class="row mt-3">
                 <h5 class="col-6">Certification</h5>
-                <a class="col-6 text-end" asp-action="AddCertification" asp-controller="Certifications">Add New</a>
+                <input class="offset-4 col-2 text-end" type="button" onclick="addCertification()" value="Add New" />
             </div>
             <div class="row">
+                <div id="AddCertification"></div>
                 @if (Model.Certifications.Any())
                 {
                     @foreach (var item in Model.Certifications)
@@ -197,4 +198,6 @@
     <script src="~/js/Custom/EditLocation.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditProfession.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditName.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddSkill.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddCertification.js" asp-append-version="true"></script>
 }

@@ -5,7 +5,7 @@
 
     public interface ISkillsService
     {
-        Task CreateAsync(string technologyName, string level, string userId, int skillId);
+        Task CreateAsync(string userId, int skillId);
 
         Task<T> GetByIdAsync<T>(int id);
 
@@ -13,8 +13,8 @@
 
         IEnumerable<T> GetAllUsersBySkill<T>(int skillId);
 
-        Task EditAsync(int id, string level);
-
         Task DeleteAsync(int id);
+
+        IEnumerable<T> GetAll<T>();
     }
 }

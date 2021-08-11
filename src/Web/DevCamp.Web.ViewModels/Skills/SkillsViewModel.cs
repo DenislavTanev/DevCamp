@@ -1,8 +1,9 @@
-﻿namespace DevCamp.Data.Models
+﻿namespace DevCamp.Web.ViewModels.Skills
 {
-    using DevCamp.Data.Common.Models;
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
 
-    public class UserSkill : BaseDeletableModel<int>
+    public class SkillsViewModel : IMapFrom<UserSkill>
     {
         public int SkillId { get; set; }
 

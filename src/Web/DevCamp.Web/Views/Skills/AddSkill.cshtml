@@ -1,6 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DevCamp.Web.ViewModels.Skills.SkillsCreateInputModel
+
 @{
+    var skills = Model.Skills.Select(x => new SelectListItem(x.TechnologyName, x.Id.ToString()));
 }
-<div>Add Skill</div>
+
+<div>
+    <form method="post" asp-controller="Skills" asp-action="AddSkill">
+        <div class="form-group was-validated">
+            <select asp-for="SkillId" asp-items="skills" class="form-control rounded-pill custom-select myselect" required>
+                <option value="" disabled selected>Select Skill</option>
+            </select>
+        </div>
+        <input asp-for="UserId" hidden />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

@@ -1,6 +1,5 @@
 ﻿namespace DevCamp.Web.Controllers
 {
-    using System.Linq;
     using System.Threading.Tasks;
 
     using DevCamp.Data.Models;

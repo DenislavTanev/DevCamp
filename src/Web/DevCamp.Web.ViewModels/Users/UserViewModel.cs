@@ -5,8 +5,10 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
+    using DevCamp.Web.ViewModels.Certifications;
     using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Listings;
+    using DevCamp.Web.ViewModels.Skills;
 
     public class UserViewModel : IMapFrom<ApplicationUser>
     {
@@ -30,10 +32,10 @@
 
         public ICollection<ListingViewModel> Listings { get; set; }
 
-        public ICollection<UserSkill> Skills { get; set; }
+        public ICollection<SkillsViewModel> Skills { get; set; }
 
         public ICollection<Education> Educations { get; set; }
 
-        public ICollection<Certification> Certifications { get; set; }
+        public ICollection<CertificationViewModel> Certifications { get; set; }
     }
 }

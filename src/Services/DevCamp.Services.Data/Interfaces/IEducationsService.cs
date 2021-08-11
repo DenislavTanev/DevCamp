@@ -11,7 +11,7 @@
 
         IEnumerable<T> GetAllByUser<T>(string userId);
 
-        Task EditAsync(int id, string universityName, string universityLocation, string title, string major, int graduationYear, string userId);
+        Task EditAsync(int id, string universityName, string universityLocation, string title, string major, int graduationYear);
 
         Task DeleteAsync(int id);
     }

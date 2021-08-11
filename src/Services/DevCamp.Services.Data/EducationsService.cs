@@ -1,37 +1,85 @@
 ﻿namespace DevCamp.Services.Data
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
+    using System.Linq;
     using System.Threading.Tasks;
 
+    using DevCamp.Data.Common.Repositories;
+    using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Services.Mapping;
+    using Microsoft.EntityFrameworkCore;
 
     public class EducationsService : IEducationsService
     {
-        public Task CreateAsync(string universityName, string universityLocation, string title, string major, int graduationYear, string userId)
+        private readonly IDeletableEntityRepository<Education> educationRepository;
+
+        public EducationsService(IDeletableEntityRepository<Education> educationRepository)
         {
-            throw new NotImplementedException();
+            this.educationRepository = educationRepository;
         }
 
-        public Task DeleteAsync(int id)
+        public async Task CreateAsync(string universityName, string universityLocation, string title, string major, int graduationYear, string userId)
         {
-            throw new NotImplementedException();
+            var education = new Education
+            {
+                UniversityName = universityName,
+                UniversityLocation = universityLocation,
+                Title = title,
+                Major = major,
+                GraduationYear = graduationYear,
+                UserId = userId,
+            };
+
+            await this.educationRepository.AddAsync(education);
+            await this.educationRepository.SaveChangesAsync();
         }
 
-        public Task EditAsync(int id, string universityName, string universityLocation, string title, string major, int graduationYear, string userId)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var education = await this.educationRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            this.educationRepository.Delete(education);
+            await this.educationRepository.SaveChangesAsync();
+        }
+
+        public async Task EditAsync(int id, string universityName, string universityLocation, string title, string major, int graduationYear)
+        {
+            var education = await this.educationRepository
+               .All()
+               .FirstOrDefaultAsync(x => x.Id == id);
+
+            education.UniversityName = universityName;
+            education.UniversityLocation = universityLocation;
+            education.Title = title;
+            education.Major = major;
+            education.GraduationYear = graduationYear;
+
+            await this.educationRepository.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetAllByUser<T>(string userId)
         {
-            throw new NotImplementedException();
+            var educations = this.educationRepository
+                .All()
+                .Where(x => x.UserId == userId)
+                .To<T>()
+                .ToList();
+
+            return educations;
         }
 
-        public Task<T> GetByIdAsync<T>(int id)
+        public async Task<T> GetByIdAsync<T>(int id)
         {
-            throw new NotImplementedException();
+            var education = await this.educationRepository
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+
+            return education;
         }
     }
 }

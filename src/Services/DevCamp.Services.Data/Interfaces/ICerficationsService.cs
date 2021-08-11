@@ -16,5 +16,7 @@
         Task EditAsync(int id, string certificate, string certifiedFrom, int year);
 
         Task DeleteAsync(int id);
+
+        List<int> GetYears();
     }
 }
