@@ -5,6 +5,8 @@
 
     public class SkillsViewModel : IMapFrom<UserSkill>
     {
+        public int Id { get; set; }
+
         public int SkillId { get; set; }
 
         public Skill Skill { get; set; }

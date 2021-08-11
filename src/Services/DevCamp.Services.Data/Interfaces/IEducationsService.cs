@@ -14,5 +14,9 @@
         Task EditAsync(int id, string universityName, string universityLocation, string title, string major, int graduationYear);
 
         Task DeleteAsync(int id);
+
+        List<int> GetYears();
+
+        List<string> GetTitle();
     }
 }

@@ -47,5 +47,14 @@
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
+
+        public async Task<IActionResult> DeleteSkill(int id)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+
+            await this.skillsService.DeleteAsync(id);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = userId });
+        }
     }
 }

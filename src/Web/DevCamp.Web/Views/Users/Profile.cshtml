@@ -82,6 +82,7 @@
                             <div class="col-8 text-muted text-start">
                                 @item.Level.Name
                                 <input class="offset-4 col-2 text-end" type="button" onclick="editLanguage(@item.Id)" value="edit" />
+                                <a class="text-dark border-0" asp-action="DeleteLanguage" asp-controller="Languages" asp-route-Id="@item.Id"><i class="fa fa-trash"></i></a>
                             </div>
                         </li>
                     }
@@ -104,6 +105,7 @@
                     {
                         <div class="col-5 offset-1 border rounded-pill mt-1">
                             <div class="text-center">@item.Skill.TechnologyName</div>
+                            <a class="text-dark border-0" asp-action="DeleteSkill" asp-controller="Skills" asp-route-Id="@item.Id"><i class="fa fa-trash"></i></a>
                         </div>
                     }
                 }
@@ -115,9 +117,10 @@
             <hr />
             <div class="row mt-3">
                 <h5 class="col-6">Education</h5>
-                <a class="col-6 text-end" asp-action="AddEducation" asp-controller="Educations">Add New</a>
+                <input class="offset-4 col-2 text-end" type="button" onclick="addEducation()" value="Add New" />
             </div>
             <div class="row">
+                <div id="AddEducation"></div>
                 @if (Model.Educations.Any())
                 {
                     @foreach (var item in Model.Educations)
@@ -125,8 +128,8 @@
                         <div class="container">
                             <div>
                                 @item.Title - @item.Major
-                                <a class="text-dark border-0" asp-action="EditEducation" asp-controller="Educations"><i class="fa fa-pencil"></i></a>
-                                <a class="text-dark border-0" asp-action="DeleteEducation" asp-controller="Educations"><i class="fa fa-trash"></i></a>
+                                <input class="offset-4 col-2 text-end" type="button" onclick="editEducation(@item.Id)" value="Add New" />
+                                <a class="text-dark border-0" asp-action="DeleteEducation" asp-controller="Educations" asp-route-Id="@item.Id"><i class="fa fa-trash"></i></a>
                             </div>
                             <div class="text-muted">@item.UniversityName, @item.UniversityLocation, Graduated @item.GraduationYear</div>
                         </div>
@@ -151,8 +154,8 @@
                         <div class="container">
                             <div>
                                 @item.Certificate
-                                <a class="text-dark border-0" asp-action="EditCertification" asp-controller="Certifications"><i class="fa fa-pencil"></i></a>
-                                <a class="text-dark border-0" asp-action="DeleteCertification" asp-controller="Certifications"><i class="fa fa-trash"></i></a>
+                                <input class="offset-4 col-2 text-end" type="button" onclick="editCertification(@item.Id)" value="Add New" />
+                                <a class="text-dark border-0" asp-action="DeleteCertification" asp-controller="Certifications" asp-route-Id="@item.Id"><i class="fa fa-trash"></i></a>
                             </div>
                             <div class="text-muted">@item.CertifiedFrom @item.Year</div>
                         </div>
@@ -200,4 +203,7 @@
     <script src="~/js/Custom/EditName.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddSkill.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddCertification.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditCertification.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditEducation.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddEducation.js" asp-append-version="true"></script>
 }

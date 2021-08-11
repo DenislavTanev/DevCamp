@@ -81,5 +81,42 @@
 
             return education;
         }
+
+        public List<string> GetTitle()
+        {
+            var titles = new List<string>()
+            {
+                "Associate",
+                "B.A.",
+                "BArch",
+                "BM",
+                "BFA",
+                "B.Sc.",
+                "M.A.",
+                "M.B.A.",
+                "MFA",
+                "M.Sc.",
+                "J.D.",
+                "M.D.",
+                "Ph.D",
+                "LLB",
+                "LLM",
+                "Others",
+            };
+
+            return titles;
+        }
+
+        public List<int> GetYears()
+        {
+            var years = new List<int>();
+
+            for (int i = 0; i < 41; i++)
+            {
+                years.Add(1980 + i);
+            }
+
+            return years;
+        }
     }
 }

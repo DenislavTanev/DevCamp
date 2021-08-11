@@ -1,6 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DevCamp.Web.ViewModels.Certifications.CertificationEditInputModel
+
 @{
+    var years = Model.Years.Select(x => new SelectListItem(x.ToString(), x.ToString()));
 }
-<div>Edit Certification</div>
+
+<div>
+    <form method="post" asp-controller="Certifications" asp-action="EditCertification">
+        <div class="form-group was-validated">
+            <label asp-for="Certificate"></label>
+            <input asp-for="Certificate" class="form-control form-control-user text-center" placeholder="@Model.Certificate" required>
+            <span asp-validation-for="Certificate" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <label asp-for="CertifiedFrom"></label>
+            <input asp-for="CertifiedFrom" class="form-control form-control-user text-center" placeholder="@Model.CertifiedFrom" required>
+            <span asp-validation-for="CertifiedFrom" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <select asp-for="Year" asp-items="years" class="form-control rounded-pill custom-select myselect" required>
+                <option value="@Model.Year" disabled selected>Select Year of certification</option>
+            </select>
+        </div>
+        <input asp-for="UserId" hidden />
+        <input asp-for="Id" hidden/>
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

@@ -11,16 +11,10 @@
 
         Task EditNameAsync(string userId, string name);
 
-        Task EditResponseTimeAsync(string userId, TimeSpan responseTime);
-
         Task EditLocationAsync(string userId, int countryId);
 
         Task EditDescriptionAsync(string userId, string description);
 
         Task EditProfessionAsync(string userId, string profession);
-
-        Task EditLanguageAsync(int id, int levelId);
-
-        Task AddLanguageAsync(string userId, int languageId, int levelId);
     }
 }

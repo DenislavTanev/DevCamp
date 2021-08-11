@@ -20,6 +20,40 @@ namespace DevCamp.Services.Data
             this.userLanguageRepository = userLanguageRepository;
         }
 
+        public async Task EditLanguageAsync(int id, int levelId)
+        {
+            var language = await this.userLanguageRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            language.LevelId = levelId;
+
+            await this.userLanguageRepository.SaveChangesAsync();
+        }
+
+        public async Task AddLanguageAsync(string userId, int languageId, int levelId)
+        {
+            var language = new UserLanguage
+            {
+                LanguageId = languageId,
+                UserId = userId,
+                LevelId = levelId,
+            };
+
+            await this.userLanguageRepository.AddAsync(language);
+            await this.userLanguageRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var language = await this.userLanguageRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            this.userLanguageRepository.Delete(language);
+            await this.userLanguageRepository.SaveChangesAsync();
+        }
+
         public IEnumerable<T> GetAllByUser<T>(string userId)
         {
             var userLanguages = this.userLanguageRepository

@@ -12,20 +12,17 @@
     public class LanguagesController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IUsersService usersService;
         private readonly ILanguagesService languagesService;
         private readonly ILevelsService levelsService;
         private readonly IUserLanguagesService userLanguagesService;
 
         public LanguagesController(
             UserManager<ApplicationUser> userManager,
-            IUsersService usersService,
             ILanguagesService languagesService,
-            ILevelsService levelsService, 
+            ILevelsService levelsService,
             IUserLanguagesService userLanguagesService)
         {
             this.userManager = userManager;
-            this.usersService = usersService;
             this.languagesService = languagesService;
             this.levelsService = levelsService;
             this.userLanguagesService = userLanguagesService;
@@ -52,7 +49,7 @@
         [HttpPost]
         public async Task<IActionResult> AddLanguage(LanguageCreateInputModel input)
         {
-            await this.usersService.AddLanguageAsync(input.UserId, input.LanguageId, input.LevelId);
+            await this.userLanguagesService.AddLanguageAsync(input.UserId, input.LanguageId, input.LevelId);
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }
@@ -79,7 +76,16 @@
         public async Task<IActionResult> EditLanguage(LanguageEditInputModel input)
         {
             var userId = this.userManager.GetUserId(this.User);
-            await this.usersService.EditLanguageAsync(input.Id, input.LevelId);
+            await this.userLanguagesService.EditLanguageAsync(input.Id, input.LevelId);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = userId });
+        }
+
+        public async Task<IActionResult> DeleteLanguage(int id)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+
+            await this.userLanguagesService.DeleteAsync(id);
 
             return this.RedirectToAction("Profile", "Users", new { userId = userId });
         }

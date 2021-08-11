@@ -102,29 +102,5 @@
 
             await this.usersRepository.SaveChangesAsync();
         }
-
-        public async Task EditLanguageAsync(int id, int levelId)
-        {
-            var language = await this.languageRepository
-                .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
-
-            language.LevelId = levelId;
-
-            await this.languageRepository.SaveChangesAsync();
-        }
-
-        public async Task AddLanguageAsync(string userId, int languageId, int levelId)
-        {
-            var language = new UserLanguage
-            {
-                LanguageId = languageId,
-                UserId = userId,
-                LevelId = levelId,
-            };
-
-            await this.languageRepository.AddAsync(language);
-            await this.languageRepository.SaveChangesAsync();
-        }
     }
 }

@@ -6,6 +6,7 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.Certifications;
+    using DevCamp.Web.ViewModels.Educations;
     using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Listings;
     using DevCamp.Web.ViewModels.Skills;
@@ -34,7 +35,7 @@
 
         public ICollection<SkillsViewModel> Skills { get; set; }
 
-        public ICollection<Education> Educations { get; set; }
+        public ICollection<EducationViewModel> Educations { get; set; }
 
         public ICollection<CertificationViewModel> Certifications { get; set; }
     }

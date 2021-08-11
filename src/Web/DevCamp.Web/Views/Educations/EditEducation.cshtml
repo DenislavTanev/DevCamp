@@ -1,6 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DevCamp.Web.ViewModels.Educations.EducationEditInputModel
+
 @{
+    var years = Model.Years.Select(x => new SelectListItem(x.ToString(), x.ToString()));
+    var countries = Model.Countries.Select(x => new SelectListItem(x.Name, x.Name));
+    var titles = Model.Titles.Select(x => new SelectListItem(x.ToString(), x.ToString()));
 }
-<div>Edit Education</div>
+
+<div>
+    <form method="post" asp-controller="Educations" asp-action="EditEducation">
+        <div class="form-group was-validated">
+            <select asp-for="UniversityLocation" asp-items="countries" class="form-control rounded-pill custom-select myselect" required>
+                <option value="@Model.UniversityLocation" disabled selected></option>
+            </select>
+        </div>
+        <div class="form-group was-validated">
+            <label asp-for="UniversityName"></label>
+            <input asp-for="UniversityName" class="form-control form-control-user text-center" placeholder="@Model.UniversityName" required>
+            <span asp-validation-for="UniversityName" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <select asp-for="Title" asp-items="titles" class="form-control rounded-pill custom-select myselect" required>
+                <option value="@Model.Title" disabled selected></option>
+            </select>
+        </div>
+        <div class="form-group was-validated">
+            <label asp-for="Major"></label>
+            <input asp-for="Major" class="form-control form-control-user text-center" placeholder="@Model.Major" required>
+            <span asp-validation-for="Major" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <select asp-for="GraduationYear" asp-items="years" class="form-control rounded-pill custom-select myselect" required>
+                <option value="@Model.GraduationYear" disabled selected></option>
+            </select>
+        </div>
+        <input asp-for="UserId" hidden />
+        <input asp-for="Id" hidden/>
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

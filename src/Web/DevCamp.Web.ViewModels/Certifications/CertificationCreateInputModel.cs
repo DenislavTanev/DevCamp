@@ -1,11 +1,10 @@
-﻿using DevCamp.Data.Models;
-using DevCamp.Services.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Web.ViewModels.Certifications
+﻿namespace DevCamp.Web.ViewModels.Certifications
 {
+    using System.Collections.Generic;
+
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
+
     public class CertificationCreateInputModel : IMapTo<Certification>
     {
         public string Certificate { get; set; }
