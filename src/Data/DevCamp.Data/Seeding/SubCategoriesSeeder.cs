@@ -88,37 +88,6 @@
                         "Code Review",
                         "Design Review",
                     });
-                subCategories.Add(
-                    "Databases", new List<string>
-                    {
-                        "Design & Optimization",
-                        "Queries",
-                        "Database Administration",
-                        "Cloud Based Solutions",
-                    });
-                subCategories.Add(
-                   "Data Analytics", new List<string>
-                   {
-                        "Surveys & Research",
-                        "Business & Financial",
-                        "Planning & Supply Chain",
-                        "Marketing & Sales",
-                        "Product & UX",
-                   });
-                subCategories.Add(
-                   "Data Processing", new List<string>
-                   {
-                        "Data Mining & Scraping",
-                        "Formulas & Macros",
-                        "Automations",
-                   });
-                subCategories.Add(
-                   "Data Visualization", new List<string>
-                   {
-                        "Dashboards",
-                        "Graphs & Charts",
-                        "Geographic Information Systems (GIS)",
-                   });
 
                 foreach (var subCategory in subCategories)
                 {

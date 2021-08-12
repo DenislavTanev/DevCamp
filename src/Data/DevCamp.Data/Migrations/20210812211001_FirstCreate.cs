@@ -413,7 +413,11 @@ namespace DevCamp.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SkillId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -706,6 +710,11 @@ namespace DevCamp.Data.Migrations
                 name: "IX_UsersLanguages_UserId",
                 table: "UsersLanguages",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersSkills_IsDeleted",
+                table: "UsersSkills",
+                column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersSkills_SkillId",

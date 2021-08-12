@@ -15,8 +15,9 @@
                {
                    var sectors = new List<string>
                    {
-                       "Programming",
-                       "Data",
+                       "Design",
+                       "Web Applications",
+                       "Game Development",
                    };
 
                    foreach (var sector in sectors)
