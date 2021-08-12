@@ -1,1 +1,20 @@
-﻿
+﻿@model DevCamp.Web.ViewModels.FAQs.FaqCreateInputModel
+
+<div>
+    <form method="post" asp-controller="Faqs" asp-action="Create">
+        <div class="form-group was-validated">
+            <label asp-for="Question"></label>
+            <input asp-for="Question" class="form-control form-control-user text-center" placeholder="Question" required>
+            <span asp-validation-for="Question" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <label asp-for="Answer"></label>
+            <input asp-for="Answer" class="form-control form-control-user text-center" placeholder="Answer" required>
+            <span asp-validation-for="Answer" class="text-danger"></span>
+        </div>
+        <input asp-for="ListingId" hidden />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

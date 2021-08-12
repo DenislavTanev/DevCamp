@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model DevCamp.Web.ViewModels.FAQs.FaqEditInputModel
+
+<div>
+    <form method="post" asp-controller="Faqs" asp-action="Edit">
+        <div class="form-group was-validated">
+            <label asp-for="Question"></label>
+            <input asp-for="Question" class="form-control form-control-user text-center" placeholder="@Model.Question" required>
+            <span asp-validation-for="Question" class="text-danger"></span>
+        </div>
+        <div class="form-group was-validated">
+            <label asp-for="Answer"></label>
+            <input asp-for="Answer" class="form-control form-control-user text-center" placeholder="@Model.Answer" required>
+            <span asp-validation-for="Answer" class="text-danger"></span>
+        </div>
+        <input asp-for="ListingId" hidden />
+        <input asp-for="Id" hidden />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

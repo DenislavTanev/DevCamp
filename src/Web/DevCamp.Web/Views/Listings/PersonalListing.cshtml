@@ -32,11 +32,15 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item"><a href="#">@Model.Category.Name</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.SubCategory.Name</li>
                     </ol>
                 </nav>
 
-                <h4 id="OverView1">@Model.Title</h4>
+                <div id="EditTitle" class="row">
+                    <h4 id="OverView1" class="col-10">@Model.Title</h4>
+                    <input class="col-2 text-end" type="button" onclick="editTitle(@Model.Id)" value="Edit" />
+                </div>
                 <div class="row">
                     <div class="col">
                         <img class="rounded-circle" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
@@ -72,10 +76,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h4 id="scrollspyHeading1">About this Gig</h4>
-                    <input class="offset-4 col-2 text-end" type="button" onclick="" value="Edit" />
+                    <h4 id="scrollspyHeading1" class="col-4">About this Gig</h4>
+                    <input class="col-2 text-end" type="button" onclick="editDetails(@Model.Id)" value="Edit" />
                 </div>
-                <p>
+                <div id="EditDetails">
                     @if (Model.ProjectDetails != null)
                     {
                         @Model.ProjectDetails
@@ -84,7 +88,7 @@
                     {
                         <div class="text-muted">Add information about your Gig.</div>
                     }
-                </p>
+                </div>
                 <h4 id="scrollspyHeading2">About the Seller</h4>
                 <div class="row">
                     <div class="col-3">
@@ -92,7 +96,7 @@
                              data-holder-rendered="true">
                     </div>
                     <div class="col-4">
-                        <a href="#">@Model.User.Name</a>
+                        <a asp-controller="Users" asp-action="Index">@Model.User.Name</a>
                         <p>@Model.User.Profession</p>
                     </div>
                 </div>
@@ -112,15 +116,28 @@
                         <p>@Model.User.Information</p>
                     </div>
                 </div>
-                <h4 id="scrollspyHeading3">Compare Packages</h4>
+                <div class="row">
+                    <h4 id="scrollspyHeading3" class="col">Compare Packages</h4>
+                    <a class="btn btn-success col" asp-action="Edit" asp-controller="PricePackages" asp-route-ListingId="@Model.Id">Edit</a>
+                </div>
                 <div>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Packages</th>
+                                <th scope="col" class="align-text-top">Packages</th>
                                 @foreach (var package in Model.Packages)
                                 {
-                                    <th scope="col">@package.Name</th>
+                                    <th scope="col">
+                                        <div class="row text-muted">
+                                            $@package.Price
+                                        </div>
+                                        <div class="row">
+                                            @package.Name
+                                        </div>
+                                        <div class="row text-muted">
+                                            @package.Description
+                                        </div>
+                                    </th>
                                 }
                             </tr>
                         </thead>
@@ -139,10 +156,29 @@
                                     <td>@package.DeliveryTime</td>
                                 }
                             </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                @foreach (var package in Model.Packages)
+                                {
+                                    <td>
+                                        <div class="row">
+                                            $@package.Price
+                                        </div>
+                                        <div class=" container row">
+                                            <button class="rounded btn-success">Select</button>
+                                        </div>
+                                    </td>
+                                }
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-                <h4 id="scrollspyHeading4">Frequently Asked Questions</h4>
+
+                <div class="row">
+                    <h4 id="scrollspyHeading4" class="col-6">Frequently Asked Questions</h4>
+                    <input class="col-2 text-end" type="button" onclick="addFaq(@Model.Id)" value="Add New" />
+                </div>
+                <div id="AddFaq"></div>
                 <div>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         @if (Model.Faqs.Any())
@@ -155,18 +191,19 @@
                                             @faq.Question
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">@faq.Answer</div>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse row" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body col">@faq.Answer</div>
+                                        <input class="col-2" type="button" onclick="editFaq(@faq.Id)" value="Edit" />
                                     </div>
                                 </div>
                             }
                         }
                         else
                         {
-                    <div class="row">
-                        <div class="col-6 text-muted">Add most asked questions about this Gig.</div>
-                        <input class="col-2 text-end" type="button" onclick="" value="Add New" />
-                    </div>
+                            <div class="row">
+                                <div class="col text-muted">Add most asked questions about this Gig.</div>
+
+                            </div>
                         }
                     </div>
                 </div>
@@ -198,3 +235,10 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script src="~/js/Custom/EditListingDetails.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditTitle.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddFaq.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditFaq.js" asp-append-version="true"></script>
+}

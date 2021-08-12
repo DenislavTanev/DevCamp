@@ -167,6 +167,8 @@
             var listing = await this.listingsRepository
                 .All()
                 .Include(x => x.Packages)
+                .Include(x => x.Category)
+                .Include(x => x.SubCategory)
                 .Where(x => x.Id == id)
                 .To<T>()
                 .FirstOrDefaultAsync();

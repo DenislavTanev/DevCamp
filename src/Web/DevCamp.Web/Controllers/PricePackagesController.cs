@@ -1,7 +1,5 @@
 ﻿namespace DevCamp.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -12,28 +10,11 @@
     public class PricePackagesController : Controller
     {
         private readonly IPackagesService packagesService;
-        private readonly IListingsService listingsService;
 
         public PricePackagesController(
-            IPackagesService packagesService,
-            IListingsService listingsService)
+            IPackagesService packagesService)
         {
             this.packagesService = packagesService;
-            this.listingsService = listingsService;
-        }
-
-        public async Task<IActionResult> Index(int packageId)
-        {
-            var package = await this.packagesService.GetByIdAsync<PackagesViewModel>(packageId);
-
-            return this.View(package);
-        }
-
-        public IActionResult ComparePackages(int listingId)
-        {
-            var packages = this.packagesService.GetAll<PackagesViewModel>(listingId);
-
-            return this.View(packages);
         }
 
         public IActionResult Create(int listingId)
@@ -56,7 +37,30 @@
         {
             await this.packagesService.CreateAsync(input.BasicPackage, input.StandartPackage, input.PremiumPackage);
 
-            return this.RedirectToAction("Index", "Listings", new { listingId = input.ListingId });
+            return this.RedirectToAction("PersonalListing", "Listings", new { listingId = input.ListingId });
+        }
+
+        public IActionResult Edit(int listingId)
+        {
+            var packages = this.packagesService.GetAll<PackagesViewModel>(listingId);
+
+            var viewModel = new ListingPackagesViewModel
+            {
+                ListingId = listingId,
+                BasicPackage = packages.First(x => x.Name == "Basic"),
+                StandartPackage = packages.First(x => x.Name == "Standard"),
+                PremiumPackage = packages.First(x => x.Name == "Premium"),
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ListingPackagesViewModel input)
+        {
+            await this.packagesService.EditAsync(input.BasicPackage, input.StandartPackage, input.PremiumPackage);
+
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
         }
     }
 }

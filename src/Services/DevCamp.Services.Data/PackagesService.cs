@@ -65,31 +65,35 @@
             await this.packagesRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, string name, decimal price, string description, int listingId, string revisions, string deliveryTime)
+        public async Task EditAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage)
         {
-            var package = await this.packagesRepository
-                .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
+            var basic = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == basicPackage.Id);
 
-            package.Name = name;
-            package.Price = price;
-            package.Description = description;
-            package.ListingId = listingId;
-            package.Revisions = revisions;
-            package.DeliveryTime = deliveryTime;
+            basic.Price = basicPackage.Price;
+            basic.Description = basicPackage.Description;
+            basic.Revisions = basicPackage.Revisions;
+            basic.DeliveryTime = basicPackage.DeliveryTime;
 
-            if (name == "Basic")
-            {
-                var listing = this.listingsRepository
-                    .All()
-                    .FirstOrDefault(x => x.Id == listingId);
+            var standart = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == standartPackage.Id);
 
-                listing.StartingPrice = price;
+            standart.Price = standartPackage.Price;
+            standart.Description = standartPackage.Description;
+            standart.Revisions = standartPackage.Revisions;
+            standart.DeliveryTime = standartPackage.DeliveryTime;
 
-                await this.listingsRepository.SaveChangesAsync();
-            }
+            var premium = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == premiumPackage.Id);
+
+            premium.Price = premiumPackage.Price;
+            premium.Description = premiumPackage.Description;
+            premium.Revisions = premiumPackage.Revisions;
+            premium.DeliveryTime = premiumPackage.DeliveryTime;
+
+            var listing = await this.listingsRepository.All().FirstOrDefaultAsync(x => x.Id == basic.ListingId);
+
+            listing.StartingPrice = basic.Price;
 
             await this.packagesRepository.SaveChangesAsync();
+            await this.listingsRepository.SaveChangesAsync();
         }
 
         public IEnumerable<T> GetAll<T>(int listingId)

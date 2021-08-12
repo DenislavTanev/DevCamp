@@ -1,0 +1,17 @@
+﻿@model DevCamp.Web.ViewModels.Listings.EditDescriptionInputModel
+
+
+<div>
+    <form method="post" asp-controller="Listings" asp-action="EditDetails">
+        <div class="form-group was-validated">
+            <textarea asp-for="@Model.ProjectDetails" class="form-control" rows="5" required></textarea>
+            <span asp-validation-for="@Model.ProjectDetails" class="text-danger"></span>
+        </div>
+        <hr />
+        <input hidden asp-for="@Model.Id" />
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>
+

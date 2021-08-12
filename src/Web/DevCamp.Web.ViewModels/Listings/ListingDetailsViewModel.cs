@@ -4,6 +4,7 @@
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
+    using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.FAQs;
 
     public class ListingDetailsViewModel : IMapFrom<Listing>
@@ -16,11 +17,11 @@
 
         public decimal? StartingPrice { get; set; }
 
-        public string UserId { get; set; }
+        public SectorsDropDownViewModel Sector { get; set; }
 
-        public int CategoryId { get; set; }
+        public CategoriesDropDownViewModel Category { get; set; }
 
-        public int SubCategoryId { get; set; }
+        public SubCategoriesDropDownViewModel SubCategory { get; set; }
 
         public ApplicationUser User { get; set; }
 

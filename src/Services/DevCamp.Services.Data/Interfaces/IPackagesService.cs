@@ -13,7 +13,7 @@
 
         IEnumerable<T> GetAll<T>(int listingId);
 
-        Task EditAsync(int id, string name, decimal price, string description, int listingId, string revisions, string deliveryTime);
+        Task EditAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage);
 
         Task DeleteAsync(int id);
     }

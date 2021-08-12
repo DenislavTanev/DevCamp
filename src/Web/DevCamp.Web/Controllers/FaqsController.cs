@@ -10,27 +10,22 @@
 
     public class FaqsController : Controller
     {
-        private readonly UserManager<ApplicationUser> userManager;
         private readonly IFaqService faqService;
 
         public FaqsController(
-            UserManager<ApplicationUser> userManager,
             IFaqService faqService)
         {
-            this.userManager = userManager;
             this.faqService = faqService;
         }
 
-        public IActionResult Index(int listingId)
+        public IActionResult Create(int listingId)
         {
-            var faqs = this.faqService.GetAll<FaqViewModel>(listingId);
+            var viewModel = new FaqCreateInputModel
+            {
+                ListingId = listingId,
+            };
 
-            return this.View(faqs);
-        }
-
-        public IActionResult Create()
-        {
-            return this.View();
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
@@ -39,9 +34,9 @@
             await this.faqService.CreateAsync(
                 input.Question,
                 input.Answer,
-                (int)input.ListingId);
+                input.ListingId);
 
-            return this.RedirectToAction("Index", "Listings");
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -56,7 +51,7 @@
                 ListingId = faq.ListingId,
             };
 
-            return this.View(viewModel);
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
@@ -67,7 +62,7 @@
                 input.Question,
                 input.Answer);
 
-            return this.RedirectToAction("Index", "Listings");
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
         }
     }
 }

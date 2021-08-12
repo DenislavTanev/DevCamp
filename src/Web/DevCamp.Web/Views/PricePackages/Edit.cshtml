@@ -1,5 +1,57 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DevCamp.Web.ViewModels.Listings.ListingPackagesViewModel
+
 @{
+    this.ViewData["Title"] = "Edit Packages";
 }
+
+<div class="container">
+    <form class="user text-center text-white-50" method="post">
+        <div class="row text-black-50">
+            <div class="col-3">
+                <div>
+                    Name
+                </div>
+                <div>
+                    Description
+                </div>
+                <div>
+                    Price
+                </div>
+                <div>
+                    Revisions
+                </div>
+                <div>
+                    Delivery Time
+                </div>
+            </div>
+            <div class="col-3">
+                <input readonly value="@Model.BasicPackage.Name" />
+                <input asp-for="@Model.BasicPackage.Description" />
+                <input asp-for="@Model.BasicPackage.Price" />
+                <input asp-for="@Model.BasicPackage.Revisions" />
+                <input asp-for="@Model.BasicPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.BasicPackage.Id" />
+            </div>
+            <div class="col-3">
+                <input readonly value="@Model.StandartPackage.Name" />
+                <input asp-for="@Model.StandartPackage.Description" />
+                <input asp-for="@Model.StandartPackage.Price" />
+                <input asp-for="@Model.StandartPackage.Revisions" />
+                <input asp-for="@Model.StandartPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.StandartPackage.Id" />
+            </div>
+            <div class="col-3">
+                <input readonly value="@Model.PremiumPackage.Name" />
+                <input asp-for="@Model.PremiumPackage.Description" />
+                <input asp-for="@Model.PremiumPackage.Price" />
+                <input asp-for="@Model.PremiumPackage.Revisions" />
+                <input asp-for="@Model.PremiumPackage.DeliveryTime" />
+                <input readonly hidden asp-for="@Model.PremiumPackage.Id" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-user btn-block">
+            Create
+        </button>
+    </form>
+</div>

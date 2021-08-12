@@ -38,14 +38,46 @@
             this.sectorsService = sectorsService;
         }
 
-        public IActionResult EditTitle()
+        public async Task<IActionResult> EditTitle(int id)
         {
-            return this.View();
+            var listing = await this.listingsService.GetByIdAsync<EditTitleViewModel>(id);
+
+            var viewModel = new EditTitleInputModel
+            {
+                Id = listing.Id,
+                Title = listing.Title,
+            };
+
+            return this.PartialView(viewModel);
         }
 
-        public IActionResult EditDetails()
+        [HttpPost]
+        public async Task<IActionResult> EditTitle(EditTitleInputModel input)
         {
-            return this.View();
+            await this.listingsService.EditTitleAsync(input.Id, input.Title);
+
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.Id });
+        }
+
+        public async Task<IActionResult> EditDetails(int id)
+        {
+            var listing = await this.listingsService.GetByIdAsync<EditDescriptionViewModel>(id);
+
+            var viewModel = new EditDescriptionInputModel
+            {
+                Id = listing.Id,
+                ProjectDetails = listing.ProjectDetails,
+            };
+
+            return this.PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditDetails(EditDescriptionInputModel input)
+        {
+            await this.listingsService.EditDetailsAsync(input.Id, input.ProjectDetails);
+
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.Id });
         }
 
         public IActionResult Create()
