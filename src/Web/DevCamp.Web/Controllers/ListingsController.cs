@@ -21,6 +21,7 @@
         private readonly ISubCategoriesService subCategoriesService;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ISectorsService sectorsService;
+        private readonly IPackagesService packagesService;
 
         public ListingsController(
             UserManager<ApplicationUser> userManager,
@@ -28,7 +29,8 @@
             ICategoriesService categoriesService,
             ISubCategoriesService subCategoriesService,
             SignInManager<ApplicationUser> signInManager,
-            ISectorsService sectorsService)
+            ISectorsService sectorsService,
+            IPackagesService packagesService)
         {
             this.userManager = userManager;
             this.listingsService = listingsService;
@@ -36,6 +38,7 @@
             this.subCategoriesService = subCategoriesService;
             this.signInManager = signInManager;
             this.sectorsService = sectorsService;
+            this.packagesService = packagesService;
         }
 
         public async Task<IActionResult> EditTitle(int id)
@@ -146,6 +149,12 @@
         public async Task<IActionResult> PersonalListing(int id)
         {
             var listing = await this.listingsService.GetByIdAsync<ListingDetailsViewModel>(id);
+
+            var packages = this.packagesService.GetAll<PackagesViewModel>(id);
+
+            listing.BasicPackage = packages.FirstOrDefault(x => x.Name == "Basic");
+            listing.StandardPackage = packages.FirstOrDefault(x => x.Name == "Standard");
+            listing.PremiumPackage = packages.FirstOrDefault(x => x.Name == "Premium");
 
             var userId = this.userManager.GetUserId(this.User);
 

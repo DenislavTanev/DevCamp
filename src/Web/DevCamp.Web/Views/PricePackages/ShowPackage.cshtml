@@ -1,0 +1,17 @@
+﻿@model DevCamp.Web.ViewModels.Listings.PackagesViewModel
+
+<div class="row mt-3">
+    <h5 class="col">@Model.Name</h5>
+    <div class="col">$@Model.Price</div>
+</div>
+<div class="row">
+    <h6 class="text-start mt-3 mb-3 text-muted">@Model.Description</h6>
+</div>
+<div class="row">
+    <h6 class="col-5 text-start">@Model.DeliveryTime Days Delivery</h6>
+    <h6 class="col-4">@Model.Revisions Revisions</h6>
+</div>
+<hr />
+<div class="row mt-2 mb-2">
+    <button class="offset-4 col-4 text-center btn-success rounded">Continue ($@Model.Price)</button>
+</div>

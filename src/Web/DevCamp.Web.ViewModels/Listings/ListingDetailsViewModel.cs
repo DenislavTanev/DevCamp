@@ -25,7 +25,11 @@
 
         public ApplicationUser User { get; set; }
 
-        public ICollection<PackagesViewModel> Packages { get; set; }
+        public PackagesViewModel BasicPackage { get; set; }
+
+        public PackagesViewModel StandardPackage { get; set; }
+
+        public PackagesViewModel PremiumPackage { get; set; }
 
         public ICollection<FaqViewModel> Faqs { get; set; }
     }

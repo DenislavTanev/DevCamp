@@ -25,7 +25,7 @@
             {
                 ListingId = listingId,
                 BasicPackage = packages.First(x => x.Name == "Basic"),
-                StandartPackage = packages.First(x => x.Name == "Standard"),
+                StandardPackage = packages.First(x => x.Name == "Standard"),
                 PremiumPackage = packages.First(x => x.Name == "Premium"),
             };
 
@@ -35,7 +35,7 @@
         [HttpPost]
         public async Task<IActionResult> Create(ListingPackagesViewModel input)
         {
-            await this.packagesService.CreateAsync(input.BasicPackage, input.StandartPackage, input.PremiumPackage);
+            await this.packagesService.CreateAsync(input.BasicPackage, input.StandardPackage, input.PremiumPackage);
 
             return this.RedirectToAction("PersonalListing", "Listings", new { listingId = input.ListingId });
         }
@@ -48,7 +48,7 @@
             {
                 ListingId = listingId,
                 BasicPackage = packages.First(x => x.Name == "Basic"),
-                StandartPackage = packages.First(x => x.Name == "Standard"),
+                StandardPackage = packages.First(x => x.Name == "Standard"),
                 PremiumPackage = packages.First(x => x.Name == "Premium"),
             };
 
@@ -58,9 +58,16 @@
         [HttpPost]
         public async Task<IActionResult> Edit(ListingPackagesViewModel input)
         {
-            await this.packagesService.EditAsync(input.BasicPackage, input.StandartPackage, input.PremiumPackage);
+            await this.packagesService.EditAsync(input.BasicPackage, input.StandardPackage, input.PremiumPackage);
 
             return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
+        }
+
+        public async Task<IActionResult> ShowPackage(int id)
+        {
+            var package = await this.packagesService.GetByIdAsync<PackagesViewModel>(id);
+
+            return this.PartialView(package);
         }
     }
 }

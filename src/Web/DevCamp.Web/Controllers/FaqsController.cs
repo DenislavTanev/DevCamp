@@ -64,5 +64,14 @@
 
             return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var faq = await this.faqService.GetByIdAsync<FaqEditViewModel>(id);
+
+            await this.faqService.DeleteAsync(id);
+
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = faq.ListingId });
+        }
     }
 }

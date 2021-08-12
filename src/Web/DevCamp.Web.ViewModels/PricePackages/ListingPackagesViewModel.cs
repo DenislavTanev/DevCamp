@@ -9,7 +9,7 @@
 
         public PackagesViewModel BasicPackage { get; set; }
 
-        public PackagesViewModel StandartPackage { get; set; }
+        public PackagesViewModel StandardPackage { get; set; }
 
         public PackagesViewModel PremiumPackage { get; set; }
     }

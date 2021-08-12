@@ -125,50 +125,80 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="align-text-top">Packages</th>
-                                @foreach (var package in Model.Packages)
-                                {
-                                    <th scope="col">
-                                        <div class="row text-muted">
-                                            $@package.Price
-                                        </div>
-                                        <div class="row">
-                                            @package.Name
-                                        </div>
-                                        <div class="row text-muted">
-                                            @package.Description
-                                        </div>
-                                    </th>
-                                }
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.BasicPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.BasicPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.BasicPackage.Description
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.StandardPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.StandardPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.StandardPackage.Description
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.PremiumPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.PremiumPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.PremiumPackage.Description
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">Revisions</th>
-                                @foreach (var package in Model.Packages)
-                                {
-                                    <td>@package.Revisions</td>
-                                }
+                                <td>@Model.BasicPackage.Revisions</td>
+                                <td>@Model.StandardPackage.Revisions</td>
+                                <td>@Model.PremiumPackage.Revisions</td>
                             </tr>
                             <tr>
                                 <th scope="row">Delivery Time</th>
-                                @foreach (var package in Model.Packages)
-                                {
-                                    <td>@package.DeliveryTime</td>
-                                }
+                                <td>@Model.BasicPackage.DeliveryTime</td>
+                                <td>@Model.StandardPackage.DeliveryTime</td>
+                                <td>@Model.PremiumPackage.DeliveryTime</td>
                             </tr>
                             <tr>
                                 <th scope="row"></th>
-                                @foreach (var package in Model.Packages)
-                                {
-                                    <td>
-                                        <div class="row">
-                                            $@package.Price
-                                        </div>
-                                        <div class=" container row">
-                                            <button class="rounded btn-success">Select</button>
-                                        </div>
-                                    </td>
-                                }
+                                <td>
+                                    <div class="row">
+                                        $@Model.BasicPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        $@Model.StandardPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        $@Model.PremiumPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -193,7 +223,8 @@
                                     </h2>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse row" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body col">@faq.Answer</div>
-                                        <input class="col-2" type="button" onclick="editFaq(@faq.Id)" value="Edit" />
+                                        <input class="col" type="button" onclick="editFaq(@faq.Id)" value="Edit" />
+                                        <a class="text-dark border-0 col" asp-action="Delete" asp-controller="Faqs" asp-route-Id="@faq.Id"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
                             }
@@ -212,24 +243,27 @@
         <div class="offset-1 col-xl-4 col-sm-5">
             <div class="container text-center sticky-top border mt-2" id="navbar-example3">
                 <div class="row mt-2 bg-light">
-                    <div class="col-4 border">Basic</div>
-                    <div class="col-4 border">Standard</div>
-                    <div class="col-4 border">Premium</div>
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.BasicPackage.Id)" value="Basic" />
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.StandardPackage.Id)" value="Standard" />
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.PremiumPackage.Id)" value="Premium" />
                 </div>
-                <div class="row mt-3">
-                    <h5 class="col">Basic Logo Design</h5>
-                    <div class="col">$20</div>
-                </div>
-                <div class="row">
-                    <h6 class="text-start mt-3 mb-3 text-muted">3 Basic Logos + High Quality Mockup - NO COMPLEX OR MASCOT LOGO</h6>
-                </div>
-                <div class="row">
-                    <h6 class="col-5 text-start">3 Days Delivery</h6>
-                    <h6 class="col-4">3 Revisions</h6>
-                </div>
-                <hr />
-                <div class="row mt-2 mb-2">
-                    <button class="offset-4 col-4 text-center btn-success rounded">Continue ($20)</button>
+
+                <div id="ShowPackage">
+                    <div class="row mt-3">
+                        <h5 class="col">@Model.BasicPackage.Name</h5>
+                        <div class="col">$@Model.BasicPackage.Price</div>
+                    </div>
+                    <div class="row">
+                        <h6 class="text-start mt-3 mb-3 text-muted">@Model.BasicPackage.Description</h6>
+                    </div>
+                    <div class="row">
+                        <h6 class="col-5 text-start">@Model.BasicPackage.DeliveryTime Days Delivery</h6>
+                        <h6 class="col-4">@Model.BasicPackage.Revisions Revisions</h6>
+                    </div>
+                    <hr />
+                    <div class="row mt-2 mb-2">
+                        <button class="offset-4 col-4 text-center btn-success rounded">Continue ($@Model.BasicPackage.Price)</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -241,4 +275,5 @@
     <script src="~/js/Custom/EditTitle.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddFaq.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditFaq.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/ShowPackages.js" asp-append-version="true"></script>
 }
