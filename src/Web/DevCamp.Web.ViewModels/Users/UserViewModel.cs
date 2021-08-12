@@ -13,6 +13,8 @@
 
     public class UserViewModel : IMapFrom<ApplicationUser>
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public byte[] ProfilePic { get; set; }
@@ -21,11 +23,7 @@
 
         public string Profession { get; set; }
 
-        public TimeSpan ResponseTime { get; set; }
-
         public DateTime CreatedOn { get; set; }
-
-        public int CountryId { get; set; }
 
         public Country Country { get; set; }
 

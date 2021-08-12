@@ -35,9 +35,8 @@
             this.userLanguagesService = userLanguagesService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string userId)
         {
-            var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<UserViewModel>(userId);
 
             return this.View(user);

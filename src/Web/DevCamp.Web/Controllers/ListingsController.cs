@@ -117,10 +117,18 @@
             return this.RedirectToAction("Create", "PricePackages", new { listingId = listingId });
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
-            var listing = await this.listingsService.GetByIdAsync<ListingDetailsViewModel>(6);
+            var listing = await this.listingsService.GetByIdAsync<ListingDetailsViewModel>(id);
+
+            var packages = this.packagesService.GetAll<PackagesViewModel>(id);
+
+            listing.BasicPackage = packages.FirstOrDefault(x => x.Name == "Basic");
+            listing.StandardPackage = packages.FirstOrDefault(x => x.Name == "Standard");
+            listing.PremiumPackage = packages.FirstOrDefault(x => x.Name == "Premium");
+
             var userId = this.userManager.GetUserId(this.User);
+
             listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
 
             return this.View(listing);

@@ -28,13 +28,13 @@
                 <img class="rounded-circle" style="height:20px;width:20px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg">
             </div>
             <div class="col-8 text-start">
-                <a asp-action="Index" asp-controller="Users" asp-route-Id="@Model.Id">@Model.Username</a>
+                <a asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">@Model.Username</a>
             </div>
         </div>
-        <a class="card-title" asp-action="Index" asp-controller="Listings" asp-route-Id="@Model.Id">@Model.Title</a>
+        <a class="card-title" asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">@Model.Title</a>
         <hr />
         <div class="row">
-            <a asp-action="Index" asp-controller="Listings" asp-route-Id="@Model.Id">
+            <a asp-action="PersonalListing" asp-controller="Listings" asp-route-Id="@Model.Id">
                 <div class="text-uppercase text-muted text-end">
                     Starting at <span class="text-dark">$@Model.StartingPrice</span>
                 </div>
@@ -43,6 +43,5 @@
         </div>
     </div>
 </div>
-
 
 

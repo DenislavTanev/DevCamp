@@ -27,6 +27,7 @@
                             <input class="offset-4 col-2 text-end" type="button" onclick="editProfession()" value="Edit" />
                         }
                     </div>
+                    <a class="row" asp-action="Index" asp-controller="Users" asp-route-userId="@Model.Id">Preview Public Mode</a>
                 </div>
             </div>
             <hr />
@@ -187,7 +188,7 @@
                 {
                     listing.Username = Model.Name;
                     <div class="col-md-4 mb-3">
-                        <partial name="_ListingPartial" model="listing" />
+                        <partial name="_PersonalListingPartial" model="listing" />
                     </div>
                 }
             </div>

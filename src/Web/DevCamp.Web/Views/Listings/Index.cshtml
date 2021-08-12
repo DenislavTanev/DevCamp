@@ -32,11 +32,14 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item"><a href="#">@Model.Category.Name</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.SubCategory.Name</li>
                     </ol>
                 </nav>
 
-                <h4 id="OverView1">@Model.Title</h4>
+                <div class="row">
+                    <h4 id="OverView1" class="col-10">@Model.Title</h4>
+                </div>
                 <div class="row">
                     <div class="col">
                         <img class="rounded-circle" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
@@ -71,25 +74,12 @@
                         </button>
                     </div>
                 </div>
-                <h4 id="scrollspyHeading1">About this Gig</h4>
-                <p>
-                    11,000+ Projects completed, 7000+ Happy buyers around the world,
-                    5000+ Positive Reviews, 100+ Industries.
-                    I am professional and reputed logo design service provider, offering 100% original and conceptual logo design solutions for businesses of varying sizes.
-                    The logos will be the true representative of your business and match its nature and standard.
-                    I have been designing for various clients worldwide for the past 8 years. I have worked with several internationally acclaimed, prestigious and well known companies and organization.
-                    I have the ability to look from the client’s eye and understand their needs and provide my clients with designs that help achieve their company/brand full potential.
-                    Feature in Business Insider as a fiverr seller shorturl.at/uEPU3
-                    Live Portfolio: http://flic.kr/s/aHsmGFyjY6
-                    Unlimited Revisions.
-                    Color & Background Variations.
-                    100% Original initial concepts.
-                    Delivery on Time.
-                    100% Editable and Resizable Vector.
-                    Message for Consultation.
-                    ////
+                <div class="row">
+                    <h4 id="scrollspyHeading1" class="col-4">About this Gig</h4>
+                </div>
+                <div class="row">
                     @Model.ProjectDetails
-                </p>
+                </div>
                 <h4 id="scrollspyHeading2">About the Seller</h4>
                 <div class="row">
                     <div class="col-3">
@@ -97,131 +87,174 @@
                              data-holder-rendered="true">
                     </div>
                     <div class="col-4">
-                        <a href="#">@Model.User.Name</a>
-                        <p>Programmer</p>
-                        <div class="col-sm-6 text-center">
-                            <button type="button" class="btn btn-light btn-lg">Light</button>
-                        </div>
+                        <a asp-controller="Users" asp-action="Index">@Model.User.Name</a>
+                        <p>@Model.User.Profession</p>
                     </div>
                 </div>
                 <div class="border">
                     <div class="row">
                         <div class="col">
                             <p>From</p>
-                            <p>@Model.User.Country.Name</p>
+                            <h3>@Model.User.Country.Name</h3>
                         </div>
                         <div class="col">
                             <p>Member since</p>
-                            <p>@Model.User.CreatedOn</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>Avg. response time</p>
-                            <p>1 hour</p>
-                        </div>
-                        <div class="col">
-                            <p>Last delivery</p>
-                            <p>About 1 day</p>
+                            <h3>@Model.User.CreatedOn.ToShortDateString()</h3>
                         </div>
                     </div>
                     <hr />
                     <div>
-                        <p>
-                            My name is Arlie and I have 8+ years of experience in graphic design and photography and 5+ years in digital marketing.
-                            With a degree in communications from Azusa Pacific University and graphic design degree from F.I.D.M.
-
-                            I take pleasure in simple things like drinking coffee, listening to music, touring museums, being in nature or cooking a great meal.
-                            In addition to the daily grind, I'm very active in church functions and an advocate for healthy living.
-                            ///// @Model.User.Information
-                        </p>
+                        <p>@Model.User.Information</p>
                     </div>
                 </div>
-                <h4 id="scrollspyHeading3">Compare Packages</h4>
+                <div class="row">
+                    <h4 id="scrollspyHeading3" class="col">Compare Packages</h4>
+                </div>
                 <div>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Packages</th>
-                                <th scope="col">Basic</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col" class="align-text-top">Packages</th>
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.BasicPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.BasicPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.BasicPackage.Description
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.StandardPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.StandardPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.StandardPackage.Description
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="row text-muted">
+                                        $@Model.PremiumPackage.Price
+                                    </div>
+                                    <div class="row">
+                                        @Model.PremiumPackage.Name
+                                    </div>
+                                    <div class="row text-muted">
+                                        @Model.PremiumPackage.Description
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>da</td>
+                                <th scope="row">Revisions</th>
+                                <td>@Model.BasicPackage.Revisions</td>
+                                <td>@Model.StandardPackage.Revisions</td>
+                                <td>@Model.PremiumPackage.Revisions</td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>fat</td>
+                                <th scope="row">Delivery Time</th>
+                                <td>@Model.BasicPackage.DeliveryTime</td>
+                                <td>@Model.StandardPackage.DeliveryTime</td>
+                                <td>@Model.PremiumPackage.DeliveryTime</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>twitter</td>
+                                <th scope="row"></th>
+                                <td>
+                                    <div class="row">
+                                        $@Model.BasicPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        $@Model.StandardPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        $@Model.PremiumPackage.Price
+                                    </div>
+                                    <div class=" container row">
+                                        <button class="rounded btn-success">Select</button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <h4 id="scrollspyHeading4">Fifth heading</h4>
+
+                <div class="row">
+                    <h4 id="scrollspyHeading4" class="col-6">Frequently Asked Questions</h4>
+                </div>
                 <div>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Accordion Item #1
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                        @if (Model.Faqs.Any())
+                        {
+                            @foreach (var faq in Model.Faqs)
+                            {
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            @faq.Question
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse row" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body col">@faq.Answer</div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col text-muted">This Gig has 0 added questions.</div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Accordion Item #2
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Accordion Item #3
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-                <h4 id="scrollspyHeading5">Fifth heading</h4>
-                <p>
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-                </p>
             </div>
         </div>
-            <div class="col-xl-5 col-sm-5">
-                <div class="container text-center sticky-top" id="navbar-example3">
-                    <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
-                         data-holder-rendered="true">
+        <div class="offset-1 col-xl-4 col-sm-5">
+            <div class="container text-center sticky-top border mt-2" id="navbar-example3">
+                <div class="row mt-2 bg-light">
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.BasicPackage.Id)" value="Basic" />
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.StandardPackage.Id)" value="Standard" />
+                    <input class="col-4 border" type="button" onclick="showPackages(@Model.PremiumPackage.Id)" value="Premium" />
+                </div>
+
+                <div id="ShowPackage">
+                    <div class="row mt-3">
+                        <h5 class="col">@Model.BasicPackage.Name</h5>
+                        <div class="col">$@Model.BasicPackage.Price</div>
+                    </div>
+                    <div class="row">
+                        <h6 class="text-start mt-3 mb-3 text-muted">@Model.BasicPackage.Description</h6>
+                    </div>
+                    <div class="row">
+                        <h6 class="col-5 text-start">@Model.BasicPackage.DeliveryTime Days Delivery</h6>
+                        <h6 class="col-4">@Model.BasicPackage.Revisions Revisions</h6>
+                    </div>
+                    <hr />
+                    <div class="row mt-2 mb-2">
+                        <button class="offset-4 col-4 text-center btn-success rounded">Continue ($@Model.BasicPackage.Price)</button>
+                    </div>
                 </div>
             </div>
+        </div>
     </div>
 </div>
+
+@section Scripts{
+    <script src="~/js/Custom/ShowPackages.js" asp-append-version="true"></script>
+}
