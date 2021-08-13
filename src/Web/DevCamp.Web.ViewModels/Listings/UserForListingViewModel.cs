@@ -1,11 +1,10 @@
-﻿using DevCamp.Data.Models;
-using DevCamp.Services.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Web.ViewModels.Listings
+﻿namespace DevCamp.Web.ViewModels.Listings
 {
+    using System;
+
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
+
     public class UserForListingViewModel : IMapFrom<ApplicationUser>
     {
         public string Id { get; set; }

@@ -13,7 +13,6 @@
     using DevCamp.Web.ViewModels.Listings;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
 
     public class ListingsController : Controller
     {
@@ -21,7 +20,6 @@
         private readonly IListingsService listingsService;
         private readonly ICategoriesService categoriesService;
         private readonly ISubCategoriesService subCategoriesService;
-        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ISectorsService sectorsService;
         private readonly IPackagesService packagesService;
         private readonly IImagesService imagesService;
@@ -32,7 +30,6 @@
             IListingsService listingsService,
             ICategoriesService categoriesService,
             ISubCategoriesService subCategoriesService,
-            SignInManager<ApplicationUser> signInManager,
             ISectorsService sectorsService,
             IPackagesService packagesService,
             IImagesService imagesService,
@@ -42,7 +39,6 @@
             this.listingsService = listingsService;
             this.categoriesService = categoriesService;
             this.subCategoriesService = subCategoriesService;
-            this.signInManager = signInManager;
             this.sectorsService = sectorsService;
             this.packagesService = packagesService;
             this.imagesService = imagesService;
@@ -72,9 +68,9 @@
 
         public async Task<IActionResult> EditDetails(int id)
         {
-            var listing = await this.listingsService.GetByIdAsync<EditDescriptionViewModel>(id);
+            var listing = await this.listingsService.GetByIdAsync<EditDetailsViewModel>(id);
 
-            var viewModel = new EditDescriptionInputModel
+            var viewModel = new EditDetailsInputModel
             {
                 Id = listing.Id,
                 ProjectDetails = listing.ProjectDetails,
@@ -84,7 +80,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditDetails(EditDescriptionInputModel input)
+        public async Task<IActionResult> EditDetails(EditDetailsInputModel input)
         {
             await this.listingsService.EditDetailsAsync(input.Id, input.ProjectDetails);
 

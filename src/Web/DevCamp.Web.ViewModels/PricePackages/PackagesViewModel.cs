@@ -13,8 +13,6 @@
 
         public string Description { get; set; }
 
-        public int ListingId { get; set; }
-
         public string Revisions { get; set; }
 
         public string DeliveryTime { get; set; }

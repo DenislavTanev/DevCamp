@@ -56,17 +56,6 @@
             await this.certificationRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAllByUser<T>(string userId)
-        {
-            var certifications = this.certificationRepository
-               .All()
-               .Where(x => x.UserId == userId)
-               .To<T>()
-               .ToList();
-
-            return certifications;
-        }
-
         public async Task<T> GetByIdAsync<T>(int id)
         {
             var certification = await this.certificationRepository

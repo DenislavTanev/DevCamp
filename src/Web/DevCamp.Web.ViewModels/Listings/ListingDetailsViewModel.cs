@@ -6,7 +6,6 @@
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.FAQs;
-    using DevCamp.Web.ViewModels.Images;
 
     public class ListingDetailsViewModel : IMapFrom<Listing>
     {
@@ -15,8 +14,6 @@
         public string Title { get; set; }
 
         public string ProjectDetails { get; set; }
-
-        public decimal? StartingPrice { get; set; }
 
         public SectorsDropDownViewModel Sector { get; set; }
 

@@ -13,17 +13,11 @@
     public class ListingsService : IListingsService
     {
         private readonly IDeletableEntityRepository<Listing> listingsRepository;
-        private readonly IDeletableEntityRepository<UserLanguage> languagesRepository;
-        private readonly IDeletableEntityRepository<Package> packagesRepository;
 
         public ListingsService(
-            IDeletableEntityRepository<Listing> listingsRepository,
-            IDeletableEntityRepository<UserLanguage> languagesRepository,
-            IDeletableEntityRepository<Package> packagesRepository)
+            IDeletableEntityRepository<Listing> listingsRepository)
         {
             this.listingsRepository = listingsRepository;
-            this.languagesRepository = languagesRepository;
-            this.packagesRepository = packagesRepository;
         }
 
         public async Task<int> CreateAsync(string title, string projectDetails, string userId, int categoryId, int subCategoryId)
@@ -123,17 +117,6 @@
             var listings = this.listingsRepository
                 .All()
                 .Where(x => x.SubCategoryId == subCategoryId)
-                .To<T>()
-                .ToList();
-
-            return listings;
-        }
-
-        public IEnumerable<T> GetAllByUser<T>(string userId)
-        {
-            var listings = this.listingsRepository
-                .All()
-                .Where(x => x.UserId == userId)
                 .To<T>()
                 .ToList();
 

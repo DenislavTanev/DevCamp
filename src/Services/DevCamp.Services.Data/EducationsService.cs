@@ -60,17 +60,6 @@
             await this.educationRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAllByUser<T>(string userId)
-        {
-            var educations = this.educationRepository
-                .All()
-                .Where(x => x.UserId == userId)
-                .To<T>()
-                .ToList();
-
-            return educations;
-        }
-
         public async Task<T> GetByIdAsync<T>(int id)
         {
             var education = await this.educationRepository

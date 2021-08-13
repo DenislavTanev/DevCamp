@@ -3,14 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.Images;
-    using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -19,24 +17,18 @@
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IUsersService usersService;
-        private readonly ILanguagesService languagesService;
         private readonly ICountriesService countriesService;
-        private readonly IUserLanguagesService userLanguagesService;
         private readonly IImagesService imagesService;
 
         public UsersController(
             UserManager<ApplicationUser> userManager,
             IUsersService usersService,
-            ILanguagesService languagesService,
             ICountriesService countriesService,
-            IUserLanguagesService userLanguagesService,
             IImagesService imagesService)
         {
             this.userManager = userManager;
             this.usersService = usersService;
-            this.languagesService = languagesService;
             this.countriesService = countriesService;
-            this.userLanguagesService = userLanguagesService;
             this.imagesService = imagesService;
         }
 
@@ -98,11 +90,17 @@
             var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<EditDescriptionViewModel>(userId);
 
-            return this.PartialView(user);
+            var viewModel = new EditDescriptionInputModel
+            {
+                Id = userId,
+                Information = user.Information,
+            };
+
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditDescription(EditDescriptionViewModel input)
+        public async Task<IActionResult> EditDescription(EditDescriptionInputModel input)
         {
             await this.usersService.EditDescriptionAsync(input.Id, input.Information);
 
@@ -136,11 +134,17 @@
             var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<EditProfessionViewModel>(userId);
 
-            return this.PartialView(user);
+            var viewModel = new EditProfessionInputModel
+            {
+                Id = userId,
+                Profession = user.Profession,
+            };
+
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditProfession(EditProfessionViewModel input)
+        public async Task<IActionResult> EditProfession(EditProfessionInputModel input)
         {
             await this.usersService.EditProfessionAsync(input.Id, input.Profession);
 
@@ -152,11 +156,17 @@
             var userId = this.userManager.GetUserId(this.User);
             var user = await this.usersService.GetById<EditNameViewModel>(userId);
 
-            return this.PartialView(user);
+            var viewModel = new EditNameInputModel
+            {
+                Id = userId,
+                Name = user.Name,
+            };
+
+            return this.PartialView(viewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditName(EditNameViewModel input)
+        public async Task<IActionResult> EditName(EditNameInputModel input)
         {
             await this.usersService.EditNameAsync(input.Id, input.Name);
 

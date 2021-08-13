@@ -7,13 +7,7 @@
     {
         public int Id { get; set; }
 
-        public int LanguageId { get; set; }
-
         public Language Language { get; set; }
-
-        public string UserId { get; set; }
-
-        public ApplicationUser User { get; set; }
 
         public int LevelId { get; set; }
 

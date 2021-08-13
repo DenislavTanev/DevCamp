@@ -1,11 +1,8 @@
-﻿using DevCamp.Data.Models;
-using DevCamp.Services.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevCamp.Web.ViewModels.Educations
+﻿namespace DevCamp.Web.ViewModels.Educations
 {
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
+
     public class EducationViewModel : IMapFrom<Education>
     {
         public int Id { get; set; }

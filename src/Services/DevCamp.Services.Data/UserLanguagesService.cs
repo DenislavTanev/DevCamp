@@ -1,16 +1,15 @@
-﻿using DevCamp.Data.Common.Repositories;
-using DevCamp.Data.Models;
-using DevCamp.Services.Data.Interfaces;
-using DevCamp.Services.Mapping;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevCamp.Services.Data
+﻿namespace DevCamp.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using DevCamp.Data.Common.Repositories;
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Data.Interfaces;
+    using DevCamp.Services.Mapping;
+    using Microsoft.EntityFrameworkCore;
+
     public class UserLanguagesService : IUserLanguagesService
     {
         private readonly IDeletableEntityRepository<UserLanguage> userLanguageRepository;
@@ -52,17 +51,6 @@ namespace DevCamp.Services.Data
 
             this.userLanguageRepository.Delete(language);
             await this.userLanguageRepository.SaveChangesAsync();
-        }
-
-        public IEnumerable<T> GetAllByUser<T>(string userId)
-        {
-            var userLanguages = this.userLanguageRepository
-                .All()
-                .Where(x => x.UserId == userId)
-                .To<T>()
-                .ToList();
-
-            return userLanguages;
         }
 
         public async Task<T> GetById<T>(int id)

@@ -14,7 +14,5 @@
         IEnumerable<T> GetAll<T>(int listingId);
 
         Task EditAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage);
-
-        Task DeleteAsync(int id);
     }
 }

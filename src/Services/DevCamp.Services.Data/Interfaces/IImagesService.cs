@@ -10,7 +10,5 @@
         Task CreateAsync(byte[] imageByte, string userId);
 
         IEnumerable<T> All<T>(int listingId);
-
-        Task<T> GetProfilePic<T>(string userId);
     }
 }

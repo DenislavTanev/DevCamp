@@ -55,16 +55,6 @@
             await this.listingsRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
-        {
-            var package = await this.packagesRepository
-                .All()
-                .FirstOrDefaultAsync(x => x.Id == id);
-
-            this.packagesRepository.Delete(package);
-            await this.packagesRepository.SaveChangesAsync();
-        }
-
         public async Task EditAsync(PackagesViewModel basicPackage, PackagesViewModel standartPackage, PackagesViewModel premiumPackage)
         {
             var basic = await this.packagesRepository.All().FirstOrDefaultAsync(x => x.Id == basicPackage.Id);

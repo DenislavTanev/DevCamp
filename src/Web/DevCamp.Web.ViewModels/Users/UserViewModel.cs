@@ -6,6 +6,7 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.Certifications;
+    using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.Educations;
     using DevCamp.Web.ViewModels.Languages;
     using DevCamp.Web.ViewModels.Listings;
@@ -25,7 +26,7 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public Country Country { get; set; }
+        public CountriesDropDownViewModel Country { get; set; }
 
         public ICollection<UserLanguageViewModel> SpokenLanguages { get; set; }
 

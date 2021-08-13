@@ -55,17 +55,6 @@
             await this.faqRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll<T>(int listingId)
-        {
-            var faqs = this.faqRepository
-                .All()
-                .Where(x => x.ListingId == listingId)
-                .To<T>()
-                .ToList();
-
-            return faqs;
-        }
-
         public async Task<T> GetByIdAsync<T>(int id)
         {
             var faq = await this.faqRepository

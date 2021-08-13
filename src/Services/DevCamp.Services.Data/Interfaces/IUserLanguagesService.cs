@@ -5,8 +5,6 @@
 
     public interface IUserLanguagesService
     {
-        IEnumerable<T> GetAllByUser<T>(string userId);
-
         Task<T> GetById<T>(int id);
 
         Task EditLanguageAsync(int id, int levelId);

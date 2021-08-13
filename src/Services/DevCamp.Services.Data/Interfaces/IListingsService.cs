@@ -9,8 +9,6 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        IEnumerable<T> GetAllByUser<T>(string userId);
-
         Task DeleteAsync(int id);
 
         Task EditTitleAsync(int id, string title);

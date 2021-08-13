@@ -13,16 +13,13 @@
     public class SkillsService : ISkillsService
     {
         private readonly IDeletableEntityRepository<UserSkill> userSkillRepository;
-        private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
         private readonly IDeletableEntityRepository<Skill> skillRepository;
 
         public SkillsService(
             IDeletableEntityRepository<UserSkill> userSkillRepository,
-            IDeletableEntityRepository<ApplicationUser> usersRepository,
             IDeletableEntityRepository<Skill> skillRepository)
         {
             this.userSkillRepository = userSkillRepository;
-            this.usersRepository = usersRepository;
             this.skillRepository = skillRepository;
         }
 
@@ -46,39 +43,6 @@
 
             this.userSkillRepository.Delete(skills);
             await this.userSkillRepository.SaveChangesAsync();
-        }
-
-        public IEnumerable<T> GetAllByUser<T>(string userId)
-        {
-            var skills = this.userSkillRepository
-                .All()
-                .Where(x => x.UserId == userId)
-                .To<T>()
-                .ToList();
-
-            return skills;
-        }
-
-        public IEnumerable<T> GetAllUsersBySkill<T>(int skillId)
-        {
-            var users = this.usersRepository
-                .All()
-                .Where(x => x.Skills.All(x => x.Skill.Id == skillId))
-                .To<T>()
-                .ToList();
-
-            return users;
-        }
-
-        public async Task<T> GetByIdAsync<T>(int id)
-        {
-            var skill = await this.userSkillRepository
-                .All()
-                .Where(x => x.Id == id)
-                .To<T>()
-                .FirstOrDefaultAsync();
-
-            return skill;
         }
 
         public IEnumerable<T> GetAll<T>()

@@ -12,16 +12,13 @@
     public class SkillsController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IUsersService usersService;
         private readonly ISkillsService skillsService;
 
         public SkillsController(
             UserManager<ApplicationUser> userManager,
-            IUsersService usersService,
             ISkillsService skillsService)
         {
             this.userManager = userManager;
-            this.usersService = usersService;
             this.skillsService = skillsService;
         }
 

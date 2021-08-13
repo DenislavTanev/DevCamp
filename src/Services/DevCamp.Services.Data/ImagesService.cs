@@ -9,7 +9,6 @@
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Mapping;
-    using Microsoft.EntityFrameworkCore;
 
     public class ImagesService : IImagesService
     {
@@ -60,17 +59,6 @@
             await this.imagesRepository.AddAsync(image);
 
             await this.imagesRepository.SaveChangesAsync();
-        }
-
-        public async Task<T> GetProfilePic<T>(string userId)
-        {
-            var image = await this.imagesRepository
-                .All()
-                .Where(x => x.UserId == userId)
-                .To<T>()
-                .FirstOrDefaultAsync();
-
-            return image;
         }
     }
 }

@@ -9,8 +9,6 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        IEnumerable<T> GetAll<T>(int listingId);
-
         Task EditAsync(int id, string question, string answer);
 
         Task DeleteAsync(int faqId);

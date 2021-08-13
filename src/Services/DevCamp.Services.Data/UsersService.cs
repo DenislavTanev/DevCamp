@@ -1,6 +1,5 @@
 ﻿namespace DevCamp.Services.Data
 {
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -13,12 +12,10 @@
     public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> usersRepository;
-        private readonly IDeletableEntityRepository<UserLanguage> languageRepository;
 
-        public UsersService(IDeletableEntityRepository<ApplicationUser> usersRepository, IDeletableEntityRepository<UserLanguage> languageRepository)
+        public UsersService(IDeletableEntityRepository<ApplicationUser> usersRepository)
         {
             this.usersRepository = usersRepository;
-            this.languageRepository = languageRepository;
         }
 
         public async Task<T> GetById<T>(string userId)
@@ -45,8 +42,7 @@
                 .All()
                 .FirstOrDefaultAsync(x => x.Id == userId);
 
-            //user.ProfilePic = profilePic;
-
+            // user.ProfilePic = profilePic;
             await this.usersRepository.SaveChangesAsync();
         }
 
