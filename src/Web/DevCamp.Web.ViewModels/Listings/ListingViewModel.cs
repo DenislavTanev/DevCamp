@@ -1,5 +1,7 @@
 ﻿namespace DevCamp.Web.ViewModels.Listings
 {
+    using System.Collections.Generic;
+
     using DevCamp.Data.Models;
     using DevCamp.Services.Mapping;
 
@@ -11,8 +13,10 @@
 
         public decimal? StartingPrice { get; set; }
 
-        public byte[] UserProfilePic { get; set; }
+        public string UserProfilePic { get; set; }
 
         public string Username { get; set; }
+
+        public List<string> ListingImages { get; set; }
     }
 }

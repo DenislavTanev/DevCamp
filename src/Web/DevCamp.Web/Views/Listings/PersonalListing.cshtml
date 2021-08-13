@@ -2,6 +2,7 @@
 
 @{
     this.ViewData["Title"] = Model.Title;
+    var count = 0;
 }
 
 <div>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <img class="rounded-circle" style="height:30px;width:30px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
+                        <img class="rounded-circle" style="height:30px;width:30px;" src="@Model.User.ProfilePicture"
                              data-holder-rendered="true">
                     </div>
                     <div class="col">
@@ -45,27 +46,42 @@
                 <hr />
 
                 <div>
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="https://www.economic.bg/web/files/articles/37099/narrow_image/thumb_1200x630_m11.jpg" class="d-block w-100" alt="...">
+                    @if (Model.ListingImages.Any())
+                    {
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                            <div class="carousel-inner">
+                                @foreach (var image in Model.ListingImages)
+                                {
+                                    @if (count == 0)
+                                    {
+                                        <div class="carousel-item active">
+                                            <img src="@image" class="d-block w-100" alt="...">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item">
+                                            <img src="@image" class="d-block w-100" alt="...">
+                                        </div>
+                                    }
+                                    count++;
+                                }
                             </div>
-                            <div class="carousel-item">
-                                <img src="https://dizzyriders.bg/uploads/thumbs/avtomobili/06_2020/111-ghibli-620x427.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://clubs1.bg/wp-content/uploads/2020/08/01_Maserati_Trofeo_collection.jpg" class="d-block w-100" alt="...">
-                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    }
+                    else
+                    {
+                        <input class="col-2 text-end" type="button" onclick="addImages(@Model.Id)" value="Add Images" />
+                    }
+                    <div id="AddImages"></div>
                 </div>
                 <div class="row">
                     <h4 id="scrollspyHeading1" class="col-4">About this Gig</h4>
@@ -84,7 +100,7 @@
                 <h4 id="scrollspyHeading2">About the Seller</h4>
                 <div class="row">
                     <div class="col-3">
-                        <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
+                        <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.User.ProfilePicture"
                              data-holder-rendered="true">
                     </div>
                     <div class="col-4">
@@ -268,4 +284,5 @@
     <script src="~/js/Custom/AddFaq.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditFaq.js" asp-append-version="true"></script>
     <script src="~/js/Custom/ShowPackages.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddImages.js" asp-append-version="true"></script>
 }

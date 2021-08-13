@@ -1,0 +1,10 @@
+﻿@model DevCamp.Web.ViewModels.Images.ImagesListCreateInputModel
+
+<form method="post" enctype="multipart/form-data" asp-action="AddImages" asp-controller="Listings">
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input asp-for="Images" class="form-control" type="file" multiple>
+    </div>
+    <input asp-for="ListingId" hidden/>
+    <button type="submit" class="btn btn-success btn-pill ">Create</button>
+</form>

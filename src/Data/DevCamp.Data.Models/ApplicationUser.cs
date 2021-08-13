@@ -44,11 +44,7 @@ namespace DevCamp.Data.Models
 
         public string Profession { get; set; }
 
-        public TimeSpan ResponseTime { get; set; }
-
-        public DateTime LastDelivery { get; set; }
-
-        public byte[] ProfilePic { get; set; }
+        public Image ProfilePic { get; set; }
 
         public ICollection<UserLanguage> SpokenLanguages { get; set; }
 

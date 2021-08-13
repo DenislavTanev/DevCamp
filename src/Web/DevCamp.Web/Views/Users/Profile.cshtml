@@ -4,8 +4,19 @@
     <div class="col-sm-4 mt-2">
         <div class="container border">
             <div class="text-center mt-2">
-                <img class="rounded-circle" style="height:150px;width:150px;" src="https://zelensviat.com/wp-content/uploads/2019/03/410527-1200x900.jpg"
-                     data-holder-rendered="true">
+                @if (Model.ProfilePicture != null)
+                {
+                    <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.ProfilePicture"
+                         data-holder-rendered="true">
+                    <input class="col-2 text-end" type="button" onclick="addProfilePic()" value="Edit" />
+                }
+                else
+                {
+                    <img class="rounded-circle" style="height:150px;width:150px;" src="https://hook.finance/sites/default/files/user.png"
+                         data-holder-rendered="true">
+                    <input class="col-2 text-end" type="button" onclick="addProfilePic()" value="Edit" />
+                }
+                <div id="ProfilePic"></div>
                 <div>
                     <div id="EditName">
                         @if (Model.Name != null)
@@ -186,7 +197,6 @@
             <div class="row">
                 @foreach (var listing in Model.Listings)
                 {
-                    listing.Username = Model.Name;
                     <div class="col-md-4 mb-3">
                         <partial name="_PersonalListingPartial" model="listing" />
                     </div>
@@ -208,4 +218,5 @@
     <script src="~/js/Custom/EditCertification.js" asp-append-version="true"></script>
     <script src="~/js/Custom/EditEducation.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddEducation.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/AddProfilePic.js" asp-append-version="true"></script>
 }

@@ -26,11 +26,13 @@
             var user = await this.usersRepository
                 .All()
                 .Where(x => x.Id == userId)
+                .Include(x => x.Country)
                 .Include(x => x.SpokenLanguages)
                 .Include(x => x.Listings)
                 .Include(x => x.Skills)
                 .Include(x => x.Educations)
                 .Include(x => x.Certifications)
+                .Include(x => x.ProfilePic)
                 .To<T>()
                 .FirstOrDefaultAsync();
 
@@ -43,7 +45,7 @@
                 .All()
                 .FirstOrDefaultAsync(x => x.Id == userId);
 
-            user.ProfilePic = profilePic;
+            //user.ProfilePic = profilePic;
 
             await this.usersRepository.SaveChangesAsync();
         }
@@ -55,17 +57,6 @@
                 .FirstOrDefaultAsync(x => x.Id == userId);
 
             user.Name = name;
-
-            await this.usersRepository.SaveChangesAsync();
-        }
-
-        public async Task EditResponseTimeAsync(string userId, TimeSpan responseTime)
-        {
-            var user = await this.usersRepository
-                .All()
-                .FirstOrDefaultAsync(x => x.Id == userId);
-
-            user.ResponseTime = responseTime;
 
             await this.usersRepository.SaveChangesAsync();
         }
@@ -101,6 +92,18 @@
             user.Profession = profession;
 
             await this.usersRepository.SaveChangesAsync();
+        }
+
+        public async Task<T> GetProfilePic<T>(string userId)
+        {
+            var image = await this.usersRepository
+                .All()
+                .Where(x => x.Id == userId)
+                .Select(x => x.ProfilePic)
+                .To<T>()
+                .FirstOrDefaultAsync();
+
+            return image;
         }
     }
 }

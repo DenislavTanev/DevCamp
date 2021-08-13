@@ -1,0 +1,10 @@
+﻿@model DevCamp.Web.ViewModels.Images.ImageCreateInputModel
+
+<form method="post" enctype="multipart/form-data" asp-action="AddProfilePic" asp-controller="Users">
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input asp-for="Image" type="file">
+    </div>
+    <input asp-for="UserId" hidden/>
+    <button type="submit" class="btn btn-success btn-pill ">Add</button>
+</form>

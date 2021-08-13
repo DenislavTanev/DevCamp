@@ -82,6 +82,7 @@
             services.AddTransient<ICerficationsService, CertificationsService>();
             services.AddTransient<ILevelsService, LevelsService>();
             services.AddTransient<IUserLanguagesService, UserLanguagesService>();
+            services.AddTransient<IImagesService, ImagesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

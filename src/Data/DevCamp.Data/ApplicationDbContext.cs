@@ -56,6 +56,8 @@
 
         public DbSet<Level> Levels { get; set; }
 
+        public DbSet<Image> Images { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

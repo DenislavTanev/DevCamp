@@ -16,5 +16,7 @@
         Task EditDescriptionAsync(string userId, string description);
 
         Task EditProfessionAsync(string userId, string profession);
+
+        Task<T> GetProfilePic<T>(string userId);
     }
 }

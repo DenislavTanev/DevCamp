@@ -6,6 +6,7 @@
     using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.FAQs;
+    using DevCamp.Web.ViewModels.Images;
 
     public class ListingDetailsViewModel : IMapFrom<Listing>
     {
@@ -23,7 +24,7 @@
 
         public SubCategoriesDropDownViewModel SubCategory { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public UserForListingViewModel User { get; set; }
 
         public PackagesViewModel BasicPackage { get; set; }
 
@@ -32,5 +33,7 @@
         public PackagesViewModel PremiumPackage { get; set; }
 
         public ICollection<FaqViewModel> Faqs { get; set; }
+
+        public List<string> ListingImages { get; set; }
     }
 }

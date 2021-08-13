@@ -2,12 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.DropDownModels;
+    using DevCamp.Web.ViewModels.Images;
     using DevCamp.Web.ViewModels.Listings;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -22,6 +24,8 @@
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ISectorsService sectorsService;
         private readonly IPackagesService packagesService;
+        private readonly IImagesService imagesService;
+        private readonly IUsersService usersService;
 
         public ListingsController(
             UserManager<ApplicationUser> userManager,
@@ -30,7 +34,9 @@
             ISubCategoriesService subCategoriesService,
             SignInManager<ApplicationUser> signInManager,
             ISectorsService sectorsService,
-            IPackagesService packagesService)
+            IPackagesService packagesService,
+            IImagesService imagesService,
+            IUsersService usersService)
         {
             this.userManager = userManager;
             this.listingsService = listingsService;
@@ -39,6 +45,8 @@
             this.signInManager = signInManager;
             this.sectorsService = sectorsService;
             this.packagesService = packagesService;
+            this.imagesService = imagesService;
+            this.usersService = usersService;
         }
 
         public async Task<IActionResult> EditTitle(int id)
@@ -129,7 +137,20 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
-            listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
+            listing.User = await this.usersService.GetById<UserForListingViewModel>(userId);
+
+            var image = await this.usersService.GetProfilePic<ImageViewModel>(userId);
+
+            listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+
+            var images = this.imagesService.All<ImageViewModel>(id);
+
+            listing.ListingImages = new List<string>();
+
+            foreach (var imageBytes in images)
+            {
+                listing.ListingImages.Add("data:image/jpeg;base64," + Convert.ToBase64String(imageBytes.Img));
+            }
 
             return this.View(listing);
         }
@@ -166,9 +187,51 @@
 
             var userId = this.userManager.GetUserId(this.User);
 
-            listing.User = this.userManager.Users.Include(x => x.Country).First(x => x.Id == userId);
+            listing.User = await this.usersService.GetById<UserForListingViewModel>(userId);
+
+            var image = await this.usersService.GetProfilePic<ImageViewModel>(userId);
+
+            var images = this.imagesService.All<ImageViewModel>(id);
+
+            listing.ListingImages = new List<string>();
+
+            foreach (var imageBytes in images)
+            {
+                listing.ListingImages.Add("data:image/jpeg;base64," + Convert.ToBase64String(imageBytes.Img));
+            }
+
+            listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
 
             return this.View(listing);
+        }
+
+        public IActionResult AddImages(int id)
+        {
+            var viewModel = new ImagesListCreateInputModel
+            {
+                ListingId = id,
+            };
+
+            return this.PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddImages(ImagesListCreateInputModel input)
+        {
+            List<byte[]> images = new List<byte[]>();
+
+            foreach (var image in input.Images)
+            {
+                byte[] b;
+                using BinaryReader br = new BinaryReader(image.OpenReadStream());
+                b = br.ReadBytes((int)image.OpenReadStream().Length);
+
+                images.Add(b);
+            }
+
+            await this.imagesService.CreateListAsync(images, input.ListingId);
+
+            return this.RedirectToAction("PersonalListing", "Listings", new { Id = input.ListingId });
         }
     }
 }

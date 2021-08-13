@@ -17,7 +17,7 @@
 
         public string Name { get; set; }
 
-        public byte[] ProfilePic { get; set; }
+        public string ProfilePicture { get; set; }
 
         public string Information { get; set; }
 
