@@ -1,0 +1,34 @@
+﻿@model DevCamp.Web.ViewModels.Home.CategoriesInListViewModel
+
+<div>
+    <nav class="navbar  justify-content-start border-bottom">
+        <div class="container">
+            <ul class="nav">
+                @foreach (var category in Model.Categories)
+                {
+                      <li class="nav-item">
+                          <a class="nav-link" asp-controller="Home" asp-action="ShowCategoriesListings" asp-route-id="@category.CategoryId">@category.CategoryName</a>
+                      </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container row">
+    @foreach (var category in Model.Categories)
+    {
+<div class="col-4 mt-3">
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><a class="card-link" asp-action="ShowCategoriesListings" asp-controller="Home" asp-route-id="@category.CategoryId">@category.CategoryName</a></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var subCategory in category.SubCategories)
+            {
+                   <li class="list-group-item"><a class="card-link" asp-action="ShowSubCategoryListings" asp-controller="Home" asp-route-id="@subCategory.Id">@subCategory.Name</a></li>
+            }
+        </ul>
+    </div>
+</div>}
+</div>

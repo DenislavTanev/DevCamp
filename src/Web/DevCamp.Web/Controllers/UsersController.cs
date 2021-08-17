@@ -9,6 +9,7 @@
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Web.ViewModels.DropDownModels;
     using DevCamp.Web.ViewModels.Images;
+    using DevCamp.Web.ViewModels.Listings;
     using DevCamp.Web.ViewModels.Users;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -195,6 +196,14 @@
             await this.imagesService.CreateAsync(b, input.UserId);
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
+        }
+
+        public async Task<IActionResult> GetUser()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var user = await this.usersService.GetById<UserForListingViewModel>(userId);
+
+            return this.PartialView(user);
         }
     }
 }

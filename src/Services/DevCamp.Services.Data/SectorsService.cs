@@ -2,11 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Threading.Tasks;
     using DevCamp.Data.Common.Repositories;
     using DevCamp.Data.Models;
     using DevCamp.Services.Data.Interfaces;
     using DevCamp.Services.Mapping;
+    using Microsoft.EntityFrameworkCore;
 
     public class SectorsService : ISectorsService
     {
@@ -25,6 +26,17 @@
                 .ToList();
 
             return sectors;
+        }
+
+        public async Task<T> GetById<T>(int id)
+        {
+            var sector = await this.sectorsRepository
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+
+            return sector;
         }
     }
 }
