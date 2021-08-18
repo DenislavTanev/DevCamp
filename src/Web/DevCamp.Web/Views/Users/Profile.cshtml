@@ -8,13 +8,13 @@
                 {
                     <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.ProfilePicture"
                          data-holder-rendered="true">
-                    <input class="col-2 text-end" type="button" onclick="addProfilePic()" value="Edit" />
+                    <input class="col-2 text-end" type="button" onclick="editProfilePic()" value="Edit" />
                 }
                 else
                 {
                     <img class="rounded-circle" style="height:150px;width:150px;" src="https://hook.finance/sites/default/files/user.png"
                          data-holder-rendered="true">
-                    <input class="col-2 text-end" type="button" onclick="addProfilePic()" value="Edit" />
+                    <input class="col-2 text-end" type="button" onclick="addProfilePic()" value="Add" />
                 }
                 <div id="ProfilePic"></div>
                 <div>
@@ -219,4 +219,5 @@
     <script src="~/js/Custom/EditEducation.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddEducation.js" asp-append-version="true"></script>
     <script src="~/js/Custom/AddProfilePic.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/EditProfilePic.js" asp-append-version="true"></script>
 }

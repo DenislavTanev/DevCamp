@@ -21,6 +21,8 @@
                    "Web & App Design",
                    "Visual Design",
                    "Packaging & Labels",
+                   "Fashion & Merchandise",
+                   "Print Design",
                };
 
                 var webCategories = new List<string>
@@ -31,17 +33,16 @@
                    "Mobile Apps",
                    "Web Programming",
                    "Desktop Applications",
-                   "Chatbots",
-                   "Cybersecurity & Data Protection",
-                   "QA & Review",
                };
 
                 var gameCategories = new List<string>
                {
-                   "Scripts",
+                   "Programming",
                    "Audio",
                    "Animation",
                    "Game Art",
+                   "Landscape",
+                   "Merchandise",
                };
 
                 var designSector = await dbContext.Sectors.FirstOrDefaultAsync(x => x.Name == "Design");

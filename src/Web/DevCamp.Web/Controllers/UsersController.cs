@@ -66,7 +66,10 @@
 
             var image = await this.usersService.GetProfilePic<ImageViewModel>(userId);
 
-            user.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            if (image.Img != null)
+            {
+                user.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            }
 
             foreach (var listing in user.Listings)
             {
@@ -189,11 +192,38 @@
         [HttpPost]
         public async Task<IActionResult> AddProfilePic(ImageCreateInputModel input)
         {
-            byte[] b;
+            byte[] img;
             using BinaryReader br = new BinaryReader(input.Image.OpenReadStream());
-            b = br.ReadBytes((int)input.Image.OpenReadStream().Length);
+            img = br.ReadBytes((int)input.Image.OpenReadStream().Length);
 
-            await this.imagesService.CreateAsync(b, input.UserId);
+            await this.imagesService.CreateAsync(img, input.UserId);
+
+            return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
+        }
+
+        public async Task<IActionResult> EditProfilePic()
+        {
+            var userId = this.userManager.GetUserId(this.User);
+
+            var image = await this.imagesService.GetByIdAsync<ImageViewModel>(userId);
+
+            var viewModel = new ImageEditInputModel
+            {
+                Id = image.Id,
+                UserId = userId,
+            };
+
+            return this.PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProfilePic(ImageEditInputModel input)
+        {
+            byte[] img;
+            using BinaryReader br = new BinaryReader(input.Image.OpenReadStream());
+            img = br.ReadBytes((int)input.Image.OpenReadStream().Length);
+
+            await this.imagesService.EditAsync(input.Id, img);
 
             return this.RedirectToAction("Profile", "Users", new { userId = input.UserId });
         }

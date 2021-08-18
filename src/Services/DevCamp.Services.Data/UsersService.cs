@@ -36,16 +36,6 @@
             return user;
         }
 
-        public async Task EditPicAsync(string userId, byte[] profilePic)
-        {
-            var user = await this.usersRepository
-                .All()
-                .FirstOrDefaultAsync(x => x.Id == userId);
-
-            // user.ProfilePic = profilePic;
-            await this.usersRepository.SaveChangesAsync();
-        }
-
         public async Task EditNameAsync(string userId, string name)
         {
             var user = await this.usersRepository

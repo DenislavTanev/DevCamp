@@ -9,6 +9,10 @@
 
         Task CreateAsync(byte[] imageByte, string userId);
 
+        Task EditAsync(string imgId, byte[] imageByte);
+
         IEnumerable<T> All<T>(int listingId);
+
+        Task<T> GetByIdAsync<T>(string userId);
     }
 }

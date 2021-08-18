@@ -23,8 +23,6 @@
                         "Bug Fixes",
                         "Performance",
                         "Landing Page",
-                        "Backup & Migration",
-                        "Security",
                     });
                 subCategories.Add(
                     "Website Builders & CMS", new List<string>
@@ -32,9 +30,7 @@
                         "Full Website Creation",
                         "Customization",
                         "Bug Fixes",
-                        "Theme/Plugin Installation",
                         "Landing Page",
-                        "Backup & Migration",
                         "Performance & Security",
                     });
                 subCategories.Add(
@@ -42,7 +38,6 @@
                     {
                         "Full Website Creation",
                         "Customization",
-                        "Bug Fixes",
                         "Theme/Plugin Installation",
                         "Backup & Migration",
                         "Performance & Security",
@@ -62,10 +57,7 @@
                         "Custom Website",
                         "Bug Fixes",
                         "Scripting",
-                        "Convert PSD",
                         "Landing Page",
-                        "Email Template",
-                        "Browser Extensions",
                     });
                 subCategories.Add(
                     "Desktop Applications", new List<string>
@@ -75,18 +67,105 @@
                         "Bug Fixes",
                     });
                 subCategories.Add(
-                    "Cybersecurity & Data Protection", new List<string>
+                    "Logo & Brand Identity", new List<string>
                     {
-                        "Assessment & Penetration Test",
-                        "Cybersecurity Management",
-                        "Compliance Services",
+                        "Logo Design",
+                        "Brand Style Guides",
+                        "Business Cards & Stationery",
                     });
                 subCategories.Add(
-                    "QA & Review", new List<string>
+                    "Web & App Design", new List<string>
                     {
-                        "Software Testing",
-                        "Code Review",
-                        "Design Review",
+                        "Website Design",
+                        "Web Banners",
+                        "Landing Page Design",
+                        "App Design",
+                        "UX Design",
+                    });
+                subCategories.Add(
+                    "Visual Design", new List<string>
+                    {
+                        "Photoshop Editing",
+                        "Presentation Design",
+                        "Infographic Design",
+                        "Vector Tracing",
+                        "Resume Design",
+                    });
+                subCategories.Add(
+                    "Packaging & Labels", new List<string>
+                    {
+                        "Packaging Design",
+                        "Book Design",
+                        "Album Cover Design",
+                        "Podcast Cover Art",
+                        "Car Wraps",
+                    });
+                subCategories.Add(
+                    "Fashion & Merchandise", new List<string>
+                    {
+                        "Fashion Design",
+                        "T-Shirt & Merchandise",
+                        "Jewelry Design",
+                        "Tattoo Design",
+                    });
+                subCategories.Add(
+                    "Print Design", new List<string>
+                    {
+                        "Flyer Design",
+                        "Brochure Design",
+                        "Poster Design",
+                        "Catalog Design",
+                        "Postcard Design",
+                    });
+                subCategories.Add(
+                    "Programming", new List<string>
+                    {
+                        "Scripts",
+                        "Platform Migration",
+                        "Backup & Migration",
+                        "Prototyping",
+                        "Bug Fixes",
+                    });
+                subCategories.Add(
+                    "Audio", new List<string>
+                    {
+                        "Sound Design",
+                        "Voice Over",
+                        "Dialogue Editing",
+                        "Beat Making",
+                    });
+                subCategories.Add(
+                    "Animation", new List<string>
+                    {
+                        "Character & Object Movements",
+                        "Particles",
+                        "3D Animation",
+                        "2D Animation",
+                        "Motion Capture",
+                    });
+                subCategories.Add(
+                    "Game Art", new List<string>
+                    {
+                        "Character Design",
+                        "Props & Objects",
+                        "UI & UX",
+                        "Art Concepts",
+                        "Particle Design",
+                    });
+                subCategories.Add(
+                    "Landscape", new List<string>
+                    {
+                        "Level Design",
+                        "Backgrounds Design",
+                        "Map Design",
+                        "Environment",
+                    });
+                subCategories.Add(
+                    "Merchandise", new List<string>
+                    {
+                        "Trailers",
+                        "Banners & Thumbnails",
+                        "Adds",
                     });
 
                 foreach (var subCategory in subCategories)

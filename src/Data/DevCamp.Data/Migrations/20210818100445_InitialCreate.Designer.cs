@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevCamp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210812211001_FirstCreate")]
-    partial class FirstCreate
+    [Migration("20210818100445_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -137,9 +137,6 @@ namespace DevCamp.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastDelivery")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -171,12 +168,6 @@ namespace DevCamp.Data.Migrations
 
                     b.Property<string>("Profession")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("ProfilePic")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<TimeSpan>("ResponseTime")
-                        .HasColumnType("time");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -406,6 +397,45 @@ namespace DevCamp.Data.Migrations
                     b.HasIndex("ListingId");
 
                     b.ToTable("FrequentlyAskedQuestions");
+                });
+
+            modelBuilder.Entity("DevCamp.Data.Models.Image", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ListingId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("ListingId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("DevCamp.Data.Models.Language", b =>
@@ -866,6 +896,21 @@ namespace DevCamp.Data.Migrations
                     b.Navigation("Listing");
                 });
 
+            modelBuilder.Entity("DevCamp.Data.Models.Image", b =>
+                {
+                    b.HasOne("DevCamp.Data.Models.Listing", "Listing")
+                        .WithMany("Images")
+                        .HasForeignKey("ListingId");
+
+                    b.HasOne("DevCamp.Data.Models.ApplicationUser", "User")
+                        .WithOne("ProfilePic")
+                        .HasForeignKey("DevCamp.Data.Models.Image", "UserId");
+
+                    b.Navigation("Listing");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
                 {
                     b.HasOne("DevCamp.Data.Models.Category", "Category")
@@ -1018,6 +1063,8 @@ namespace DevCamp.Data.Migrations
 
                     b.Navigation("Logins");
 
+                    b.Navigation("ProfilePic");
+
                     b.Navigation("Roles");
 
                     b.Navigation("Skills");
@@ -1050,6 +1097,8 @@ namespace DevCamp.Data.Migrations
             modelBuilder.Entity("DevCamp.Data.Models.Listing", b =>
                 {
                     b.Navigation("Faqs");
+
+                    b.Navigation("Images");
 
                     b.Navigation("Packages");
                 });
