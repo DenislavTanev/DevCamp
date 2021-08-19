@@ -8,7 +8,7 @@
 
 **DevLearn** is a course platform where only approved experts can create courses. The main purpose of this platform is to help anyone become a freelancer or just expand their knowledge. Any purchased course is accessible forever.
 
-## :hammer: Built With //Awaits
+## :hammer: Built With 
 - ASP.NET [CORE 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1 "CORE 3.1") MVC
 - ASP.NET CORE view components
 - ASP.NET Core areas
@@ -50,10 +50,10 @@ The web project contains:
 * 35+ views
 * 40+ service methods
 
-## :wrench: DB Diagram //Awaits
+## :wrench: DB Diagram 
 ![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1629370630/Solution1_8_19_2021_1_56_40_PM_c4ay33.png)
 
-## :dash: Road To //Awaits
+## :dash: Road To 
 - Add reviews.
 - Add achievements and **Pro services**.
 - Add filtering to listings.
