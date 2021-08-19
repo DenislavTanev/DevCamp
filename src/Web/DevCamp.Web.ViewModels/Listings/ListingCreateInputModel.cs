@@ -22,16 +22,10 @@
         [DisplayName("Gig Information")]
         public string ProjectDetails { get; set; }
 
-        [Required]
-        public string UserId { get; set; }
-
-        [Required(ErrorMessage = "The field is required!")]
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "The field is required!")]
         public int SubCategoryId { get; set; }
 
-        [Required(ErrorMessage = "The field is required!")]
         public int SectorId { get; set; }
 
         public IEnumerable<CategoriesDropDownViewModel> Categories { get; set; }

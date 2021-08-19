@@ -19,12 +19,6 @@
 
         IEnumerable<T> GetAllBySubCategory<T>(int subCategoryId);
 
-        IEnumerable<T> GetAllByUserSpokenLanguage<T>(int languageId);
-
-        IEnumerable<T> GetAllByPrice<T>(decimal price);
-
-        IEnumerable<T> GetAllByUserLocation<T>(int locationId);
-
         Task SetToComplete(int id);
     }
 }

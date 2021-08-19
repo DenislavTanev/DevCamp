@@ -101,44 +101,11 @@
             return listings;
         }
 
-        public IEnumerable<T> GetAllByPrice<T>(decimal price)
-        {
-            var listings = this.listingsRepository
-                .All()
-                .Where(x => x.StartingPrice <= price)
-                .To<T>()
-                .ToList();
-
-            return listings;
-        }
-
         public IEnumerable<T> GetAllBySubCategory<T>(int subCategoryId)
         {
             var listings = this.listingsRepository
                 .All()
                 .Where(x => x.SubCategoryId == subCategoryId)
-                .To<T>()
-                .ToList();
-
-            return listings;
-        }
-
-        public IEnumerable<T> GetAllByUserLocation<T>(int locationId)
-        {
-            var listings = this.listingsRepository
-                .All()
-                .Where(x => x.User.CountryId == locationId)
-                .To<T>()
-                .ToList();
-
-            return listings;
-        }
-
-        public IEnumerable<T> GetAllByUserSpokenLanguage<T>(int languageId)
-        {
-            var listings = this.listingsRepository
-                .All()
-                .Where(x => x.User.SpokenLanguages.Any(x => x.LanguageId == languageId))
                 .To<T>()
                 .ToList();
 

@@ -37,7 +37,7 @@
         {
             await this.packagesService.CreateAsync(input.BasicPackage, input.StandardPackage, input.PremiumPackage);
 
-            return this.RedirectToAction("PersonalListing", "Listings", new { listingId = input.ListingId });
+            return this.RedirectToAction("PersonalListing", "Listings", new { id = input.ListingId });
         }
 
         public IActionResult Edit(int listingId)
