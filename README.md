@@ -22,6 +22,7 @@
 - jQuery 
 - JavaScript and JS animations
 - Moq
+- Template from [Niki Kostov](https://github.com/NikolayIT/ASP.NET-Core-Template)
 
 ## **Database**
 [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) along with [Entity Framework Core](https://dotnet.microsoft.com/download) were used to create and store the values. 
@@ -42,6 +43,9 @@ The main entities are:
 * Faqs
 * Images
 
+## :wrench: DB Diagram 
+![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1629370630/Solution1_8_19_2021_1_56_40_PM_c4ay33.png)
+
 ## **Backend**
 The web project contains:
 * 2 different areas: Identity, Administration
@@ -49,9 +53,6 @@ The web project contains:
 * 9 controllers
 * 35+ views
 * 40+ service methods
-
-## :wrench: DB Diagram 
-![](https://res.cloudinary.com/dewbeqn4x/image/upload/v1629370630/Solution1_8_19_2021_1_56_40_PM_c4ay33.png)
 
 ## :dash: Road To 
 - Add reviews.
