@@ -2,9 +2,11 @@
 {
     using System.Collections.Generic;
 
+    using DevCamp.Data.Models;
+    using DevCamp.Services.Mapping;
     using DevCamp.Web.ViewModels.DropDownModels;
 
-    public class CategoryListingsViewModel
+    public class CategoryListingsViewModel : IMapFrom<Listing>
     {
         public CategoriesDropDownViewModel Category { get; set; }
 

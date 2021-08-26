@@ -43,8 +43,16 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <img class="rounded-circle" style="height:30px;width:30px;" src="@Model.User.ProfilePicture"
-                             data-holder-rendered="true">
+                        @if (Model.User.ProfilePicture != null)
+                        {
+                            <img class="rounded-circle" style="height:30px;width:30px;" src="@Model.User.ProfilePicture"
+                                 data-holder-rendered="true">
+                        }
+                        else
+                        {
+                            <img class="rounded-circle" style="height:30px;width:30px;" src="https://hook.finance/sites/default/files/user.png"
+                                 data-holder-rendered="true">
+                        }
                     </div>
                     <div class="col">
                         @Model.User.Name
@@ -94,20 +102,31 @@
                 <h4 id="scrollspyHeading2">About the Seller</h4>
                 <div class="row">
                     <div class="col-3">
-                        <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.User.ProfilePicture"
-                             data-holder-rendered="true">
+                        @if (Model.User.ProfilePicture != null)
+                        {
+                            <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.User.ProfilePicture"
+                                 data-holder-rendered="true">
+                        }
+                        else
+                        {
+                            <img class="rounded-circle" style="height:150px;width:150px;" src="https://hook.finance/sites/default/files/user.png"
+                                 data-holder-rendered="true">
+                        }
                     </div>
                     <div class="col-4">
-                        <a asp-controller="Users" asp-action="Index">@Model.User.Name</a>
+                        <a asp-controller="Users" asp-action="Index" asp-route-userId="@Model.User.Id">@Model.User.Name</a>
                         <p>@Model.User.Profession</p>
                     </div>
                 </div>
                 <div class="border">
                     <div class="row">
-                        <div class="col">
-                            <p>From</p>
-                            <h3>@Model.User.Country.Name</h3>
-                        </div>
+                        @if (Model.User.Country != null)
+                        {
+                            <div class="col">
+                                <p>From</p>
+                                <h3>@Model.User.Country.Name</h3>
+                            </div>
+                        }
                         <div class="col">
                             <p>Member since</p>
                             <h3>@Model.User.CreatedOn.ToShortDateString()</h3>

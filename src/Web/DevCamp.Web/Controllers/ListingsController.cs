@@ -131,13 +131,18 @@
             listing.StandardPackage = packages.FirstOrDefault(x => x.Name == "Standard");
             listing.PremiumPackage = packages.FirstOrDefault(x => x.Name == "Premium");
 
-            var userId = this.userManager.GetUserId(this.User);
+            listing.User = await this.usersService.GetById<UserForListingViewModel>(listing.UserId);
 
-            listing.User = await this.usersService.GetById<UserForListingViewModel>(userId);
+            var image = await this.usersService.GetProfilePic<ImageViewModel>(listing.UserId);
 
-            var image = await this.usersService.GetProfilePic<ImageViewModel>(userId);
-
-            listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            if (image.Img != null)
+            {
+                listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            }
+            else
+            {
+                listing.User.ProfilePicture = null;
+            }
 
             var images = this.imagesService.All<ImageViewModel>(id);
 
@@ -189,14 +194,21 @@
 
             var images = this.imagesService.All<ImageViewModel>(id);
 
+            if (image.Img != null)
+            {
+                listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            }
+            else
+            {
+                listing.User.ProfilePicture = null;
+            }
+
             listing.ListingImages = new List<string>();
 
             foreach (var imageBytes in images)
             {
                 listing.ListingImages.Add("data:image/jpeg;base64," + Convert.ToBase64String(imageBytes.Img));
             }
-
-            listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
 
             return this.View(listing);
         }

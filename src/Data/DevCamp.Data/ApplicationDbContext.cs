@@ -38,10 +38,6 @@
 
         public DbSet<Package> Packages { get; set; }
 
-        public DbSet<AboutUs> AboutUs { get; set; }
-
-        public DbSet<ContactForm> ContactForm { get; set; }
-
         public DbSet<UserSkill> UsersSkills { get; set; }
 
         public DbSet<Country> Countries { get; set; }

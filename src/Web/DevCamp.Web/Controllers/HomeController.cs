@@ -106,7 +106,14 @@
 
                 var image = await this.usersService.GetProfilePic<ImageViewModel>(listing.UserId);
 
-                listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+                if (image.Img != null)
+                {
+                    listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+                }
+                else
+                {
+                    listing.User.ProfilePicture = null;
+                }
             }
 
             var viewModel = new CategoryListingsViewModel
@@ -146,7 +153,14 @@
 
                 var image = await this.usersService.GetProfilePic<ImageViewModel>(listing.UserId);
 
-                listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+                if (image.Img != null)
+                {
+                    listing.User.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+                }
+                else
+                {
+                    listing.User.ProfilePicture = null;
+                }
             }
 
             var viewModel = new CategoryListingsViewModel

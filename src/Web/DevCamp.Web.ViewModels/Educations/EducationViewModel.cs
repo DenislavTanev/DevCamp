@@ -16,7 +16,5 @@
         public string Major { get; set; }
 
         public int GraduationYear { get; set; }
-
-        public string UserId { get; set; }
     }
 }

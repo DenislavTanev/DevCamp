@@ -39,7 +39,14 @@
 
             var image = await this.usersService.GetProfilePic<ImageViewModel>(userId);
 
-            user.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            if (image.Img != null)
+            {
+                user.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            }
+            else
+            {
+                user.ProfilePicture = null;
+            }
 
             foreach (var listing in user.Listings)
             {
@@ -69,6 +76,10 @@
             if (image.Img != null)
             {
                 user.ProfilePicture = "data:image/jpeg;base64," + Convert.ToBase64String(image.Img);
+            }
+            else
+            {
+                user.ProfilePicture = null;
             }
 
             foreach (var listing in user.Listings)

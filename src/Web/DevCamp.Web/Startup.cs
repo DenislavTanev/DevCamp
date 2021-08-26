@@ -70,8 +70,6 @@
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<ISubCategoriesService, SubCategoriesService>();
             services.AddTransient<ISectorsService, SectorsService>();
-            services.AddTransient<IAboutUsService, AboutUsService>();
-            services.AddTransient<IContactUsService, ContactUsService>();
             services.AddTransient<IFaqService, FaqService>();
             services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<ILanguagesService, LanguagesService>();

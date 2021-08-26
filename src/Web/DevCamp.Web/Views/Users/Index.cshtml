@@ -4,11 +4,25 @@
     <div class="col-sm-4 mt-2">
         <div class="container border">
             <div class="text-center mt-2">
-                <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.ProfilePicture"
-                     data-holder-rendered="true">
+                @if (Model.ProfilePicture != null)
+                {
+                    <img class="rounded-circle" style="height:150px;width:150px;" src="@Model.ProfilePicture"
+                         data-holder-rendered="true">
+                }
+                else
+                {
+                    <img class="rounded-circle" style="height:150px;width:150px;" src="https://hook.finance/sites/default/files/user.png"
+                         data-holder-rendered="true">
+                }
                 <div>
-                    <h3>@Model.Name</h3>
-                    <h6>@Model.Profession</h6>
+                    @if (@Model.Name != null)
+                    {
+                        <h3>@Model.Name</h3>
+                    }
+                    @if (@Model.Profession != null)
+                    {
+                        <h6>@Model.Profession</h6>
+                    }
                 </div>
             </div>
             <hr />

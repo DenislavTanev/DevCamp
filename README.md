@@ -9,7 +9,7 @@
 **DevLearn** is a course platform where only approved experts can create courses. The main purpose of this platform is to help anyone become a freelancer or just expand their knowledge. Any purchased course is accessible forever.
 
 ## :hammer: Built With 
-- ASP.NET [CORE 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1 "CORE 3.1") MVC
+- ASP.NET [CORE 5.0](https://dotnet.microsoft.com/download/dotnet/5.0 "CORE 5.0") MVC
 - ASP.NET CORE view components
 - ASP.NET Core areas
 - MSSQL full text searching

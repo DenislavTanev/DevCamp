@@ -15,6 +15,8 @@
 
         public string ProjectDetails { get; set; }
 
+        public string UserId { get; set; }
+
         public SectorsDropDownViewModel Sector { get; set; }
 
         public CategoriesDropDownViewModel Category { get; set; }

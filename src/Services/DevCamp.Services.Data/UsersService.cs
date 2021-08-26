@@ -29,7 +29,6 @@
                 .Include(x => x.Skills)
                 .Include(x => x.Educations)
                 .Include(x => x.Certifications)
-                .Include(x => x.ProfilePic)
                 .To<T>()
                 .FirstOrDefaultAsync();
 

@@ -86,10 +86,17 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-2">
-                            <img class="rounded-circle" style="height:20px;width:20px;" src="@listing.User.ProfilePicture">
+                            @if (listing.User.ProfilePicture != null)
+                            {
+                                <img class="rounded-circle" style="height:20px;width:20px;" src="@listing.User.ProfilePicture">
+                            }
+                            else
+                            {
+                                <img class="rounded-circle" style="height:20px;width:20px;" src="https://hook.finance/sites/default/files/user.png">
+                            }
                         </div>
                         <div class="col-8 text-start">
-                            <a asp-action="Index" asp-controller="Listings" asp-route-Id="@listing.Id">@listing.User.Name</a>
+                            <a asp-action="Index" asp-controller="Users" asp-route-userId="@listing.UserId">@listing.User.Name</a>
                         </div>
                     </div>
                     <a class="card-title" asp-action="Index" asp-controller="Listings" asp-route-Id="@listing.Id">@listing.Title</a>

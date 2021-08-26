@@ -36,7 +36,6 @@
 
             var seeders = new List<ISeeder>
                           {
-                              new AboutUsSeeder(),
                               new RolesSeeder(),
                               new CountriesSeeder(this.contentRootPath),
                               new SectorsSeeder(),
